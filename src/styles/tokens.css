@@ -1,0 +1,46 @@
+/* Design tokens — single source of truth. Components may only read var(--*). */
+:root {
+  /* Palette */
+  --paper: #F5F3EE;
+  --paper-2: #EDE9E0;
+  --red: #C8102E;
+  --maroon: #8B1A1A;
+  --ink: #1A1A1A;
+  /* Darkened from #7A7269, which measured 3.91:1 on --paper-2 and 4.27:1 on
+     --paper — both under AA for the 13px meta text this colour carries.
+     Now 4.81:1 on --paper-2, 5.26:1 on --paper, 5.83:1 on white. */
+  --muted: #6B645C;
+  --white: #FFFFFF;
+
+  /* Elevation & shape */
+  --shadow: 0 6px 18px rgba(26, 26, 26, .14);
+  --shadow-lg: 0 14px 34px rgba(26, 26, 26, .22);
+  --radius: 4px;
+
+  /* Paper-cut tilts */
+  --tilt-1: -4deg;
+  --tilt-2: 3deg;
+  --tilt-3: -2deg;
+  --tilt-4: 6deg;
+
+  /* Typography */
+  --font-display: 'Protest Guerrilla', Impact, sans-serif;
+  --font-body: 'Be Vietnam Pro', system-ui, sans-serif;
+  --fs-h1: clamp(3.5rem, 9vw, 8rem);
+  --fs-h2: clamp(2.5rem, 6vw, 5rem);
+  --fs-h3: clamp(1.25rem, 2.4vw, 1.75rem);
+  --fs-body: clamp(1rem, 1.1vw, 1.0625rem);
+  --fs-meta: 0.8125rem;
+  /* Raised from .95: Vietnamese stacked tone marks (Ê, Ỳ, Ễ) were clipped at the
+     cap line and collided with the line above at display sizes. 1.08 is the
+     tightest value that clears both. */
+  --lh-display: 1.08;
+  --lh-body: 1.65;
+  --measure: 62ch;
+
+  /* Layout */
+  --container: 1200px;
+  --pad-x: clamp(1rem, 5vw, 4rem);
+  --section-y: clamp(4.5rem, 12vw, 10rem);
+  --gap: clamp(1rem, 2.5vw, 2rem);
+}

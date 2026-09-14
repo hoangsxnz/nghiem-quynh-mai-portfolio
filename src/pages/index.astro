@@ -1,0 +1,37 @@
+---
+import BaseLayout from '@layouts/base-layout.astro';
+import Nav from '@components/ui/nav.astro';
+import TornDivider from '@components/ui/torn-divider.astro';
+import HeroCover from '@components/sections/hero-cover.astro';
+import AboutMe from '@components/sections/about-me.astro';
+import BrandingPositioning from '@components/sections/branding-positioning.astro';
+import ContentStrategy from '@components/sections/content-strategy.astro';
+import ContentSeo from '@components/sections/content-seo.astro';
+import SocialCommunity from '@components/sections/social-community.astro';
+import UgcShowcase from '@components/sections/ugc-showcase.astro';
+import AiFirst from '@components/sections/ai-first.astro';
+import ContactEnd from '@components/sections/contact-end.astro';
+import site from '@data/site.json';
+import navData from '@data/nav.json';
+---
+
+<BaseLayout title={site.title} description={site.description}>
+  <Nav slot="nav" {...navData} />
+  <HeroCover />
+  <TornDivider from="paper" to="paper-2" />
+  <AboutMe />
+  <TornDivider from="paper-2" to="paper" />
+  <BrandingPositioning />
+  <TornDivider from="paper" to="paper-2" />
+  <ContentStrategy />
+  <TornDivider from="paper-2" to="paper" />
+  <ContentSeo />
+  <TornDivider from="paper" to="paper-2" />
+  <SocialCommunity />
+  <TornDivider from="paper-2" to="paper" />
+  <UgcShowcase />
+  <TornDivider from="paper" to="paper-2" />
+  <AiFirst />
+  <TornDivider from="paper-2" to="paper" />
+  <ContactEnd />
+</BaseLayout>

@@ -1,0 +1,38 @@
+---
+// Renders a fixed <span>. A dynamic root tag makes Astro fall back to `any` for
+// this component's props, so callers that need a list item wrap this in <li>.
+interface Props {
+  label: string;
+  tone?: 'red' | 'maroon';
+  tilt?: 1 | 2 | 3 | 4;
+}
+
+const { label, tone = 'red', tilt = 1 } = Astro.props;
+---
+
+<span class:list={['sticker', `sticker--${tone}`]} style={`--tilt: var(--tilt-${tilt})`}>
+  {label}
+</span>
+
+<style>
+  .sticker {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: var(--radius);
+    color: var(--paper);
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    line-height: 1.2;
+    white-space: nowrap;
+    box-shadow: var(--shadow);
+    rotate: var(--tilt);
+    transition: rotate 200ms ease-out;
+  }
+
+  .sticker--red { background: var(--red); }
+  .sticker--maroon { background: var(--maroon); }
+
+  .sticker:hover { rotate: 0deg; }
+</style>

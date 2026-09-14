@@ -1,0 +1,19 @@
+# source material (large PDFs/zip)
+CV & Portfolio/
+
+# build
+node_modules/
+dist/
+.astro/
+
+# env / os
+.env
+.env.*
+.DS_Store
+*.log
+
+# QA artefacts (regenerate with pnpm build + lighthouse)
+plans/**/qa/*.report.json
+
+# playwright MCP scratch
+.playwright-mcp/

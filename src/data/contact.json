@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "id": "contact",
+    "index": "09",
+    "title": "Keep In Touch",
+    "subtitle": "Let's make magic happen!"
+  },
+  "intro": "Nếu Quý doanh nghiệp cần một mảnh ghép đa nhiệm - kết hợp hài hòa giữa tư duy chiến lược và năng lực thực thi; biết bay bổng với những câu chuyện thương hiệu nhưng vẫn bám sát quy chuẩn vận hành - tôi đã sẵn sàng. Rất mong được kết nối để cùng thảo luận về những giải pháp bứt phá, được may đo riêng cho mục tiêu của đội ngũ.",
+  "cards": [
+    {
+      "kind": "email",
+      "label": "Email",
+      "value": "quynhmainghiem340@gmail.com",
+      "href": "mailto:quynhmainghiem340@gmail.com"
+    },
+    {
+      "kind": "phone",
+      "label": "Điện thoại",
+      "value": "0368 327 616",
+      "href": "tel:+84368327616"
+    },
+    {
+      "kind": "location",
+      "label": "Khu vực",
+      "value": "Cầu Giấy, Hà Nội",
+      "href": null
+    },
+    {
+      "kind": "linkedin",
+      "label": "LinkedIn",
+      "value": "Quỳnh Mai Nghiêm",
+      "href": "[PLACEHOLDER: LinkedIn URL]"
+    }
+  ],
+  "cta": {
+    "label": "Gửi email cho Mai",
+    "href": "mailto:quynhmainghiem340@gmail.com?subject=C%C6%A1%20h%E1%BB%99i%20h%E1%BB%A3p%20t%C3%A1c"
+  },
+  "closing": "Keep in touch. Let's make magic happen!",
+  "footer": "© 2026 Nghiêm Quỳnh Mai"
+}

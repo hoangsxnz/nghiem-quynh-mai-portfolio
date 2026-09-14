@@ -1,0 +1,78 @@
+---
+import { Image } from 'astro:assets';
+import { image } from '@lib/image-map';
+
+interface Props {
+  src: string;
+  alt: string;
+  caption?: string;
+  tilt?: 1 | 2 | 3 | 4;
+  /** Requested render width; clamped to the source's intrinsic width below. */
+  width?: number;
+  /** Hero image only. */
+  priority?: boolean;
+  /** Emits data-parallax; phase 6 applies it on desktop only. */
+  parallax?: number;
+}
+
+const { src, alt, caption, tilt = 1, width, priority = false, parallax } = Astro.props;
+
+const meta = image(src);
+// The work thumbnails are 225-400px. Upscaling turns the collage to mush, so the
+// rendered width can never exceed the source, and 2x is offered only when it exists.
+const w = Math.min(width ?? 480, meta.width);
+const densities = meta.width >= w * 2 ? [1, 2] : [1];
+---
+
+<figure
+  class="polaroid"
+  style={`--tilt: var(--tilt-${tilt})`}
+  data-parallax={parallax ?? undefined}
+>
+  <Image
+    src={meta}
+    alt={alt}
+    width={w}
+    densities={densities}
+    format="webp"
+    loading={priority ? 'eager' : 'lazy'}
+    fetchpriority={priority ? 'high' : undefined}
+    decoding="async"
+  />
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
+
+<style>
+  .polaroid {
+    /* fit-content, not max-content: the frame must shrink below the image's
+       intrinsic width on narrow viewports instead of widening the page. */
+    width: fit-content;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 12px 12px 40px;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    rotate: var(--tilt);
+    transition: rotate 300ms ease-out, scale 300ms ease-out, box-shadow 300ms ease-out;
+  }
+
+  .polaroid:hover {
+    rotate: 0deg;
+    scale: 1.03;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .polaroid :global(img) {
+    border-radius: 2px;
+  }
+
+  figcaption {
+    padding-top: 12px;
+    font-size: var(--fs-meta);
+    color: var(--muted);
+    text-align: center;
+    letter-spacing: .04em;
+  }
+</style>

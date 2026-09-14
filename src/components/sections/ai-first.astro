@@ -1,0 +1,148 @@
+---
+import SectionHeader from '@components/ui/section-header.astro';
+import Sticker from '@components/ui/sticker.astro';
+import { isPlaceholder } from '@lib/placeholder';
+import raw from '@data/ai-first.json';
+import type { AiFirstContent } from '@content-types/content';
+
+const ai = raw as AiFirstContent;
+---
+
+<section id={ai.meta.id} class="section section--alt" aria-labelledby="ai-first-title" data-reveal-group>
+  <div class="container">
+    <SectionHeader {...ai.meta} />
+
+    <div data-reveal-group>
+      <h3 data-reveal>Bộ công cụ</h3>
+      <ul class="tools">
+        {ai.tools.map((t, i) => (
+          <li data-reveal>
+            <Sticker label={t.name} tilt={((i % 4) + 1) as 1 | 2 | 3 | 4} />
+            <p>{t.use}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div data-reveal-group>
+      <h3 data-reveal>Người và AI chia việc ở đâu</h3>
+      <ul class="split">
+        {ai.workflow.map((w) => (
+          <li data-reveal>
+            <p class="split__stage">{w.stage}</p>
+            <div class="split__cols">
+              <div>
+                <p class="meta">Người</p>
+                <p>{w.human}</p>
+              </div>
+              <div>
+                <p class="meta">AI</p>
+                <p>{w.ai}</p>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <article class="agent" data-reveal>
+      <h3>{ai.agent.title}</h3>
+      <p>{ai.agent.body}</p>
+      {isPlaceholder(ai.agent.status) && (
+        <p class="flag meta">
+          <Sticker label="cần bổ sung" tone="maroon" tilt={2} />
+          <span>Mô tả agent/automation cụ thể đã tự xây dựng.</span>
+        </p>
+      )}
+    </article>
+
+    <p class="boundary" data-reveal>{ai.boundary}</p>
+
+    {isPlaceholder(ai.speedClaim) && (
+      <p class="flag meta" data-reveal>
+        <Sticker label="cần bổ sung" tone="maroon" tilt={3} />
+        <span>Mức rút ngắn thời gian sản xuất thực tế.</span>
+      </p>
+    )}
+  </div>
+</section>
+
+<style>
+  .tools,
+  .split {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    gap: var(--gap);
+    margin-top: var(--gap);
+    padding: 0;
+    list-style: none;
+  }
+
+  .tools li {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .5rem;
+    min-width: 0;
+  }
+
+  .split li {
+    min-width: 0;
+    padding: 1.25rem;
+    background: var(--paper);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+
+  .split__stage {
+    margin-bottom: .6rem;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--red);
+  }
+
+  /* Two columns on wide cards, stacked below — the "Người" / "AI" labels stay
+     either way, so the contrast survives the reflow. */
+  .split__cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  @media (max-width: 560px) {
+    .split__cols {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .agent {
+    padding: 1.5rem;
+    background: var(--paper);
+    border-left: 4px solid var(--red);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    rotate: var(--tilt-3);
+  }
+
+  .agent h3 {
+    margin-bottom: .5rem;
+    font-size: var(--fs-h3);
+  }
+
+  .boundary {
+    max-width: none;
+    font-family: var(--font-display);
+    font-size: var(--fs-h3);
+    color: var(--red);
+    line-height: 1.25;
+  }
+
+  .flag {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .6rem;
+    margin-top: .75rem;
+    max-width: none;
+  }
+</style>

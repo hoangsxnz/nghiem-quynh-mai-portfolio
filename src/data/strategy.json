@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "id": "strategy",
+    "index": "03",
+    "title": "Content Strategy",
+    "subtitle": "Từ nghiên cứu đến lịch đăng: một quy trình, năm mắt xích."
+  },
+  "framework": [
+    {
+      "code": "S-Research",
+      "title": "Đọc vị thị trường",
+      "body": "Nghiên cứu thị trường, phân tích đối thủ, hiểu sâu hành vi người dùng."
+    },
+    {
+      "code": "S-Story",
+      "title": "Kể chuyện có bản sắc",
+      "body": "Xây dựng kịch bản độc đáo, narrative hấp dẫn, phù hợp brand voice."
+    },
+    {
+      "code": "S-Solution",
+      "title": "Giải bài toán thương mại",
+      "body": "Tối ưu hóa chuyển đổi, tăng tương tác, đo lường hiệu quả chiến dịch."
+    }
+  ],
+  "workflow": [
+    {
+      "step": "Direction",
+      "vi": "Định hướng",
+      "body": "Xác định mục tiêu kênh, chân dung khán giả mục tiêu và thông điệp lõi trước khi viết dòng đầu tiên."
+    },
+    {
+      "step": "Plan",
+      "vi": "Kế hoạch",
+      "body": "Xây dựng 4+ tuyến nội dung chính cho mỗi kênh và đề xuất ý tưởng theo tuần."
+    },
+    {
+      "step": "Calendar",
+      "vi": "Lịch nội dung",
+      "body": "Lịch sản xuất 3-4 video/tuần, bám sát tiến độ quay dựng và thời điểm đăng.",
+      "image": "sheet-content-plan.png"
+    },
+    {
+      "step": "Pillar",
+      "vi": "Trụ nội dung",
+      "body": "Phân loại nội dung theo mục tiêu và hành trình khách hàng.",
+      "image": "work-content-pyramid-post.png"
+    },
+    {
+      "step": "Angle",
+      "vi": "Góc tiếp cận",
+      "body": "Mỗi trụ nội dung được khai thác bằng nhiều góc nhìn khác nhau để tránh lặp và giữ chân người xem.",
+      "image": "work-content-ideas-sheet.png"
+    }
+  ],
+  "caseStudy": {
+    "title": "Tối ưu tăng trưởng kênh Video",
+    "challenge": "Tăng trưởng trong thị trường video đã bão hòa, cạnh tranh cực cao.",
+    "solutions": [
+      {
+        "title": "Giải mã khán giả",
+        "body": "Đào sâu insight Target Audience để tìm \"điểm chạm\" mới."
+      },
+      {
+        "title": "Storytelling hóa kịch bản",
+        "body": "Bắt trend nhưng giữ bản sắc thương hiệu."
+      },
+      {
+        "title": "Tối ưu Pacing",
+        "body": "Phối hợp hậu kỳ tinh chỉnh nhịp video."
+      }
+    ],
+    "metrics": [
+      { "value": "+200%", "label": "Reach", "note": "trong 3 tháng" },
+      { "value": "+35%", "label": "Retention", "note": "nhờ tối ưu cấu trúc kịch bản" }
+    ],
+    "gallery": [
+      {
+        "src": "chart-views-gained.png",
+        "alt": "Biểu đồ lượt xem tăng dần theo tháng của kênh video",
+        "tilt": 1,
+        "width": 720
+      },
+      {
+        "src": "chart-subscribers-gained.png",
+        "alt": "Biểu đồ người đăng ký mới theo tháng của kênh video",
+        "tilt": 2,
+        "width": 720
+      }
+    ],
+    "disclaimer": "[PLACEHOLDER: xác nhận với chủ sở hữu kênh trước khi công bố số liệu và ảnh chụp màn hình]"
+  }
+}

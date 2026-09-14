@@ -1,0 +1,13 @@
+{
+  "brand": "PORTFOLIO",
+  "items": [
+    { "id": "about", "label": "About Me" },
+    { "id": "branding", "label": "Branding" },
+    { "id": "strategy", "label": "Strategy" },
+    { "id": "seo", "label": "SEO" },
+    { "id": "social", "label": "Social" },
+    { "id": "ugc", "label": "UGC" },
+    { "id": "ai-first", "label": "AI First" },
+    { "id": "contact", "label": "Contact" }
+  ]
+}

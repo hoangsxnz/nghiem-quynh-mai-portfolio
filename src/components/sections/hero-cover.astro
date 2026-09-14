@@ -1,0 +1,151 @@
+---
+import Sticker from '@components/ui/sticker.astro';
+import Stamp from '@components/ui/stamp.astro';
+import Polaroid from '@components/ui/polaroid.astro';
+import raw from '@data/hero.json';
+import type { HeroContent } from '@content-types/content';
+
+const hero = raw as HeroContent;
+---
+
+<section id="hero" class="hero" aria-labelledby="hero-title" data-reveal-group>
+  <div class="hero__inner container">
+    <div class="hero__text">
+      <p class="hero__role meta" data-reveal>{hero.role}</p>
+      {/* Plain text only: the word-split in phase 6 reads textContent. */}
+      <h1 id="hero-title" data-split>{hero.name}</h1>
+      <ul class="hero__tagline" data-reveal>
+        {hero.tagline.map((t, i) => (
+          <li><Sticker label={t} tilt={((i % 4) + 1) as 1 | 2 | 3 | 4} /></li>
+        ))}
+      </ul>
+      <p class="hero__one-liner" data-reveal>{hero.oneLiner}</p>
+      <ul class="hero__links" data-reveal>
+        {hero.quickLinks.map(({ label, href }) => (
+          <li><a href={href}>{label}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="hero__media" data-reveal>
+      <Polaroid {...hero.photo} width={520} priority parallax={0.1} />
+      <div class="hero__stamp"><Stamp text={hero.stamp} /></div>
+    </div>
+  </div>
+
+  <p class="hero__cue meta">{hero.scrollCue}</p>
+</section>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-block: clamp(3rem, 8vw, 6rem) 2rem;
+  }
+
+  .hero__inner {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+    gap: var(--gap);
+    flex: 1;
+  }
+
+  /* Grid items default to min-width:auto, so the 520px polaroid would size the
+     track and push the page wider than the viewport. */
+  .hero__text,
+  .hero__media {
+    min-width: 0;
+  }
+
+  .hero__text {
+    grid-column: 1 / 8;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  /* English role label, so uppercasing is safe here. */
+  .hero__role {
+    text-transform: uppercase;
+    letter-spacing: .08em;
+  }
+
+  h1 {
+    overflow-wrap: break-word;
+    margin: 0;
+  }
+
+  .hero__tagline,
+  .hero__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .hero__one-liner {
+    font-size: 1.125rem;
+  }
+
+  .hero__links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-weight: 600;
+    color: var(--maroon);
+  }
+
+  .hero__media {
+    position: relative;
+    grid-column: 8 / 13;
+    justify-self: end;
+    margin-top: clamp(2rem, 6vw, 5rem);
+  }
+
+  .hero__stamp {
+    position: absolute;
+    right: -1.5rem;
+    bottom: 1rem;
+    background: var(--paper);
+    border-radius: 50%;
+  }
+
+  .hero__cue {
+    align-self: center;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 900px) {
+    .hero__inner {
+      grid-template-columns: 1fr;
+    }
+
+    .hero__text,
+    .hero__media {
+      grid-column: 1;
+      justify-self: stretch;
+      margin-top: 0;
+    }
+
+    .hero__media {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .hero__stamp {
+      position: static;
+      background: none;
+    }
+  }
+</style>

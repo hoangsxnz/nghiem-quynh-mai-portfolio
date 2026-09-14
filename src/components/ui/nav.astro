@@ -1,0 +1,89 @@
+---
+import Sticker from '@components/ui/sticker.astro';
+
+interface Props {
+  brand: string;
+  items: { id: string; label: string }[];
+}
+
+const { brand, items } = Astro.props;
+---
+
+<nav class="nav" data-nav aria-label="Mục lục">
+  <div class="nav__inner container">
+    <a class="nav__brand" href="#hero">
+      <Sticker label={brand} tilt={1} />
+    </a>
+    <ul class="nav__list">
+      {items.map(({ id, label }) => (
+        <li><a href={`#${id}`}>{label}</a></li>
+      ))}
+    </ul>
+  </div>
+</nav>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--paper) 92%, transparent);
+    backdrop-filter: blur(4px);
+    border-bottom: 1px solid color-mix(in srgb, var(--maroon) 15%, transparent);
+  }
+
+  @supports not (backdrop-filter: blur(4px)) {
+    .nav { background: var(--paper); }
+  }
+
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+    padding-block: .5rem;
+  }
+
+  .nav__brand {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    min-height: 44px;
+    text-decoration: none;
+  }
+
+  .nav__list {
+    display: flex;
+    align-items: center;
+    gap: clamp(.75rem, 1.8vw, 1.75rem);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nav__list::-webkit-scrollbar { display: none; }
+
+  .nav__list a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--maroon);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .nav__list a:hover {
+    color: var(--red);
+  }
+
+  @media (max-width: 767px) {
+    .nav__inner {
+      gap: .75rem;
+    }
+  }
+</style>

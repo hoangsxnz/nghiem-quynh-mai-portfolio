@@ -1,0 +1,33 @@
+---
+import Sticker from '@components/ui/sticker.astro';
+
+interface Props {
+  id: string;
+  index: string;
+  title: string;
+  subtitle?: string;
+}
+
+const { id, index, title, subtitle } = Astro.props;
+---
+
+<header class="section-header" data-reveal-group>
+  <Sticker label={`${index} / ${title}`} tilt={3} />
+  <h2 id={`${id}-title`} data-split data-reveal>{title}</h2>
+  {subtitle && <p class="subtitle" data-reveal>{subtitle}</p>}
+</header>
+
+<style>
+  .section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .75rem;
+    margin-bottom: var(--gap);
+  }
+
+  .subtitle {
+    color: var(--muted);
+    max-width: 48ch;
+  }
+</style>

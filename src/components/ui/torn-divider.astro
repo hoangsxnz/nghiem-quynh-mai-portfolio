@@ -1,0 +1,39 @@
+---
+interface Props {
+  /** Colour of the section above. */
+  from: 'paper' | 'paper-2';
+  /** Colour of the section below — this is what the torn edge is filled with. */
+  to: 'paper' | 'paper-2';
+  flip?: boolean;
+}
+
+const { from, to, flip = false } = Astro.props;
+---
+
+<div class="torn" style={`--from: var(--${from}); --to: var(--${to})`} data-flip={flip || undefined}>
+  <svg viewBox="0 0 1440 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path
+      d="M0 40V14l60 6 54-12 62 10 58-14 66 12 54-8 60 14 56-16 64 10 58-6 62 12 54-14 60 8 56-10 64 14 58-8 62 6 54-12 60 10 56-6 62 12V40Z"
+      fill="var(--to)"
+    />
+  </svg>
+</div>
+
+<style>
+  .torn {
+    background: var(--from);
+    line-height: 0;
+    /* Overlap the next section by a pixel so a fractional DPR cannot show a hairline. */
+    margin-bottom: -1px;
+  }
+
+  .torn[data-flip] {
+    scale: 1 -1;
+  }
+
+  svg {
+    display: block;
+    width: 100%;
+    height: clamp(20px, 2.5vw, 40px);
+  }
+</style>

@@ -1,0 +1,125 @@
+---
+import MetricTile from '@components/ui/metric-tile.astro';
+import Polaroid from '@components/ui/polaroid.astro';
+import Sticker from '@components/ui/sticker.astro';
+import { isPlaceholder } from '@lib/placeholder';
+import type { Metric, Picture } from '@content-types/content';
+
+/** Generic on purpose: every case study on the site renders through this file. */
+interface Props {
+  title: string;
+  challenge: string;
+  solutions: { title: string; body: string }[];
+  metrics: Metric[];
+  gallery: Picture[];
+  disclaimer?: string;
+}
+
+const { title, challenge, solutions, metrics, gallery, disclaimer } = Astro.props;
+// Alternating scrub directions give the cluster depth without a per-caller decision.
+const parallaxFor = (i: number) => (i % 2 === 0 ? 0.08 : -0.06);
+---
+
+<article class="case" data-reveal-group>
+  <h3 data-reveal>{title}</h3>
+
+  <div class="case__challenge" data-reveal>
+    <p class="meta">Thách thức</p>
+    <p>{challenge}</p>
+  </div>
+
+  <ol class="case__solutions">
+    {solutions.map((s) => (
+      <li data-reveal>
+        <h4>{s.title}</h4>
+        <p>{s.body}</p>
+      </li>
+    ))}
+  </ol>
+
+  <div class="case__metrics" data-reveal-group>
+    {metrics.map((m) => <MetricTile {...m} />)}
+  </div>
+
+  {gallery.length > 0 && (
+    <div class="case__gallery" data-reveal-group>
+      {gallery.map((pic, i) => <Polaroid {...pic} parallax={parallaxFor(i)} />)}
+    </div>
+  )}
+
+  {disclaimer && isPlaceholder(disclaimer) && (
+    <p class="case__disclaimer meta" data-reveal>
+      <Sticker label="cần bổ sung" tone="maroon" tilt={2} />
+      <span>Số liệu và ảnh chụp màn hình chờ xác nhận của chủ sở hữu kênh.</span>
+    </p>
+  )}
+</article>
+
+<style>
+  .case {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+  }
+
+  .case__challenge p:last-child {
+    font-size: 1.125rem;
+  }
+
+  .case__solutions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    gap: var(--gap);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: solution;
+  }
+
+  .case__solutions li {
+    min-width: 0;
+    padding: 1.25rem;
+    background: var(--paper);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    rotate: var(--tilt-3);
+  }
+
+  .case__solutions li::before {
+    counter-increment: solution;
+    content: counter(solution, decimal-leading-zero);
+    display: block;
+    margin-bottom: .4rem;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--red);
+  }
+
+  h4 {
+    margin-bottom: .3rem;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--maroon);
+  }
+
+  .case__metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap) calc(var(--gap) * 2);
+  }
+
+  .case__gallery {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: var(--gap);
+  }
+
+  .case__disclaimer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .75rem;
+    max-width: none;
+  }
+</style>

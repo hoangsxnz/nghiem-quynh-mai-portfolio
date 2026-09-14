@@ -1,0 +1,126 @@
+---
+import SectionHeader from '@components/ui/section-header.astro';
+import Sticker from '@components/ui/sticker.astro';
+import IndustryCard from '@components/sections/branding/industry-card.astro';
+import { isPlaceholder } from '@lib/placeholder';
+import raw from '@data/branding.json';
+import type { BrandingContent } from '@content-types/content';
+
+const branding = raw as BrandingContent;
+// One row per owner-supplied gap, so each placeholder is one visible flag.
+const gaps = [
+  { label: 'Brand voice', value: branding.brandVoice },
+  { label: 'Dự án định vị', value: branding.positioningProof },
+];
+---
+
+<section id={branding.meta.id} class="section" aria-labelledby="branding-title" data-reveal-group>
+  <div class="container">
+    <SectionHeader {...branding.meta} />
+
+    <blockquote class="statement" data-reveal>{branding.statement}</blockquote>
+
+    <ul class="pillars" data-reveal>
+      {branding.pillars.map((p, i) => (
+        <li class="pillar">
+          <Sticker label={p.label} tilt={((i % 4) + 1) as 1 | 2 | 3 | 4} />
+          <p>{p.note}</p>
+        </li>
+      ))}
+    </ul>
+
+    <ul class="industries">
+      {branding.industries.map((industry, i) => (
+        <IndustryCard industry={industry} position={i} />
+      ))}
+    </ul>
+
+    <ul class="values" data-reveal>
+      {branding.valueProps.map((v) => (
+        <li class="value">
+          <h3>{v.label}</h3>
+          <p>{v.note}</p>
+        </li>
+      ))}
+    </ul>
+
+    <dl class="gaps" data-reveal>
+      {gaps.map(({ label, value }) => (
+        <div class="gaps__row">
+          <dt>{label}</dt>
+          <dd>
+            {isPlaceholder(value)
+              ? <Sticker label="cần bổ sung" tone="maroon" tilt={3} />
+              : value}
+          </dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>
+
+<style>
+  .statement {
+    padding-left: 1rem;
+    border-left: 2px solid var(--red);
+    font-family: var(--font-display);
+    font-size: var(--fs-h3);
+    color: var(--red);
+    line-height: 1.25;
+  }
+
+  .pillars,
+  .industries,
+  .values {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    gap: var(--gap);
+    padding: 0;
+    list-style: none;
+  }
+
+  .pillar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .5rem;
+  }
+
+  .value {
+    padding: 1.25rem;
+    background: var(--paper-2);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    rotate: var(--tilt-3);
+  }
+
+  .value h3 {
+    margin-bottom: .4rem;
+    font-size: 1.125rem;
+  }
+
+  .gaps {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+  }
+
+  .gaps__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .5rem 1rem;
+  }
+
+  .gaps__row dt {
+    min-width: 10rem;
+    font-size: var(--fs-meta);
+    color: var(--muted);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+
+  .gaps__row dd {
+    margin: 0;
+  }
+</style>

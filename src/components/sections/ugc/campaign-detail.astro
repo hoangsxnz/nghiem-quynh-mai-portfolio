@@ -1,0 +1,178 @@
+---
+import Sticker from '@components/ui/sticker.astro';
+import Polaroid from '@components/ui/polaroid.astro';
+import { isPlaceholder } from '@lib/placeholder';
+import type { UgcContent } from '@content-types/content';
+
+interface Props {
+  campaign: UgcContent['campaign'];
+}
+
+const { campaign } = Astro.props;
+---
+
+<div class="campaign" data-reveal-group>
+  <h3 data-reveal>
+    {campaign.name}
+    <Sticker label={campaign.industry} tilt={2} />
+  </h3>
+
+  <div class="campaign__lead">
+    <p class="insight" data-reveal>{campaign.insight}</p>
+    <div data-reveal>
+      <Polaroid
+        src={campaign.images[0]}
+        alt="Ảnh sản phẩm F&B dùng cho chiến dịch UGC"
+        width={300}
+        tilt={3}
+      />
+      {isPlaceholder(campaign.imageNote) && (
+        <p class="flag meta">
+          <Sticker label="cần bổ sung" tone="maroon" tilt={1} />
+          <span>Ảnh/video UGC thật từ khách hàng.</span>
+        </p>
+      )}
+    </div>
+  </div>
+
+  <div data-reveal>
+    <h4>Cơ chế</h4>
+    <ol class="mechanic">
+      {campaign.mechanic.map((m) => <li>{m}</li>)}
+    </ol>
+  </div>
+
+  <div data-reveal>
+    <h4>Thang nội dung</h4>
+    <ol class="ladder">
+      {campaign.contentLadder.map((s, i) => (
+        <li style={`--rise: ${campaign.contentLadder.length - 1 - i}`}>
+          <p class="ladder__stage">{s.stage}</p>
+          <p>{s.body}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+
+  <div data-reveal>
+    <h4>Đo lường</h4>
+    <ul class="measurement">
+      {campaign.measurement.map((m) => <li>{m}</li>)}
+    </ul>
+    {isPlaceholder(campaign.results) && (
+      <p class="flag meta">
+        <Sticker label="cần bổ sung" tone="maroon" tilt={4} />
+        <span>Kết quả thực tế của chiến dịch chờ chủ sở hữu xác nhận.</span>
+      </p>
+    )}
+  </div>
+</div>
+
+<style>
+  .campaign {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+  }
+
+  .campaign h3 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .75rem;
+    font-size: var(--fs-h3);
+  }
+
+  h4 {
+    margin-bottom: .6rem;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--maroon);
+  }
+
+  .campaign__lead {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: var(--gap);
+  }
+
+  .insight {
+    flex: 1 1 22rem;
+    padding: 1.25rem;
+    background: var(--paper-2);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    rotate: var(--tilt-3);
+  }
+
+  .mechanic,
+  .ladder {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+    gap: var(--gap);
+    padding: 0;
+    list-style: none;
+    counter-reset: item;
+  }
+
+  .mechanic li,
+  .ladder li {
+    min-width: 0;
+    padding: 1.1rem;
+    background: var(--paper-2);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+
+  .mechanic li::before {
+    counter-increment: item;
+    content: counter(item, decimal-leading-zero);
+    display: block;
+    margin-bottom: .3rem;
+    font-family: var(--font-display);
+    color: var(--red);
+  }
+
+  /* Each rung sits higher than the one before it, so the ladder reads as a climb. */
+  @media (min-width: 900px) {
+    .ladder li {
+      margin-bottom: calc(var(--gap) * var(--rise));
+    }
+  }
+
+  .ladder__stage {
+    margin-bottom: .3rem;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--red);
+  }
+
+  .measurement {
+    padding: 0;
+    list-style: none;
+  }
+
+  .measurement li {
+    padding: .5rem 0 .5rem 1.6rem;
+    position: relative;
+    max-width: var(--measure);
+    border-bottom: 1px solid color-mix(in srgb, var(--maroon) 18%, transparent);
+  }
+
+  .measurement li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--red);
+  }
+
+  .flag {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .6rem;
+    margin-top: .75rem;
+    max-width: none;
+  }
+</style>

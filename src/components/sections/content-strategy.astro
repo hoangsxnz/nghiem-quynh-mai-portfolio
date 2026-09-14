@@ -1,0 +1,20 @@
+---
+import SectionHeader from '@components/ui/section-header.astro';
+import Framework3s from '@components/sections/strategy/framework-3s.astro';
+import WorkflowBlocks from '@components/sections/strategy/workflow-blocks.astro';
+import CaseStudy from '@components/sections/strategy/case-study.astro';
+import raw from '@data/strategy.json';
+import type { StrategyContent } from '@content-types/content';
+
+const strategy = raw as StrategyContent;
+---
+
+<section id={strategy.meta.id} class="section section--alt" aria-labelledby="strategy-title" data-reveal-group>
+  <div class="container">
+    <SectionHeader {...strategy.meta} />
+    <Framework3s framework={strategy.framework} />
+    <WorkflowBlocks workflow={strategy.workflow} />
+    <CaseStudy {...strategy.caseStudy} />
+  </div>
+</section>
+

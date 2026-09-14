@@ -1,0 +1,17 @@
+{
+  "name": "Nghiêm Quỳnh Mai",
+  "role": "Content Marketing Executive",
+  "tagline": ["Content Creation", "Strategic Thinking", "Human Connection"],
+  "oneLiner": "Lan tỏa giá trị thực qua những câu chuyện sáng tạo và tư duy chiến lược.",
+  "stamp": "OPEN TO WORK",
+  "photo": {
+    "src": "photo-mai-cafe.png",
+    "alt": "Nghiêm Quỳnh Mai ngồi làm việc tại quán cà phê",
+    "tilt": 2
+  },
+  "quickLinks": [
+    { "label": "quynhmainghiem340@gmail.com", "href": "mailto:quynhmainghiem340@gmail.com" },
+    { "label": "0368 327 616", "href": "tel:+84368327616" }
+  ],
+  "scrollCue": "Cuộn để khám phá"
+}

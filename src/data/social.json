@@ -1,0 +1,107 @@
+{
+  "meta": {
+    "id": "social",
+    "index": "05",
+    "title": "Social Media & Community",
+    "subtitle": "Nội dung để kết nối, không chỉ để xem."
+  },
+  "formats": [
+    {
+      "kind": "Post",
+      "vi": "Bài viết",
+      "body": "Tuyến bài theo trụ nội dung, mỗi bài một góc tiếp cận riêng cho từng nhóm khán giả.",
+      "images": ["work-content-pyramid-post.png", "work-womens-day-poster.png"]
+    },
+    {
+      "kind": "Photo",
+      "vi": "Hình ảnh",
+      "body": "Tư duy hình ảnh cho social: bố cục, ánh sáng và màu sắc phục vụ thông điệp bán hàng.",
+      "images": ["work-croissant-photo.png", "work-watch-photo.png"]
+    },
+    {
+      "kind": "Video",
+      "vi": "Video ngắn",
+      "body": "30+ kịch bản video ngắn và dài, trung bình 3-4 video/tuần, tối ưu hook và nhịp cắt.",
+      "images": [],
+      "fallback": "30+ kịch bản"
+    }
+  ],
+  "community": {
+    "title": "Gắn kết đội ngũ qua trải nghiệm nội bộ",
+    "challenge": "Giữ nhịp gắn kết cho 30-50+ nhân sự qua các hoạt động nội bộ tại Grand Nutrition và PJICO.",
+    "solutions": [
+      {
+        "title": "Bản tin nội bộ",
+        "body": "Tuyến bài truyền thông nội bộ đều đặn, giọng văn gần gũi."
+      },
+      {
+        "title": "Sự kiện & workshop",
+        "body": "Tổ chức 2+ sự kiện nội bộ, từ kịch bản đến điều phối."
+      },
+      {
+        "title": "Team building",
+        "body": "Thiết kế hoạt động để nhân sự tham gia chứ không chỉ có mặt."
+      }
+    ],
+    "metrics": [
+      { "value": "95%", "label": "Tỷ lệ tham gia", "note": "sự kiện nội bộ" },
+      { "value": "3+", "label": "Hoạt động", "note": "team building, workshop, bản tin" },
+      { "value": "50+", "label": "Phản hồi tích cực" }
+    ],
+    "gallery": []
+  },
+  "works": {
+    "title": "Selected Works",
+    "items": [
+      {
+        "src": "work-content-ideas-sheet.png",
+        "alt": "Bảng ý tưởng nội dung theo tuần",
+        "caption": "Content ideas",
+        "tilt": 1
+      },
+      {
+        "src": "work-content-pyramid-post.png",
+        "alt": "Bài đăng mô hình kim tự tháp nội dung",
+        "caption": "Content pyramid",
+        "tilt": 2
+      },
+      {
+        "src": "work-cv-article.png",
+        "alt": "Bài viết về tối ưu quy trình đọc CV",
+        "caption": "Long-form",
+        "tilt": 3
+      },
+      {
+        "src": "work-smartrecruit-article.png",
+        "alt": "Bài viết SmartRecruit AI cho khách hàng B2B",
+        "caption": "B2B SEO",
+        "tilt": 4
+      },
+      {
+        "src": "work-womens-day-poster.png",
+        "alt": "Poster chúc mừng ngày Phụ nữ",
+        "caption": "Poster",
+        "tilt": 2
+      },
+      {
+        "src": "work-business-brochure.png",
+        "alt": "Brochure giới thiệu doanh nghiệp",
+        "caption": "Brochure",
+        "tilt": 1
+      },
+      {
+        "src": "work-croissant-photo.png",
+        "alt": "Ảnh bánh croissant chụp cho nội dung F&B",
+        "caption": "F&B",
+        "tilt": 3
+      },
+      {
+        "src": "work-watch-photo.png",
+        "alt": "Ảnh đồng hồ chụp cho nội dung sản phẩm",
+        "caption": "Product",
+        "tilt": 4
+      }
+    ],
+    "note": "[PLACEHOLDER: ảnh chất lượng cao cho 8 sản phẩm này — bản hiện tại chỉ 225-400px]"
+  }
+}

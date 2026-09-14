@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "id": "ai-first",
+    "index": "07",
+    "title": "AI First",
+    "subtitle": "AI rút ngắn quãng đường từ insight tới bản nháp, người viết giữ phần quyết định."
+  },
+  "tools": [
+    { "name": "ChatGPT", "use": "Nghiên cứu insight, dựng khung kịch bản, biến thể tiêu đề." },
+    { "name": "Gemini", "use": "Cập nhật xu hướng, tổng hợp nguồn nhanh." },
+    { "name": "Claude", "use": "Biên tập bản dài, giữ giọng văn thống nhất qua nhiều bài." },
+    { "name": "Leonardo", "use": "Dựng moodboard và ảnh concept trước khi brief designer." },
+    { "name": "Canva", "use": "Hoàn thiện ấn phẩm social theo bộ nhận diện." },
+    { "name": "CapCut", "use": "Dựng và tinh chỉnh nhịp video ngắn." }
+  ],
+  "workflow": [
+    {
+      "stage": "Research",
+      "human": "Đặt câu hỏi và chọn nguồn",
+      "ai": "Tổng hợp, phân cụm dữ liệu"
+    },
+    {
+      "stage": "Ideation",
+      "human": "Chốt góc tiếp cận",
+      "ai": "Sinh 10+ biến thể để sàng lọc"
+    },
+    {
+      "stage": "Draft",
+      "human": "Viết phần cảm xúc và thông điệp bán hàng",
+      "ai": "Dựng khung, gợi ý hook"
+    },
+    {
+      "stage": "Polish",
+      "human": "Kiểm chứng số liệu, chỉnh giọng văn",
+      "ai": "Soát lỗi, rút gọn"
+    }
+  ],
+  "agent": {
+    "title": "Agent & tự động hóa",
+    "body": "Gom các bước lặp lại — thu thập trend, tóm tắt bình luận, dựng bản nháp theo template — vào một quy trình chạy sẵn để mỗi tuần bắt đầu từ bản nháp thay vì trang trắng.",
+    "status": "[PLACEHOLDER: mô tả agent/automation cụ thể đã tự xây dựng, kèm công cụ và kết quả]"
+  },
+  "boundary": "Mọi số liệu, tên thương hiệu và cam kết sản phẩm đều do người kiểm chứng trước khi xuất bản. AI không ký tên dưới bài viết.",
+  "speedClaim": "[PLACEHOLDER: mức rút ngắn thời gian sản xuất thực tế, ví dụ số giờ/tuần tiết kiệm]"
+}

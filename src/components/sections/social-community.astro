@@ -1,0 +1,94 @@
+---
+import SectionHeader from '@components/ui/section-header.astro';
+import Polaroid from '@components/ui/polaroid.astro';
+import CaseStudy from '@components/sections/strategy/case-study.astro';
+import WorksWall from '@components/sections/social/works-wall.astro';
+import raw from '@data/social.json';
+import type { SocialContent } from '@content-types/content';
+
+const social = raw as SocialContent;
+---
+
+<section id={social.meta.id} class="section section--alt" aria-labelledby="social-title" data-reveal-group>
+  <div class="container">
+    <SectionHeader {...social.meta} />
+
+    <ul class="formats">
+      {social.formats.map((f, i) => (
+        <li class="format" data-reveal>
+          <h3>{f.kind} <span class="meta">{f.vi}</span></h3>
+          <p>{f.body}</p>
+          {f.images.length > 0 ? (
+            <div class="format__images">
+              {f.images.map((src, j) => (
+                <Polaroid
+                  src={src}
+                  alt={`Sản phẩm ${f.vi.toLowerCase()} của Nghiêm Quỳnh Mai`}
+                  width={240}
+                  tilt={(((i + j) % 4) + 1) as 1 | 2 | 3 | 4}
+                />
+              ))}
+            </div>
+          ) : (
+            f.fallback && <p class="format__fallback">{f.fallback}</p>
+          )}
+        </li>
+      ))}
+    </ul>
+
+    <CaseStudy {...social.community} />
+
+    <WorksWall {...social.works} />
+  </div>
+</section>
+
+<style>
+  .formats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    gap: var(--gap);
+    padding: 0;
+    list-style: none;
+  }
+
+  .format {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    min-width: 0;
+  }
+
+  .format h3 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: .6rem;
+    font-size: var(--fs-h3);
+  }
+
+  /* Vietnamese gloss stays sentence case beside the English format name. */
+  .format h3 .meta {
+    font-family: var(--font-body);
+    font-weight: 400;
+    text-transform: none;
+  }
+
+  .format__images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
+  }
+
+  /* No imagery for the video format; the CV's own count carries the tile. */
+  .format__fallback {
+    display: grid;
+    place-items: center;
+    padding: 2.5rem 1rem;
+    border: 2px dashed var(--red);
+    border-radius: var(--radius);
+    font-family: var(--font-display);
+    font-size: var(--fs-h3);
+    color: var(--red);
+    text-align: center;
+  }
+</style>

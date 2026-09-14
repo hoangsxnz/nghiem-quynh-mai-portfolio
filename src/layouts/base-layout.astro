@@ -1,0 +1,70 @@
+---
+import '@fontsource/protest-guerrilla/400.css';
+import '@fontsource/be-vietnam-pro/400.css';
+// No 700: nothing in the type scale resolves to it (audited phase 7).
+import '@fontsource/be-vietnam-pro/600.css';
+import 'lenis/dist/lenis.css';
+import '@styles/tokens.css';
+import '@styles/global.css';
+
+import { getImage } from 'astro:assets';
+import rawSite from '@data/site.json';
+import type { SiteMeta } from '@content-types/content';
+import { image } from '@lib/image-map';
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: string;
+}
+
+const site = rawSite as SiteMeta;
+const { title = site.title, description = site.description, lang = 'vi' } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+
+// JPEG, not WebP: every social scraper accepts it. Referencing the raw source
+// here would publish the untouched 942 KB PNG for a preview thumbnail.
+const og = await getImage({ src: image(site.ogImage), width: 1200, format: 'jpeg', quality: 80 });
+const ogImage = new URL(og.src, Astro.site);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    {/* Must run before first paint: the reveal pre-state is gated on html.js, so
+        setting the class from the deferred module would flash content then hide it. */}
+    <script is:inline>document.documentElement.classList.add('js')</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Bỏ qua tới nội dung</a>
+    <slot name="nav" />
+    <main id="main">
+      <slot />
+    </main>
+    <slot name="footer" />
+
+    {/* No is:inline — Vite must resolve these imports and bundle them. */}
+    <script>
+      import '../scripts/motion/index.ts';
+    </script>
+  </body>
+</html>

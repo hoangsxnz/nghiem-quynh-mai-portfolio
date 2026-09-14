@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "id": "branding",
+    "index": "02",
+    "title": "Branding & Positioning",
+    "subtitle": "Định vị thương hiệu bằng nghiên cứu, kể lại bằng câu chuyện."
+  },
+  "statement": "Nghiên cứu sâu - Tư duy rộng - Thực thi chuẩn xác: mỗi thương hiệu cần một chỗ đứng riêng trước khi cần một nội dung hay.",
+  "pillars": [
+    {
+      "label": "S-Research",
+      "note": "Nghiên cứu thị trường, phân tích đối thủ, hiểu sâu hành vi người dùng."
+    },
+    {
+      "label": "S-Story",
+      "note": "Xây dựng kịch bản độc đáo, narrative hấp dẫn, phù hợp brand voice."
+    },
+    {
+      "label": "S-Solution",
+      "note": "Tối ưu hóa chuyển đổi, tăng tương tác, đo lường hiệu quả chiến dịch."
+    }
+  ],
+  "industries": [
+    {
+      "name": "F&B",
+      "headline": "Chạm vị giác từ cái nhìn đầu tiên.",
+      "insight": "Khách mua \"nội dung\" để chia sẻ, quyết định trong 3 giây đầu.",
+      "execution": "Chuỗi short-video TikTok/Reels nhịp nhanh, ASMR, màu rực. Chiến lược campaign \"Món quà ẩn\" (Hidden Menu) kích UGC.",
+      "tagline": "Gói trọn hương vị vào khung hình - Khơi nguồn trải nghiệm, chạm niềm tin.",
+      "image": "work-croissant-photo.png"
+    },
+    {
+      "name": "B2B",
+      "headline": "Xây dựng vị thế chuyên gia dẫn dắt thị trường.",
+      "insight": "Decision Makers tìm giải pháp và sự tin cậy, không tìm quảng cáo.",
+      "execution": "Whitepaper, E-book, chuỗi bài LinkedIn. Chuyển dữ liệu thành infographic và case study, hướng tới Brand Authority cùng lead chất lượng.",
+      "tagline": "Dữ liệu sắc bén, kiến tạo tầm nhìn - Chuyên gia dẫn lối, đối tác trọn tin.",
+      "image": "work-business-brochure.png"
+    },
+    {
+      "name": "Beauty",
+      "headline": "Trải nghiệm ảo, cam kết thật.",
+      "insight": "Khách tin khuôn mặt mình hơn ảnh mẫu; cần \"thử\" trước khi \"tin\".",
+      "execution": "Chuỗi video \"Skincare Journey\", quy chuẩn Filter AR Try-on trên Instagram/TikTok kèm hướng dẫn từ chuyên gia.",
+      "tagline": "Trải nghiệm ảo, cam kết thật - Từ thử nghiệm đến tin tưởng.",
+      "image": "[PLACEHOLDER: ảnh minh họa ngành Beauty]"
+    }
+  ],
+  "valueProps": [
+    {
+      "label": "Đa nhiệm đa dạng",
+      "note": "Content Marketing & truyền thông nội bộ, sáng tạo và quy chuẩn, chiến lược và thực thi."
+    },
+    {
+      "label": "Tư duy ngôn ngữ",
+      "note": "Pháp - Anh - Trung, mở rộng cơ hội quốc tế và đa văn hóa."
+    },
+    {
+      "label": "Tối ưu hiệu suất đa kênh",
+      "note": "Làm chủ hệ sinh thái AI và phần mềm sáng tạo để xử lý khối lượng lớn, đa định dạng, đúng tiến độ."
+    }
+  ],
+  "brandVoice": "[PLACEHOLDER: 3-5 tính từ mô tả brand voice cá nhân của Mai]",
+  "positioningProof": "[PLACEHOLDER: 1 dự án định vị thương hiệu cụ thể + kết quả đo được]"
+}

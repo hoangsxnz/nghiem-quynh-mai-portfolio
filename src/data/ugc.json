@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "id": "ugc",
+    "index": "06",
+    "title": "UGC",
+    "subtitle": "Để khách hàng kể chuyện thay thương hiệu."
+  },
+  "belief": "Một nội dung do khách hàng tự quay có sức thuyết phục mà không ngân sách quảng cáo nào mua được.",
+  "campaign": {
+    "name": "Món quà ẩn (Hidden Menu)",
+    "industry": "F&B",
+    "insight": "Khách mua \"nội dung\" để chia sẻ và quyết định trong 3 giây đầu; một món không có trên menu là cái cớ hoàn hảo để họ khoe.",
+    "mechanic": [
+      "Đặt một món không xuất hiện trên menu, chỉ gọi được bằng một câu mật khẩu.",
+      "Câu mật khẩu được hé lộ nhỏ giọt qua short-video trên TikTok/Reels.",
+      "Khách quay lại khoảnh khắc gọi món và nhận quà, gắn hashtag chiến dịch.",
+      "Nội dung khách quay được chọn lọc đăng lại trên kênh chính thức."
+    ],
+    "contentLadder": [
+      { "stage": "Seeding", "body": "Short-video hé lộ, tạo tò mò trước khi công bố." },
+      { "stage": "Kích hoạt", "body": "Hướng dẫn cách tham gia trong 15 giây, đủ đơn giản để nhớ." },
+      { "stage": "Khuếch đại", "body": "Đăng lại nội dung khách quay, gắn tên người tạo." }
+    ],
+    "measurement": [
+      "Số nội dung khách tự đăng",
+      "Tỷ lệ nội dung đủ chuẩn để đăng lại",
+      "Lượt tiếp cận từ nội dung khách so với nội dung thương hiệu"
+    ],
+    "results": "[PLACEHOLDER: kết quả thực tế của chiến dịch Hidden Menu nếu đã triển khai]",
+    "images": ["work-croissant-photo.png"],
+    "imageNote": "[PLACEHOLDER: ảnh/video UGC thật từ khách hàng]"
+  },
+  "guardrails": [
+    "Xin phép trước khi đăng lại nội dung của khách.",
+    "Luôn ghi nguồn người tạo nội dung.",
+    "Không chỉnh sửa nội dung khách tới mức sai lệch trải nghiệm thật."
+  ]
+}

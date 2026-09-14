@@ -1,0 +1,149 @@
+{
+  "meta": {
+    "id": "about",
+    "index": "01",
+    "title": "About Me",
+    "subtitle": "Người làm Marketing thích 'thổi hồn' cho những con số."
+  },
+  "portrait": {
+    "src": "photo-mai-avatar.png",
+    "alt": "Ảnh chân dung Nghiêm Quỳnh Mai",
+    "tilt": 1
+  },
+  "bio": [
+    "Tôi là Nghiêm Quỳnh Mai - một người làm Marketing thích 'thổi hồn' cho những con số.",
+    "Bước ra từ chuyên ngành Tiếng Pháp Thương mại tại FTU, tôi mang theo sự chỉn chu của tư duy quản trị kết hợp cùng sự nhạy bén đặc trưng của ngôn ngữ. Với tôi, làm Marketing Executive không chỉ đơn thuần là 'chạy số', mà là hành trình biến những dữ liệu khô khan thành những câu chuyện thương hiệu chạm đến cảm xúc.",
+    "Mục tiêu của tôi luôn rõ ràng: Sáng tạo phải đi đôi với hiệu quả. Mỗi câu chuyện được kể ra không chỉ để lắng đọng, mà còn phải tạo nên những giá trị thương mại thực tế và bền vững."
+  ],
+  "objective": {
+    "title": "Mục tiêu nghề nghiệp",
+    "body": "Content Marketing Executive +2 năm kinh nghiệm trong việc nghiên cứu insight khách hàng và sản xuất nội dung chuyển đổi đa kênh (Social, Ads). Có thế mạnh nắm bắt tâm lý người mua, nhạy bén bắt trend và thành thạo ứng dụng các công cụ AI nhằm tối ưu hóa quy trình sản xuất content. Mong muốn đồng hành cùng Quý doanh nghiệp tạo ra các chiến dịch nội dung sáng tạo, mang lại giá trị thực tế cho khách hàng, đồng thời tối ưu hiệu quả chuyển đổi và thúc đẩy doanh số sản phẩm."
+  },
+  "quote": "Nội dung không chỉ để xem, nội dung phải để kết nối và tạo giá trị.",
+  "touchpoints": [
+    { "label": "User-Centric", "note": "Thấu hiểu khán giả" },
+    { "label": "Data-Driven", "note": "Sáng tạo dựa trên số liệu" },
+    { "label": "Purpose-Driven", "note": "Giải quyết bài toán thương hiệu" }
+  ],
+  "eras": [
+    {
+      "range": "2020 - 2024",
+      "title": "Nền tảng & Sự dấn thân",
+      "body": "Phó Ban Đối ngoại dự án SpeedUp 2021; gây quỹ 250+ triệu VNĐ cho dự án \"Xuân về no ấm\". Rèn kỹ năng kết nối và hiện thực hóa ý tưởng qua kế hoạch chi tiết."
+    },
+    {
+      "range": "2023 - 2024",
+      "title": "Chuyên nghiệp hóa",
+      "body": "PJICO + Grand Nutrition. Tổ chức sự kiện, lan tỏa giá trị gắn kết nhân sự bằng nội dung sáng tạo."
+    },
+    {
+      "range": "2024 - 2026",
+      "title": "Tăng trưởng & Đột phá",
+      "body": "Chuyên sâu Content Strategy cho YouTube và video ngắn. Nghiên cứu thị trường, tối ưu kịch bản, thúc đẩy tăng trưởng kênh."
+    }
+  ],
+  "experience": [
+    {
+      "period": "4/2026 - Hiện tại",
+      "company": "Công ty Cổ phần Step Up Education",
+      "role": "Nhân viên Content Marketing",
+      "bullets": [
+        "Nghiên cứu tâm lý khách hàng, viết content khai thác đúng \"nỗi đau\" cho sản phẩm Robot dạy tiếng Anh, góp phần nâng cao tỷ lệ chuyển đổi.",
+        "Sáng tạo kịch bản và phối hợp quay/dựng video short-form đa kênh; bắt trend linh hoạt, lồng ghép thông điệp bán hàng tự nhiên và tối ưu tỷ lệ giữ chân người xem.",
+        "Ứng dụng hiệu quả AI tools để nghiên cứu insight, cập nhật xu hướng và tăng tốc độ sản xuất kịch bản, content ads."
+      ]
+    },
+    {
+      "period": "2/2025 - 2/2026",
+      "company": "Công ty Truyền thông Bodhi",
+      "role": "Nhân viên Content Marketing",
+      "bullets": [
+        "Nghiên cứu thị trường và phân tích chân dung khách hàng mục tiêu cho các kênh nội dung khác nhau.",
+        "Xây dựng 4+ tuyến nội dung chính/kênh và đề xuất ý tưởng theo tuần.",
+        "Viết và triển khai 30+ kịch bản video ngắn/dài, trung bình 3-4 video/tuần.",
+        "Phối hợp sản xuất nội dung video, đề xuất tối ưu cấu trúc, giúp cải thiện thời lượng xem trung bình và tăng hiệu suất tiếp cận."
+      ]
+    },
+    {
+      "period": "1/2024 - 7/2024",
+      "company": "Công ty Cổ phần Grand Nutrition",
+      "role": "Nhân viên Truyền thông Nội bộ",
+      "bullets": [
+        "Xây dựng và triển khai các tuyến bài truyền thông nội bộ.",
+        "Hỗ trợ viết bài truyền thông và tổ chức 2+ sự kiện nội bộ."
+      ]
+    },
+    {
+      "period": "3/2023 - 1/2024",
+      "company": "Công ty Bảo hiểm PJICO Hải Phòng",
+      "role": "Cộng tác viên Công đoàn",
+      "bullets": [
+        "Hỗ trợ viết bài truyền thông qua email và kênh nội bộ."
+      ]
+    }
+  ],
+  "skillGroups": [
+    {
+      "title": "Xây dựng & triển khai nội dung",
+      "items": [
+        "Nghiên cứu sản phẩm / thị trường / đối thủ",
+        "Nghiên cứu hành vi & insight",
+        "Lên ý tưởng đa nền tảng",
+        "Phân loại content theo mục tiêu và hành trình khách hàng"
+      ]
+    },
+    {
+      "title": "Content Strategy",
+      "items": [
+        "Nghiên cứu & chiến lược",
+        "Scriptwriting đa nền tảng",
+        "Storytelling",
+        "Video production"
+      ]
+    },
+    {
+      "title": "Phối hợp sản xuất & tư duy hình ảnh",
+      "items": [
+        "Làm việc cùng designer / editor",
+        "Nắm bố cục",
+        "Tư duy hình ảnh cho social"
+      ]
+    },
+    {
+      "title": "Tổ chức sự kiện & truyền thông nội bộ",
+      "items": ["Sự kiện offline", "Sự kiện online", "Bản tin nội bộ"]
+    }
+  ],
+  "languages": [
+    { "name": "Tiếng Pháp", "level": "Thành thạo" },
+    { "name": "Tiếng Anh", "level": "Tốt (đọc & viết tài liệu marketing)" },
+    { "name": "Tiếng Trung", "level": "Giao tiếp cơ bản" }
+  ],
+  "tools": ["Canva", "CapCut", "Microsoft Office", "ChatGPT", "Gemini", "Claude", "Leonardo"],
+  "education": [
+    {
+      "year": "2020 - 2024",
+      "title": "Đại học Ngoại thương (FTU)",
+      "note": "Tiếng Pháp thương mại — Tốt nghiệp loại Giỏi",
+      "kind": "degree"
+    },
+    {
+      "year": "2026",
+      "title": "Content Social Viral",
+      "note": "Nghề Content",
+      "kind": "cert"
+    },
+    {
+      "year": "2026",
+      "title": "Content Performance chuyên sâu",
+      "note": "Gigan Training Center",
+      "kind": "cert"
+    },
+    {
+      "year": "2025",
+      "title": "Marketing Foundation",
+      "note": "University of Pennsylvania",
+      "kind": "cert"
+    }
+  ]
+}

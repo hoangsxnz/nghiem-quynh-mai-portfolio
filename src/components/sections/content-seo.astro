@@ -1,0 +1,159 @@
+---
+import SectionHeader from '@components/ui/section-header.astro';
+import Polaroid from '@components/ui/polaroid.astro';
+import Sticker from '@components/ui/sticker.astro';
+import CtaButton from '@components/ui/cta-button.astro';
+import { isPlaceholder } from '@lib/placeholder';
+import raw from '@data/seo.json';
+import type { SeoContent } from '@content-types/content';
+
+const seo = raw as SeoContent;
+const hasUrl = !isPlaceholder(seo.example.url);
+const hasSecond = !isPlaceholder(seo.secondExample.title);
+---
+
+<section id={seo.meta.id} class="section" aria-labelledby="seo-title" data-reveal-group>
+  <div class="container">
+    <SectionHeader {...seo.meta} />
+
+    <ol class="approach" data-reveal-group>
+      {seo.approach.map((a) => (
+        <li data-reveal>
+          <h3>{a.step}</h3>
+          <p>{a.body}</p>
+        </li>
+      ))}
+    </ol>
+
+    <div class="checklist-wrap" data-reveal>
+      <h3>Checklist on-page</h3>
+      <ul class="checklist">
+        {seo.checklist.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+
+    <article class="example" data-reveal-group>
+      <div class="example__media" data-reveal>
+        <Polaroid src={seo.example.image} alt={`Ảnh chụp bài viết: ${seo.example.title}`} width={420} tilt={2} />
+      </div>
+      <div class="example__text" data-reveal>
+        <p class="meta">Ví dụ thực tế</p>
+        <h3>{seo.example.title}</h3>
+        <p>{seo.example.note}</p>
+        {hasUrl
+          ? <CtaButton href={seo.example.url} label="Đọc bài viết" external />
+          : <Sticker label="cần bổ sung" tone="maroon" tilt={2} />}
+        {isPlaceholder(seo.example.metrics) && <Sticker label="cần bổ sung" tone="maroon" tilt={4} />}
+      </div>
+    </article>
+
+    {hasSecond ? (
+      <article class="example" data-reveal-group>
+        <div class="example__media" data-reveal>
+          <Polaroid src={seo.secondExample.image} alt={`Ảnh chụp bài viết: ${seo.secondExample.title}`} width={420} tilt={3} />
+        </div>
+        <div class="example__text" data-reveal>
+          <h3>{seo.secondExample.title}</h3>
+        </div>
+      </article>
+    ) : (
+      <p class="second-gap meta" data-reveal>
+        <Sticker label="cần bổ sung" tone="maroon" tilt={1} />
+        <span>Bài SEO thứ hai sẽ được bổ sung khi chủ sở hữu cung cấp.</span>
+      </p>
+    )}
+  </div>
+</section>
+
+<style>
+  .approach {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+    gap: var(--gap);
+    padding: 0;
+    list-style: none;
+    counter-reset: step;
+  }
+
+  .approach li {
+    min-width: 0;
+    padding-top: .75rem;
+    border-top: 3px solid var(--red);
+  }
+
+  .approach li::before {
+    counter-increment: step;
+    content: counter(step, decimal-leading-zero);
+    display: block;
+    margin-bottom: .25rem;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--red);
+  }
+
+  .approach h3 {
+    margin-bottom: .3rem;
+    font-size: 1.0625rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--maroon);
+    text-transform: none;
+  }
+
+  .checklist {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    gap: .75rem;
+    margin: var(--gap) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .checklist li {
+    min-width: 0;
+    padding: .75rem 1rem .75rem 2.4rem;
+    position: relative;
+    background: var(--paper-2);
+    border-radius: var(--radius);
+  }
+
+  .checklist li::before {
+    content: '✓';
+    position: absolute;
+    left: 1rem;
+    font-family: var(--font-display);
+    color: var(--red);
+  }
+
+  .example {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: var(--gap);
+  }
+
+  .example__media {
+    min-width: 0;
+  }
+
+  .example__text {
+    flex: 1 1 20rem;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .6rem;
+  }
+
+  .example__text h3 {
+    font-size: var(--fs-h3);
+  }
+
+  .second-gap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .75rem;
+    max-width: none;
+  }
+</style>

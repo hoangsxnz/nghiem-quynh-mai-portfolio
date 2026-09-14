@@ -1,0 +1,73 @@
+---
+import Polaroid from '@components/ui/polaroid.astro';
+import Sticker from '@components/ui/sticker.astro';
+import { isPlaceholder } from '@lib/placeholder';
+import type { Picture } from '@content-types/content';
+
+interface Props {
+  title: string;
+  items: Picture[];
+  note: string;
+}
+
+const { title, items, note } = Astro.props;
+// Layout intent only. polaroid.astro clamps each width against the source's
+// intrinsic size, so these 225-400px thumbnails can never be upscaled here.
+const REQUESTED_WIDTH = 320;
+---
+
+<div class="works" data-reveal-group>
+  <h3 data-reveal>{title}</h3>
+
+  <div class="works__wall">
+    {items.map((item, i) => (
+      <div class="works__item" data-reveal>
+        <Polaroid {...item} width={REQUESTED_WIDTH} parallax={i % 2 === 0 ? 0.06 : -0.05} />
+      </div>
+    ))}
+  </div>
+
+  {isPlaceholder(note) && (
+    <p class="works__note meta" data-reveal>
+      <Sticker label="cần bổ sung" tone="maroon" tilt={3} />
+      <span>Bản hiện tại là thumbnail độ phân giải thấp; ảnh gốc sẽ thay thế khi có.</span>
+    </p>
+  )}
+</div>
+
+<style>
+  .works {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+  }
+
+  .works__wall {
+    columns: 3;
+    column-gap: var(--gap);
+  }
+
+  .works__item {
+    break-inside: avoid;
+    margin-bottom: var(--gap);
+    /* Rotated corners stick out past the layout box; this reserves room for them
+       so a tilted polaroid never overflows its column. */
+    padding-inline: 1.5rem;
+  }
+
+  @media (max-width: 900px) {
+    .works__wall { columns: 2; }
+  }
+
+  @media (max-width: 560px) {
+    .works__wall { columns: 1; }
+  }
+
+  .works__note {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .75rem;
+    max-width: none;
+  }
+</style>

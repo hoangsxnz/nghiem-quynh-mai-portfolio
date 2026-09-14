@@ -1,0 +1,60 @@
+---
+import Stamp from '@components/ui/stamp.astro';
+import type { EducationEntry } from '@content-types/content';
+
+interface Props {
+  education: EducationEntry[];
+}
+
+const { education } = Astro.props;
+---
+
+<div class="education" data-reveal-group>
+  <h3 data-reveal>Học vấn & Chứng chỉ</h3>
+  <ul>
+    {education.map((entry) => (
+      <li class:list={['row', `row--${entry.kind}`]} data-reveal>
+        <Stamp text={entry.year} size="sm" />
+        <div>
+          <h4>{entry.title}</h4>
+          <p class="meta">{entry.note}</p>
+        </div>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .education {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  /* The degree keeps the red stamp; certificates step back to maroon. */
+  .row--cert :global(.stamp) {
+    border-color: var(--maroon);
+    color: var(--maroon);
+  }
+
+  h4 {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--maroon);
+  }
+</style>
