@@ -5,11 +5,17 @@ import ChainSteps from '@components/sections/strategy/chain-steps.astro';
 import EvidenceCard from '@components/sections/pika/evidence-card.astro';
 import raw from '@data/strategy.json';
 import type { StrategyContent } from '@content-types/content';
+import Decor from '@components/ui/decor.astro';
 
 const strategy = raw as StrategyContent;
 ---
 
 <section id={strategy.meta.id} class="section section--alt" aria-labelledby="strategy-title" data-reveal-group>
+  <Decor src="el-arrows-cut.png" w={110} top="12%" left="1%" rotate="-6deg" opacity={0.4} parallax={0.08} hideMobile />
+  <Decor src="el-clip.png" w={90} top="3%" right="6%" rotate="8deg" opacity={0.42} />
+  <Decor src="el-cat.png" w={90} top="11%" right="8%" rotate="9deg" opacity={0.4} parallax={0.08} hideMobile />
+  <Decor src="el-star-rough.png" w={95} top="46%" right="9%" rotate="-11deg" opacity={0.4} parallax={-0.06} hideMobile />
+  <Decor src="el-star-glossy.png" w={75} top="80%" right="7%" rotate="12deg" opacity={0.38} parallax={0.07} hideMobile />
   <div class="container">
     <SectionHeader {...strategy.meta} />
 
@@ -23,7 +29,7 @@ const strategy = raw as StrategyContent;
       ))}
     </div>
 
-    <div data-reveal>
+    <div class="flow-tight" data-reveal>
       <FileLink {...strategy.file} />
     </div>
   </div>

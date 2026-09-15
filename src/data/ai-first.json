@@ -21,7 +21,7 @@
   ],
   "agents": {
     "title": "Bộ agent tự xây",
-    "body": "Mỗi agent là một file hướng dẫn riêng cho một đầu việc lặp lại, để mỗi lần bắt đầu không phải mô tả lại bối cảnh từ đầu. Dưới đây chỉ liệt kê tên và phạm vi của từng agent.",
+    "body": "Mỗi agent là một file hướng dẫn riêng cho một đầu việc lặp lại, để mỗi lần bắt đầu không phải mô tả lại bối cảnh từ đầu.",
     "items": [
       { "name": "01-content-calendar", "note": "Dựng lịch đăng theo trụ cột và tầng phễu." },
       { "name": "02-campaign-brief", "note": "Viết brief chiến dịch từ mục tiêu và đối tượng." },
@@ -37,5 +37,5 @@
       { "name": "12-landing-page-brief", "note": "Soạn brief nội dung cho landing page." }
     ]
   },
-  "boundary": "Mọi số liệu, tên thương hiệu và cam kết sản phẩm đều do người kiểm chứng trước khi xuất bản. AI không ký tên dưới bài viết."
+  "boundary": "Quy tắc với AI: Mọi số liệu, thông tin thương hiệu và cam kết sản phẩm đều do người kiểm chứng trước khi đăng tải."
 }

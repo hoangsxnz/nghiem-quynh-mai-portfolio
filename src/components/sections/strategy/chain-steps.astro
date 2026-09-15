@@ -10,7 +10,7 @@ const { chain } = Astro.props;
 const pad = (n: number) => String(n + 1).padStart(2, '0');
 ---
 
-<ol class="chain" data-reveal-group>
+<ol class="chain flow-related" data-reveal-group>
   {chain.map((link, i) => (
     <li class="link" style={`--tilt: var(--tilt-${(i % 4) + 1})`} data-reveal>
       <Stamp text={pad(i)} size="sm" />

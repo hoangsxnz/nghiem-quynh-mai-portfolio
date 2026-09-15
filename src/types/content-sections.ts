@@ -100,6 +100,9 @@ export interface SocialBlock {
   body: string;
   images: Picture[];
   links?: Link[];
+  /** Overlap the images instead of listing them, for a block whose pictures are
+      two halves of one continuous screenshot. Desktop only. */
+  stack?: boolean;
 }
 
 export interface SocialContent {
@@ -123,8 +126,7 @@ export interface UgcChannel {
   name: string;
   platform: 'Facebook' | 'TikTok';
   href: string;
-  /** Omitted when the platform blocks an automated capture; the card degrades to a link. */
-  image?: Picture;
+  image: Picture;
 }
 
 export interface UgcContent {
@@ -133,7 +135,6 @@ export interface UgcContent {
   facts: UgcFact[];
   evidence: Evidence[];
   channels: UgcChannel[];
-  channelNote: string;
 }
 
 /* ---------- AI First & Contact ---------- */

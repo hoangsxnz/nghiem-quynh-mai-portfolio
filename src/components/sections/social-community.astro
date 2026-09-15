@@ -6,11 +6,19 @@ import ChannelCard from '@components/sections/social/channel-card.astro';
 import EvidenceCard from '@components/sections/pika/evidence-card.astro';
 import raw from '@data/social.json';
 import type { SocialContent } from '@content-types/content';
+import Decor from '@components/ui/decor.astro';
 
 const social = raw as SocialContent;
 ---
 
 <section id={social.meta.id} class="section section--alt" aria-labelledby="social-title" data-reveal-group>
+  <Decor src="el-phone-handset.png" w={80} top="0" right="7%" rotate="6deg" opacity={0.42} parallax={0.1} />
+  <Decor src="el-scribble-circle.png" w={210} bottom="8%" left="-4%" rotate="-7deg" opacity={0.35} parallax={-0.06} hideMobile />
+  <Decor src="el-star-rough.png" w={75} top="16%" right="3%" rotate="11deg" opacity={0.4} parallax={0.07} hideMobile />
+  <Decor src="el-cat.png" w={85} top="37%" right="5%" rotate="-8deg" opacity={0.42} parallax={-0.06} hideMobile />
+  <Decor src="el-star-glossy.png" w={80} top="43%" left="4%" rotate="-12deg" opacity={0.38} parallax={0.07} hideMobile />
+  <Decor src="el-star-rough.png" w={90} top="58%" left="5%" rotate="13deg" opacity={0.4} parallax={-0.07} hideMobile />
+  <Decor src="el-cat.png" w={85} top="71%" right="8%" rotate="9deg" opacity={0.4} parallax={0.06} hideMobile />
   <div class="container">
     <SectionHeader {...social.meta} />
 
@@ -43,7 +51,7 @@ const social = raw as SocialContent;
           )}
         </div>
 
-        <div class="block__media">
+        <div class:list={['block__media', block.stack && 'block__media--stack']}>
           {block.images.map((img) => (
             <div data-reveal><Polaroid {...img} /></div>
           ))}
@@ -124,6 +132,35 @@ const social = raw as SocialContent;
     justify-content: center;
     gap: var(--gap);
     min-width: 0;
+  }
+
+  /* The feed block's two pictures are consecutive slices of one grid, so they read
+     as a stack of prints rather than two separate exhibits. Desktop only: at phone
+     width the offset copy would cover the one underneath and push past the gutter. */
+  @media (min-width: 900px) {
+    .block__media--stack {
+      display: grid;
+      place-items: start center;
+    }
+
+    .block__media--stack > * {
+      grid-area: 1 / 1;
+    }
+
+    .block__media--stack > :last-child {
+      translate: 18% 12%;
+    }
+
+    /* The first print carries the caption for the pair, so it stays on top; the
+       second peeks out from behind it. */
+    .block__media--stack > :first-child {
+      z-index: 1;
+    }
+
+    /* Without this the lower print can never come forward on hover. */
+    .block__media--stack > :hover {
+      z-index: 2;
+    }
   }
 
   .stats,

@@ -34,9 +34,9 @@
   ],
   "evidence": [
     {
-      "src": "pika-ads-script.png",
-      "alt": "Trích kịch bản quảng cáo bản ngắn của Robot Pika",
-      "caption": "Sheet \"Kịch bản ngắn\": năm phân cảnh, mỗi phân cảnh ghi đủ thoại, hướng dẫn hình ảnh và text hiển thị."
+      "src": "pika-ads-script-long.png",
+      "alt": "Trích kịch bản quảng cáo bản dài của Robot Pika",
+      "caption": "Sheet \"Kịch bản dài\": sáu phân cảnh đầu, mỗi phân cảnh ghi đủ thoại, hướng dẫn hình ảnh chi tiết và text hiển thị trên màn hình."
     }
   ],
   "file": {

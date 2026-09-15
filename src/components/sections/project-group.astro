@@ -1,32 +1,82 @@
 ---
+import { Image } from 'astro:assets';
 import Sticker from '@components/ui/sticker.astro';
+import { image } from '@lib/image-map';
 
 interface Props {
   eyebrow: string;
   title: string;
   subtitle: string;
+  photo: string;
 }
 
-const { eyebrow, title, subtitle } = Astro.props;
+const { eyebrow, title, subtitle, photo } = Astro.props;
+const cutout = image(photo);
 ---
 
 <div class="group">
   <header class="group__header container" data-reveal-group>
-    <Sticker label={eyebrow} tilt={4} />
-    <h2 class="group__title" data-split>{title}</h2>
-    <p class="group__subtitle" data-reveal>{subtitle}</p>
+    <div class="group__intro">
+      <Sticker label={eyebrow} tilt={4} />
+      <h2 class="group__title" data-split>{title}</h2>
+      <p class="group__subtitle" data-reveal>{subtitle}</p>
+    </div>
+
+    {/* Decorative: the heading beside it already names the project. */}
+    <Image
+      class="group__photo"
+      src={cutout}
+      alt=""
+      aria-hidden="true"
+      width={320}
+      densities={[1, 1.5]}
+      format="webp"
+      loading="lazy"
+      decoding="async"
+      data-reveal
+      data-parallax="0.08"
+    />
   </header>
 
   <slot />
 </div>
 
 <style>
+  /* Two columns: the heading never filled more than the left half, so the robot
+     takes the empty right half rather than leaving it blank. */
   .group__header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    /* Top-aligned, not centred: the robot is taller than the heading block, and
+       centring pushed the eyebrow down into the gap this change exists to close. */
+    align-items: start;
+    gap: var(--gap);
+    padding-block: var(--space-related) 0;
+  }
+
+  .group__intro {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
-    padding-block: var(--section-y) 0;
+  }
+
+  .group__photo {
+    justify-self: end;
+    width: clamp(180px, 22vw, 320px);
+    height: auto;
+  }
+
+  @media (max-width: 899px) {
+    .group__header {
+      grid-template-columns: 1fr;
+      justify-items: start;
+    }
+
+    .group__photo {
+      justify-self: center;
+      width: 140px;
+    }
   }
 
   .group__title {
@@ -40,9 +90,9 @@ const { eyebrow, title, subtitle } = Astro.props;
     color: var(--maroon);
   }
 
-  /* The group heading already announces the project, so the first section inside
-     starts from its own header rather than repeating the full section rhythm. */
+  /* The group heading and the first section inside it are two separate blocks, so
+     they get the block step; at --gap they read as one run-on heading. */
   .group > :global(section:first-of-type) {
-    padding-top: var(--gap);
+    padding-top: var(--space-block);
   }
 </style>

@@ -85,6 +85,9 @@ textarea {
 
 /* Utilities */
 .container {
+  position: relative;
+  /* Lifts real content over the background cut-outs, which sit on z-index 0. */
+  z-index: 1;
   width: 100%;
   max-width: var(--container);
   margin-inline: auto;
@@ -109,6 +112,17 @@ section[id] {
 
 .section > .container > header + * {
   margin-top: var(--gap);
+}
+
+/* Two opt-in steps below the default block rhythm. Three class levels beat the
+   `margin: 0` a component sets on its own root, so a section can pull a child
+   closer without that component having to know about the page it sits in. */
+.section > .container > * + .flow-related {
+  margin-top: var(--space-related);
+}
+
+.section > .container > * + .flow-tight {
+  margin-top: var(--space-tight);
 }
 
 .section--alt {

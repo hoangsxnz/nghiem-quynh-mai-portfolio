@@ -1,0 +1,84 @@
+---
+import { Image } from 'astro:assets';
+import { image } from '@lib/image-map';
+
+/**
+ * A cut-out element parked in a section's background. Purely decorative: it is
+ * hidden from the accessibility tree, never takes pointer events, and sits on
+ * z-index 0 so `.container` (z-index 1) always paints over it.
+ */
+interface Props {
+  src: string;
+  /** Rendered width in px at desktop; scaled down by --decor-scale below 900px. */
+  w: number;
+  top?: string;
+  right?: string;
+  bottom?: string;
+  left?: string;
+  rotate?: string;
+  opacity?: number;
+  /** Feeds the existing [data-parallax] scrub — desktop and reduced-motion gated. */
+  parallax?: number;
+  /** Drop it under 768px, where the layout is one narrow column. */
+  hideMobile?: boolean;
+}
+
+const {
+  src, w, top, right, bottom, left,
+  rotate = '0deg', opacity = 0.5, parallax, hideMobile = false,
+} = Astro.props;
+
+const img = image(src);
+
+const style = [
+  `--w:${w}`,
+  `--rot:${rotate}`,
+  `--op:${opacity}`,
+  top && `--top:${top}`,
+  right && `--right:${right}`,
+  bottom && `--bottom:${bottom}`,
+  left && `--left:${left}`,
+].filter(Boolean).join(';');
+---
+
+<div
+  class:list={['decor', hideMobile && 'decor--no-mobile']}
+  style={style}
+  aria-hidden="true"
+  data-parallax={parallax}
+>
+  <Image
+    src={img}
+    alt=""
+    width={Math.min(w * 2, img.width)}
+    format="webp"
+    quality={70}
+    loading="lazy"
+    decoding="async"
+  />
+</div>
+
+<style>
+  .decor {
+    position: absolute;
+    z-index: 0;
+    top: var(--top, auto);
+    right: var(--right, auto);
+    bottom: var(--bottom, auto);
+    left: var(--left, auto);
+    width: calc(var(--w) * var(--decor-scale) * 1px);
+    rotate: var(--rot);
+    opacity: calc(var(--op) * var(--decor-fade));
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .decor img {
+    width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 767px) {
+    .decor--no-mobile { display: none; }
+  }
+</style>

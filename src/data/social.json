@@ -57,20 +57,20 @@
     {
       "title": "Feed",
       "body": "Nhìn cả feed mới thấy chiến lược có được thực thi hay không: các trụ cột xen kẽ đều, bảng xếp hạng cộng đồng và series \"Ba mẹ hỏi — Pika trả lời\" quay lại theo nhịp, tông màu giữ nguyên qua nhiều tuần.",
+      "stack": true,
       "images": [
         {
           "src": "pika-feed-01.jpg",
           "alt": "Lưới feed fanpage Robot Pika",
           "caption": "Feed fanpage — các trụ cột nội dung xen kẽ theo nhịp đã định",
           "tilt": 3,
-          "width": 420
+          "width": 360
         },
         {
           "src": "pika-feed-02.jpg",
           "alt": "Lưới feed fanpage Robot Pika, phần tiếp theo",
-          "caption": "Feed fanpage — phần tiếp theo",
           "tilt": 2,
-          "width": 420
+          "width": 360
         }
       ]
     }
@@ -80,7 +80,7 @@
     "alt": "Bảng hiệu suất fanpage Robot Pika trong tháng 5",
     "caption": "Tổng quan hiệu suất fanpage kỳ 01-31/05: 4.481.451 lượt xem, 1.169.990 người xem, 27.353 lượt xem tối thiểu 3 giây và 3.636 lượt xem tối thiểu 1 phút."
   },
-  "statsNote": "Ảnh chụp ghi -36,4% so với 32 ngày trước đó, nên đây là ảnh tổng quan hiệu suất một tháng chứ không phải biểu đồ tăng trưởng. Giữ nguyên con số và giữ nguyên dấu trừ.",
+  "statsNote": "Số liệu lấy nguyên từ báo cáo kỳ 01-31/05, không chỉnh sửa. Đây là ảnh tổng quan hiệu suất một tháng của kênh.",
   "community": {
     "title": "Community",
     "body": "Cộng đồng phụ huynh được vận hành bằng một quy trình viết sẵn chứ không theo cảm tính: ba luồng mời khách vào nhóm sau khi mua hoặc sau khi được tư vấn, bộ câu hỏi duyệt thành viên, nguyên tắc chỉ duyệt bài khi đã có câu trả lời, khung giờ trực bình luận, và hai cơ chế khuyến khích phụ huynh tự làm nội dung — một cơ chế đổi thời gian thuê bao, một cơ chế bảng xếp hạng số giờ con luyện nói.",

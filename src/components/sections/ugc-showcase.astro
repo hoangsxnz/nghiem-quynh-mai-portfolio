@@ -7,30 +7,37 @@ import ChannelCard from '@components/sections/social/channel-card.astro';
 import EvidenceCard from '@components/sections/pika/evidence-card.astro';
 import raw from '@data/ugc.json';
 import type { UgcContent } from '@content-types/content';
+import Decor from '@components/ui/decor.astro';
 
 const ugc = raw as UgcContent;
 ---
 
 <section id={ugc.meta.id} class="section" aria-labelledby="ugc-title" data-reveal-group>
+  <Decor src="el-ticket.png" w={150} top="6%" left="1%" rotate="-9deg" opacity={0.42} parallax={0.07} hideMobile />
+  <Decor src="el-cat.png" w={110} bottom="7%" right="3%" rotate="9deg" opacity={0.45} parallax={-0.08} />
+  <Decor src="el-star-rough.png" w={85} top="10%" right="6%" rotate="-10deg" opacity={0.4} parallax={0.07} hideMobile />
+  <Decor src="el-star-rough.png" w={70} top="62%" right="3%" rotate="12deg" opacity={0.36} parallax={-0.06} hideMobile />
   <div class="container">
     <SectionHeader {...ugc.meta} />
 
     <p class="intro" data-reveal>{ugc.intro}</p>
 
-    <ul class="facts" data-reveal-group>
-      {ugc.facts.map((fact, i) => (
-        <li class="fact" style={`--tilt: var(--tilt-${(i % 4) + 1})`} data-reveal>
-          <Sticker label={fact.label} tilt={3} />
-          <p>{fact.value}</p>
-          {fact.file && <FileLink {...fact.file} />}
-        </li>
-      ))}
-    </ul>
+    <div class="ugc__body flow-related">
+      <div class="evidence" data-reveal-group>
+        {ugc.evidence.map((e, i) => (
+          <EvidenceCard evidence={e} tilt={(i % 2 === 0 ? 3 : 2) as 2 | 3} />
+        ))}
+      </div>
 
-    <div class="evidence" data-reveal-group>
-      {ugc.evidence.map((e, i) => (
-        <EvidenceCard evidence={e} tilt={(i % 2 === 0 ? 3 : 2) as 2 | 3} />
-      ))}
+      <ul class="facts" data-reveal-group>
+        {ugc.facts.map((fact, i) => (
+          <li class="fact" style={`--tilt: var(--tilt-${(i % 4) + 1})`} data-reveal>
+            <Sticker label={fact.label} tilt={3} />
+            <p>{fact.value}</p>
+            {fact.file && <FileLink {...fact.file} />}
+          </li>
+        ))}
+      </ul>
     </div>
 
     <article class="channels" data-reveal-group>
@@ -38,7 +45,7 @@ const ugc = raw as UgcContent;
       <ul class="channels__grid">
         {ugc.channels.map((channel, i) => (
           <li data-reveal>
-            {channel.image && <Polaroid {...channel.image} width={420} />}
+            <Polaroid {...channel.image} width={420} />
             <ChannelCard
               name={channel.name}
               meta={channel.platform}
@@ -48,7 +55,6 @@ const ugc = raw as UgcContent;
           </li>
         ))}
       </ul>
-      <p class="meta" data-reveal>{ugc.channelNote}</p>
     </article>
   </div>
 </section>
@@ -59,9 +65,18 @@ const ugc = raw as UgcContent;
     font-size: 1.125rem;
   }
 
+  /* Evidence left, facts right. As one auto-fit row the four fact cards wrapped
+     unevenly and left two card-sized holes in the grid. */
+  .ugc__body {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    align-items: start;
+    gap: var(--gap);
+  }
+
   .facts {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     /* Cards size to their own copy instead of stretching to the tallest in the row. */
     align-items: start;
     gap: var(--gap);
@@ -87,10 +102,24 @@ const ugc = raw as UgcContent;
     white-space: normal;
   }
 
+  /* One above the other in the left column. Not the offset pile used for the feed
+     pair in Social: these are two different sheets and each caption names its own,
+     so the upper card would hide information rather than a repeated label. */
   .evidence {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
     gap: var(--gap);
+  }
+
+  @media (max-width: 899px) {
+    .ugc__body {
+      grid-template-columns: 1fr;
+    }
+
+    .facts {
+      grid-template-columns: 1fr;
+    }
   }
 
   .channels {

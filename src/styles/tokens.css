@@ -43,12 +43,37 @@
   --pad-x: clamp(1rem, 5vw, 4rem);
   --section-y: clamp(4.5rem, 12vw, 10rem);
   --gap: clamp(1rem, 2.5vw, 2rem);
+
+  /* Background cut-outs shrink with the layout so they stay decorative rather
+     than crowding a one-column page. Below 1200px the side gutters close up and
+     the cut-outs start sitting under body copy, so they also fade back. */
+  --decor-scale: 1;
+  --decor-fade: 1;
+
+  /* Vertical rhythm, three levels. Without the middle two the page only ever
+     spaces siblings at 0 or --section-y, which reads as either crammed or empty. */
+  --space-block: var(--section-y);              /* two unrelated blocks */
+  --space-related: clamp(2rem, 4vw, 3.5rem);    /* lead-in text → the grid it introduces */
+  --space-tight: var(--gap);                    /* evidence image → its file link */
+}
+
+@media (max-width: 1199px) {
+  :root {
+    --decor-fade: .55;
+  }
+}
+
+@media (max-width: 899px) {
+  :root {
+    --decor-scale: .65;
+  }
 }
 
 /* A full-width card carries the tilt into the side gutter on a narrow screen,
    so the paper-cut angles halve below 600px rather than disappear. */
 @media (max-width: 599px) {
   :root {
+    --decor-scale: .5;
     --tilt-1: -2deg;
     --tilt-2: 1.5deg;
     --tilt-3: -1deg;

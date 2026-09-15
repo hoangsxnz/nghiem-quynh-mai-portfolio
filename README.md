@@ -3,41 +3,11 @@
 Trang portfolio một trang, phong cách cắt dán giấy (cut-out paper). Toàn bộ nội dung tiếng Việt nằm
 trong `src/data/*.json` — sửa nội dung **không cần đụng vào code**.
 
----
-
-## 1. Cần bổ sung trước khi chia sẻ link (13 mục)
-
-Trang vẫn chạy bình thường với các mục này, nhưng mỗi mục đang hiện một nhãn đỏ **"CẦN BỔ SUNG"**
-trên trang. Xoá nhãn bằng cách thay chuỗi `[PLACEHOLDER: ...]` trong JSON bằng nội dung thật.
-
-Xem danh sách hiện tại bất cứ lúc nào:
-
-```bash
-grep -rn "\[PLACEHOLDER" src/data/
-```
-
-| # | File | Cần gì |
-|---|------|--------|
-| 1 | `contact.json` | Link LinkedIn đầy đủ (dạng `https://www.linkedin.com/in/...`) |
-| 2 | `branding.json` | 3-5 tính từ mô tả brand voice cá nhân |
-| 3 | `branding.json` | 1 dự án định vị thương hiệu cụ thể + kết quả đo được |
-| 4 | `branding.json` | Ảnh minh hoạ ngành Beauty (hiện là ô viền đỏ trống) |
-| 5 | `strategy.json` | **Xác nhận được phép công bố** số liệu `+200%` / `+35%` và 2 ảnh chụp biểu đồ |
-| 6 | `seo.json` | Link bài viết SmartRecruit đã xuất bản |
-| 7 | `seo.json` | Thứ hạng từ khoá / lượt đọc của bài viết đó |
-| 8 | `seo.json` | Bài SEO thứ hai (nếu có) |
-| 9 | `social.json` | **Ảnh gốc độ phân giải cao** cho 8 sản phẩm — bản hiện tại chỉ 225-400px |
-| 10 | `ugc.json` | Kết quả thực tế của chiến dịch Hidden Menu (nếu đã triển khai) |
-| 11 | `ugc.json` | Ảnh/video UGC thật từ khách hàng |
-| 12 | `ai-first.json` | Mô tả agent/automation cụ thể đã tự xây dựng + công cụ + kết quả |
-| 13 | `ai-first.json` | Mức rút ngắn thời gian sản xuất thực tế (ví dụ: số giờ/tuần tiết kiệm) |
-
-> Mục 5 là mục **quan trọng nhất**: số liệu và ảnh chụp màn hình của kênh khách hàng chỉ nên công bố
-> sau khi có xác nhận của chủ sở hữu kênh.
+Trang đang chạy tại **https://nghiem-quynh-mai-portfolio.pages.dev**
 
 ---
 
-## 2. Chạy tại máy
+## 1. Chạy tại máy
 
 Cần Node 22.12 trở lên và pnpm.
 
@@ -50,7 +20,7 @@ pnpm check     # kiểm tra lỗi kiểu dữ liệu
 
 ---
 
-## 3. Sửa nội dung
+## 2. Sửa nội dung
 
 Mỗi phần của trang đọc đúng một file JSON:
 
@@ -61,12 +31,15 @@ Mỗi phần của trang đọc đúng một file JSON:
 | Thẻ chia sẻ / SEO | `src/data/site.json` | Tiêu đề trang, mô tả, ảnh preview |
 | 01 About Me | `src/data/about.json` | Tiểu sử, mục tiêu, trích dẫn, hành trình, kinh nghiệm, kỹ năng, ngôn ngữ, công cụ, học vấn |
 | 02 Branding & Positioning | `src/data/branding.json` | Định vị, 3 trụ 3S, 3 ngành (F&B / B2B / Beauty), giá trị mang lại |
-| 03 Content Strategy | `src/data/strategy.json` | Khung 3S, 5 bước quy trình, case study kênh video |
-| 04 Content SEO | `src/data/seo.json` | 4 bước tiếp cận, checklist, bài viết ví dụ |
-| 05 Social & Community | `src/data/social.json` | Post/Photo/Video, case study nội bộ, 8 sản phẩm tiêu biểu |
-| 06 UGC | `src/data/ugc.json` | Chiến dịch Hidden Menu, cơ chế, thang nội dung, nguyên tắc |
+| 03 Content Strategy | `src/data/strategy.json` | Bảy mắt xích chiến lược, case study kênh |
+| 04 Content Ads | `src/data/ads.json` | Đối tượng, insight, kịch bản dài 18 phân cảnh và bản ngắn 5 phân cảnh |
+| 05 Social & Community | `src/data/social.json` | Post/Photo/Video, số liệu kênh, 6 sản phẩm tiêu biểu |
+| 06 UGC | `src/data/ugc.json` | Chiến dịch Hidden Menu, cơ chế, thang nội dung, 4 kênh TikTok/Facebook |
 | 07 AI First | `src/data/ai-first.json` | Bộ công cụ, phân vai Người/AI, agent, ranh giới |
-| 09 Keep In Touch | `src/data/contact.json` | Lời mời, 4 thẻ liên hệ, nút gửi email, dòng kết |
+| Keep In Touch | `src/data/contact.json` | Lời mời, các thẻ liên hệ, nút gửi email, dòng kết |
+
+Năm mục 02 đến 06 được gói chung trong khối **"Dự án nổi bật gần đây — Robot dạy tiếng Anh Pika"**.
+Tiêu đề, mô tả và ảnh của khối này nằm trực tiếp trong `src/pages/index.astro`, không nằm trong JSON.
 
 **Lưu ý khi sửa JSON**
 
@@ -76,40 +49,43 @@ Mỗi phần của trang đọc đúng một file JSON:
 
 ---
 
-## 4. Thêm hoặc thay ảnh
+## 3. Thêm hoặc thay ảnh
 
-1. Chép file `.png` vào `src/assets/images/`.
-2. Ghi **đúng tên file** vào JSON, ví dụ `"src": "work-watch-photo.png"`.
+1. Chép file `.png` hoặc `.jpg` vào `src/assets/images/` (ảnh của dự án Pika nằm trong `src/assets/images/pika/`).
+2. Ghi **đúng tên file** vào JSON, ví dụ `"src": "pika-feed-01.jpg"`.
 
 Gõ sai tên thì `pnpm build` dừng lại với thông báo `Unknown image "..."` — sai sẽ biết ngay,
 không bao giờ ra trang với ảnh vỡ.
 
-Ảnh được tự động nén sang WebP. Ảnh nhỏ **không bị phóng to** — đó là lý do 8 ảnh sản phẩm hiện
-trông nhỏ; thay bằng ảnh gốc độ phân giải cao là chúng tự sắc nét hơn, không cần sửa code.
+Ảnh được tự động nén sang WebP khi build. Ảnh nhỏ **không bị phóng to** — thay bằng ảnh gốc độ phân
+giải cao là chúng tự sắc nét hơn, không cần sửa code.
 
 ---
 
-## 5. Deploy (Vercel)
+## 4. Deploy (Cloudflare Pages)
 
-1. Push repository lên GitHub.
-2. Vào [vercel.com](https://vercel.com) → **Add New → Project** → chọn repository này.
-3. Vercel tự nhận diện Astro. Build command `pnpm build`, output directory `dist`.
-4. Sau khi có tên miền chính thức, sửa `site` trong `astro.config.mjs`:
+```bash
+pnpm build
+wrangler pages deploy dist --project-name=nghiem-quynh-mai-portfolio --branch=main --commit-dirty=true
+```
+
+Chi tiết đầy đủ — tài khoản, rollback, cách gắn tên miền riêng — xem `docs/deployment.md`.
+
+Sau khi có tên miền chính thức, phải sửa `site` trong `astro.config.mjs`:
 
 ```js
 site: 'https://ten-mien-that.com',
 ```
 
-   Giá trị này chỉ dùng cho thẻ canonical và ảnh preview khi chia sẻ link — để sai thì link chia sẻ
-   trỏ sai chỗ.
-
-5. Mỗi lần push lên `main`, Vercel tự deploy lại.
+Giá trị này sinh ra thẻ canonical và ảnh preview khi chia sẻ link — để sai thì link chia sẻ trỏ sai chỗ.
 
 ---
 
-## 6. Kết quả kiểm thử (Lighthouse)
+## 5. Kết quả kiểm thử
 
-Đo trên bản build tĩnh, `pnpm preview`, ngày 14/09/2026.
+### Lighthouse
+
+Đo ngày 14/09/2026 trên bản build tĩnh (`pnpm preview`).
 
 | Hạng mục | Desktop | Mobile |
 |----------|---------|--------|
@@ -119,21 +95,25 @@ site: 'https://ten-mien-that.com',
 | SEO | **100** | **100** |
 
 Chỉ số mobile: FCP 2.3s · LCP 2.6s · TBT 120ms · CLS 0.005.
+Báo cáo đầy đủ: `plans/260914-1519-nghiem-quynh-mai-portfolio-website/qa/`
 
-Báo cáo đầy đủ và ảnh chụp màn hình:
-`plans/260914-1519-nghiem-quynh-mai-portfolio-website/qa/`
+> Số liệu này đo **trước** đợt dựng lại quanh dự án Pika và đợt sửa bố cục ngày 16/09/2026.
+> Cần chạy lại Lighthouse trên bản hiện tại trước khi trích dẫn ra ngoài.
 
-Đã kiểm tra thêm:
+### Đã kiểm tra thêm
 
 - Không tràn ngang ở 360 / 390 / 768 / 1024 / 1440 px.
 - Mọi cặp chữ/nền đạt tối thiểu 4.5:1 (thấp nhất 4.81:1).
-- Tắt JavaScript: toàn bộ 9 phần vẫn hiện đầy đủ, các link neo vẫn nhảy đúng.
+- Tắt JavaScript: toàn bộ các phần vẫn hiện đầy đủ, các link neo vẫn nhảy đúng.
 - Bật "giảm chuyển động" của hệ điều hành: không có hiệu ứng nào, nội dung hiện đủ.
 - Dấu tiếng Việt (Ê, Ỳ, Ữ) hiển thị đúng bằng font Protest Guerrilla, không bị cắt.
 
+Đợt kiểm thử gần nhất (17 mục feedback về bố cục và khoảng trắng):
+`plans/reports/qa-260916-portfolio-feedback-round-2.md`
+
 ---
 
-## 7. Riêng tư
+## 6. Riêng tư
 
 Trang **công khai và cho phép Google lập chỉ mục** (`public/robots.txt`), và có đăng **số điện thoại
 và email**. Đây là lựa chọn có chủ đích.
@@ -148,20 +128,20 @@ sẵn trong trang.
 
 ---
 
-## 8. Cấu trúc kỹ thuật (cho người tiếp nhận sau)
+## 7. Cấu trúc kỹ thuật (cho người tiếp nhận sau)
 
 ```
 src/
-├── data/           nội dung — 10 file JSON
+├── data/           nội dung — 11 file JSON
 ├── types/          kiểu dữ liệu cho từng file JSON
 ├── components/
 │   ├── ui/         9 thành phần dùng lại (polaroid, sticker, stamp, ...)
-│   └── sections/   9 phần của trang
-├── layouts/        khung <head>, font, script
+│   └── sections/   10 phần của trang, phần dài tách partial vào thư mục con
+├── layouts/        base-layout.astro — khung <head>, font, script
 ├── scripts/motion/ GSAP + Lenis (chỉ chạy khi người dùng không tắt chuyển động)
 ├── styles/         tokens.css (màu, font, kích thước) + global.css
-└── assets/images/  ảnh gốc
+└── assets/images/  ảnh gốc, ảnh dự án Pika trong thư mục con pika/
 ```
 
 Astro 7 · vanilla CSS · GSAP 3 + Lenis · triển khai tĩnh, không có backend.
-Mọi file dưới 200 dòng.
+Mọi file dưới 200 dòng, trừ `src/styles/global.css` (230 dòng).

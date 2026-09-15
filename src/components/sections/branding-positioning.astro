@@ -5,11 +5,17 @@ import FileLink from '@components/ui/file-link.astro';
 import EvidenceCard from '@components/sections/pika/evidence-card.astro';
 import raw from '@data/branding.json';
 import type { BrandingContent } from '@content-types/content';
+import Decor from '@components/ui/decor.astro';
 
 const branding = raw as BrandingContent;
 ---
 
 <section id={branding.meta.id} class="section" aria-labelledby="branding-title" data-reveal-group>
+  <Decor src="el-plaid-corner.png" w={190} top="0" right="0" rotate="0deg" opacity={0.35} />
+  <Decor src="el-star-rough.png" w={95} top="18%" left="2%" rotate="-8deg" opacity={0.4} parallax={0.07} hideMobile />
+  <Decor src="el-star-rough.png" w={90} top="14%" right="6%" rotate="10deg" opacity={0.4} parallax={0.07} hideMobile />
+  <Decor src="el-cat.png" w={95} top="56%" right="8%" rotate="-9deg" opacity={0.42} parallax={-0.07} hideMobile />
+  <Decor src="el-star-rough.png" w={70} top="82%" right="12%" rotate="-14deg" opacity={0.36} parallax={0.06} hideMobile />
   <div class="container">
     <SectionHeader {...branding.meta} />
 
@@ -47,7 +53,7 @@ const branding = raw as BrandingContent;
       ))}
     </div>
 
-    <div data-reveal>
+    <div class="flow-tight" data-reveal>
       <FileLink {...branding.file} />
     </div>
   </div>

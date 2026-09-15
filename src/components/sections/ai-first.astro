@@ -4,11 +4,17 @@ import Sticker from '@components/ui/sticker.astro';
 import AgentList from '@components/sections/ai-first/agent-list.astro';
 import raw from '@data/ai-first.json';
 import type { AiFirstContent } from '@content-types/content';
+import Decor from '@components/ui/decor.astro';
 
 const ai = raw as AiFirstContent;
 ---
 
 <section id={ai.meta.id} class="section section--alt" aria-labelledby="ai-first-title" data-reveal-group>
+  <Decor src="el-sparkle.png" w={130} top="6%" right="4%" rotate="0deg" opacity={0.4} parallax={0.08} />
+  <Decor src="el-thread-line.png" w={130} bottom="4%" left="0" rotate="8deg" opacity={0.32} parallax={-0.07} hideMobile />
+  <Decor src="el-star-rough.png" w={80} top="36%" left="1%" rotate="-11deg" opacity={0.38} parallax={0.07} hideMobile />
+  <Decor src="el-star-rough.png" w={70} top="52%" right="2%" rotate="13deg" opacity={0.36} parallax={0.06} hideMobile />
+  <Decor src="el-cat.png" w={80} top="68%" left="1%" rotate="9deg" opacity={0.4} parallax={-0.06} hideMobile />
   <div class="container">
     <SectionHeader {...ai.meta} />
 
@@ -52,6 +58,12 @@ const ai = raw as AiFirstContent;
 </section>
 
 <style>
+  /* The closing quote and the contact block belong together; the full section step
+     at both ends plus the torn divider left a screen of empty paper between them. */
+  #ai-first.section {
+    padding-bottom: clamp(2rem, 5vw, 4rem);
+  }
+
   .tools {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));

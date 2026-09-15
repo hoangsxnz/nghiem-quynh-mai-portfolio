@@ -2,11 +2,16 @@
 import CtaButton from '@components/ui/cta-button.astro';
 import raw from '@data/contact.json';
 import type { ContactContent } from '@content-types/content';
+import Decor from '@components/ui/decor.astro';
 
 const contact = raw as ContactContent;
 ---
 
 <section id={contact.meta.id} class="section" aria-labelledby="contact-title" data-reveal-group>
+  <Decor src="el-ribbon-quote.png" w={160} top="8%" right="2%" rotate="6deg" opacity={0.4} parallax={0.08} />
+  <Decor src="el-arrow-curve.png" w={130} bottom="12%" left="2%" rotate="-8deg" opacity={0.42} parallax={-0.06} hideMobile />
+  <Decor src="el-cat.png" w={85} top="48%" left="4%" rotate="-9deg" opacity={0.42} parallax={0.07} hideMobile />
+  <Decor src="el-star-rough.png" w={75} top="44%" right="4%" rotate="11deg" opacity={0.4} parallax={-0.06} hideMobile />
   <div class="container">
     {/* The brief removes the visible section header; the heading stays for a11y. */}
     <h2 id="contact-title" class="visually-hidden">{contact.meta.title}</h2>
@@ -37,6 +42,11 @@ const contact = raw as ContactContent;
 </footer>
 
 <style>
+  /* Pairs with the trimmed bottom of #ai-first above the divider. */
+  #contact.section {
+    padding-top: clamp(2rem, 5vw, 4rem);
+  }
+
   /* Contact stays tight; overrides the section-wide rhythm in global.css. */
   .section > .container > :global(* + *) {
     margin-top: var(--gap);

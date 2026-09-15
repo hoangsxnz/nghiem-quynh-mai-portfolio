@@ -7,11 +7,17 @@ import EducationList from '@components/sections/about/education-list.astro';
 import SkillsGrid from '@components/sections/about/skills-grid.astro';
 import raw from '@data/about.json';
 import type { AboutContent } from '@content-types/content';
+import Decor from '@components/ui/decor.astro';
 
 const about = raw as AboutContent;
 ---
 
 <section id={about.meta.id} class="section section--alt" aria-labelledby="about-title" data-reveal-group>
+  <Decor src="el-safety-pin.png" w={150} top="4%" right="5%" rotate="14deg" opacity={0.42} parallax={0.08} />
+  <Decor src="el-star-stitched.png" w={120} bottom="6%" left="1%" rotate="-12deg" opacity={0.38} parallax={-0.06} hideMobile />
+  <Decor src="el-cat.png" w={90} top="3%" right="22%" rotate="8deg" opacity={0.4} parallax={0.08} hideMobile />
+  <Decor src="el-star-rough.png" w={85} top="13%" left="1%" rotate="-10deg" opacity={0.4} parallax={0.07} hideMobile />
+  <Decor src="el-star-rough.png" w={70} top="67%" right="3%" rotate="14deg" opacity={0.38} parallax={-0.06} hideMobile />
   <div class="container">
     <SectionHeader {...about.meta} />
 
@@ -83,8 +89,16 @@ const about = raw as AboutContent;
     }
   }
 
-  /* The marquee is full-bleed, so it sits outside .container. */
+  /* The marquee is full-bleed, so it sits outside .container. The bottom side is
+     0 because the next block is the project group, which brings its own top padding. */
   section > :global(.marquee) {
-    margin-block: var(--section-y);
+    margin-block: var(--section-y) 0;
+  }
+
+  /* Both ends trimmed. At the top the full step left an empty column beside the
+     bottom-aligned cover portrait; at the bottom it stacked with the torn divider
+     and the project group's own step into a 355px void after the tools marquee. */
+  #about.section {
+    padding-block: clamp(2.5rem, 6vw, 5rem) clamp(2rem, 5vw, 4rem);
   }
 </style>

@@ -68,15 +68,24 @@
       }
     },
     {
-      "name": "Châu Châu — Reels",
+      "name": "Ngọc Hân Thị Nguyễn",
       "platform": "Facebook",
-      "href": "https://www.facebook.com/chau.chau.660751/reels/"
+      "href": "https://www.facebook.com/ngochan.smust/reels/",
+      "image": {
+        "src": "ugc-channel-fb-01.png",
+        "alt": "Trang Facebook Ngọc Hân Thị Nguyễn với loạt reels quay cùng Robot Pika",
+        "tilt": 1
+      }
     },
     {
-      "name": "Trần Hiền — Reels",
+      "name": "Phạm Cẩm Liên",
       "platform": "Facebook",
-      "href": "https://www.facebook.com/tranhien9996/reels/"
+      "href": "https://www.facebook.com/pham.camlien",
+      "image": {
+        "src": "ugc-channel-fb-02.png",
+        "alt": "Trang Facebook Phạm Cẩm Liên với loạt reels quay cùng Robot Pika",
+        "tilt": 4
+      }
     }
-  ],
-  "channelNote": "Hai kênh Facebook để dạng thẻ dẫn link vì Facebook yêu cầu đăng nhập trước khi xem trang cá nhân, nên không chụp được ảnh kênh."
+  ]
 }

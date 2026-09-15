@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import Sticker from '@components/ui/sticker.astro';
+import Decor from '@components/ui/decor.astro';
 import { image } from '@lib/image-map';
 import raw from '@data/hero.json';
 import type { HeroContent } from '@content-types/content';
@@ -10,6 +11,11 @@ const photo = image(hero.photo.src);
 ---
 
 <section id="hero" class="hero" aria-labelledby="hero-title" data-reveal-group>
+  <Decor src="el-star-glossy.png" w={90} top="14%" left="2%" rotate="-12deg" opacity={0.45} parallax={0.09} hideMobile />
+  <Decor src="el-squiggle.png" w={190} bottom="6%" left="-2%" rotate="6deg" opacity={0.3} parallax={-0.07} hideMobile />
+  <Decor src="el-sparkle.png" w={90} top="8%" right="4%" rotate="10deg" opacity={0.4} parallax={0.06} />
+  <Decor src="el-cat.png" w={85} top="4%" left="20%" rotate="-8deg" opacity={0.4} parallax={0.07} hideMobile />
+  <Decor src="el-star-rough.png" w={80} bottom="5%" left="16%" rotate="12deg" opacity={0.42} parallax={-0.06} hideMobile />
   <div class="hero__inner container">
     <div class="hero__text">
       <p class="hero__role" data-reveal>{hero.role}</p>
@@ -28,6 +34,7 @@ const photo = image(hero.photo.src);
           <li><a href={href}>{label}</a></li>
         ))}
       </ul>
+      <p class="hero__cue meta" data-reveal>{hero.scrollCue}</p>
     </div>
 
     <div class="hero__media" data-reveal data-parallax="0.1">
@@ -35,7 +42,7 @@ const photo = image(hero.photo.src);
         class="hero__cutout"
         src={photo}
         alt={hero.photo.alt}
-        width={420}
+        width={480}
         densities={[1, 1.5]}
         format="webp"
         loading="eager"
@@ -44,18 +51,19 @@ const photo = image(hero.photo.src);
       />
     </div>
   </div>
-
-  <p class="hero__cue meta">{hero.scrollCue}</p>
 </section>
 
 <style>
   .hero {
+    position: relative;
     min-height: 100vh;
     min-height: 100svh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-block: clamp(3rem, 8vw, 6rem) 2rem;
+    /* No bottom padding: the cue moved into the text column, so the section no
+       longer reserves a centred row for it under the grid. */
+    padding-block: clamp(3rem, 8vw, 6rem) 0;
   }
 
   .hero__inner {
@@ -133,22 +141,31 @@ const photo = image(hero.photo.src);
     color: var(--maroon);
   }
 
+  /* Bottom-aligned: centred, the portrait left a screen-tall empty column between
+     its foot and the About Me header on the same side of the page. */
   .hero__media {
     grid-column: 8 / 13;
     justify-self: end;
+    align-self: end;
   }
 
-  /* Cut-out portrait: shadow follows the silhouette, so no frame and no background. */
+  /* Cut-out portrait: shadow follows the silhouette, so no frame and no background.
+     The sticker outline is three stacked zero-offset drop-shadows — each filter runs
+     on the previous result, so repeating one thin white glow thickens it into a line
+     that hugs the silhouette. `border`/`outline`/`box-shadow` would all trace the
+     image's rectangle instead, which is the wrong shape for a transparent PNG. */
   .hero__cutout {
     max-width: 100%;
     height: auto;
-    filter: drop-shadow(0 18px 24px rgba(26, 26, 26, .28));
+    filter:
+      drop-shadow(0 0 1.5px var(--white))
+      drop-shadow(0 0 1.5px var(--white))
+      drop-shadow(0 0 1.5px var(--white))
+      drop-shadow(10px 16px 22px rgba(26, 26, 26, .30));
   }
 
   .hero__cue {
-    align-self: center;
-    text-align: center;
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 
   @media (max-width: 900px) {
