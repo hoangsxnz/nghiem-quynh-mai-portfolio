@@ -1,7 +1,7 @@
 # Content Source
 
-Where every line on the site comes from. Updated 2026-09-15 for the Pika revamp, which replaced the
-CV-derived project sections with one real project.
+Where every line on the site comes from. Updated 2026-09-16 for feedback round 2, which changed
+vertical rhythm and layout, swapped five pictures, and replaced the two Facebook UGC channels.
 
 ## Brief
 
@@ -9,6 +9,10 @@ CV-derived project sections with one real project.
 `CV & Portfolio/Portfolio guidelines/images/`. That file is the acceptance list: every bullet in it
 either maps to a section below or is recorded as skipped in
 `plans/reports/qa-260915-pika-revamp.md`.
+
+Round 2 of feedback is `CV & Portfolio/feedback_round_2/feedback/Portfolioguidelines.html` plus the
+six images beside it. Its 17 items are tracked in
+`plans/reports/qa-260916-portfolio-feedback-round-2.md`.
 
 ## Personal copy and photos
 
@@ -55,14 +59,23 @@ each caption names the file and sheet it came from.
 | `pika-post-sample.png`, `pika-channel-stats.png` | Brief images 2 and 4, unmodified |
 | `pika-video-cover.png` | Brief image 5; the commenter's handle and avatar are blurred |
 | `pika-feed-01.jpg`, `-02.jpg` | Brief images 8 and 7, resized |
-| `pika-branding-*.png`, `pika-strategy-*.png`, `pika-ads-script.png`, `pika-community-mechanism.png`, `pika-ugc-*.png` | Rendered from the exported `.xlsx` rows, sensitive columns excluded |
-| `ugc-channel-tt-01.png`, `-02.png` | TikTok profiles captured 2026-09-15; the public work email on the first is blurred |
+| `pika-branding-*.png`, `pika-strategy-*.png`, `pika-community-mechanism.png`, `pika-ugc-*.png` | Rendered from the exported `.xlsx` rows, sensitive columns excluded |
+| `pika-ads-script-long.png` | Sheet "Kịch bản dài" of `Kịch bản Ads mẫu.xlsx`, first six scenes. Replaced `pika-ads-script.png` (sheet "Kịch bản ngắn"), which is deleted |
+| `pika-robot-cutout.png` | Round-2 feedback image 1, background removed with `rembg` (u2net + alpha matting). Decorative only — it carries `alt=""` beside the project heading |
+| `ugc-channel-tt-01.png`, `-02.png` | TikTok profiles, round-2 feedback images 6 and 5, captured by the owner. Cropped to the channel header and video grid; the public work email on the first is blurred |
+| `ugc-channel-fb-01.png`, `-02.png` | Facebook Reels profiles of two parents, round-2 feedback images 2 and 3, captured by the owner while signed in. Cropped to the profile name and reel grid |
 
-Facebook serves a login wall to an automated browser, so the fanpage and the two parent Reels
-profiles are link cards without a screenshot.
+The Pika fanpage is still a link card without a screenshot: Facebook serves a login wall to an
+automated browser. The two parent Reels profiles now have pictures because the owner captured them
+while signed in, and confirmed in round 2 that both parents had given permission for their profiles
+and their children's reel thumbnails to appear on a public portfolio.
+
+Round 2 also replaced the two parent channels outright. The earlier pair (`chau.chau.660751`,
+`tranhien9996`) is gone; the site now shows **Ngọc Hân Thị Nguyễn** and **Phạm Cẩm Liên**.
 
 ## Numbers rule
 
 Only figures that appear in a source file or screenshot reach the site, with their original framing.
-The channel performance image reads **-36,4% so với 32 ngày trước**, so its caption calls it a
-one-month performance overview and never growth.
+The channel performance image is captioned as a one-month performance overview of the 01-31/05 report
+and never as growth. The note beside it states that the figures are taken from that report unmodified;
+it does not interpret the **-36,4% so với 32 ngày trước** reading the screenshot also carries.
