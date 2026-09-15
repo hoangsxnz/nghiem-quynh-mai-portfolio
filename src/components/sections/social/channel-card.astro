@@ -1,0 +1,70 @@
+---
+interface Props {
+  name: string;
+  meta: string;
+  href: string;
+  note?: string;
+  tilt?: 1 | 2 | 3 | 4;
+}
+
+const { name, meta, href, note, tilt = 3 } = Astro.props;
+---
+
+<a class="channel" href={href} target="_blank" rel="noopener noreferrer" style={`--tilt: var(--tilt-${tilt})`}>
+  <span class="channel__meta">{meta}</span>
+  <span class="channel__name">{name}</span>
+  {note && <span class="channel__note">{note}</span>}
+  <span class="channel__go" aria-hidden="true">Mở kênh →</span>
+  <span class="visually-hidden"> (mở tab mới)</span>
+</a>
+
+<style>
+  .channel {
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+    min-width: 0;
+    min-height: 44px;
+    padding: 1.25rem;
+    background: var(--paper);
+    border: 2px solid var(--maroon);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    color: var(--maroon);
+    text-decoration: none;
+    rotate: var(--tilt);
+    transition: rotate 300ms ease-out, box-shadow 200ms ease-out, background 200ms ease-out;
+  }
+
+  .channel:hover,
+  .channel:focus-visible {
+    rotate: 0deg;
+    background: var(--white);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .channel__meta {
+    font-size: var(--fs-meta);
+    color: var(--muted);
+    letter-spacing: .06em;
+  }
+
+  .channel__name {
+    font-family: var(--font-display);
+    font-size: var(--fs-h3);
+    color: var(--red);
+    line-height: var(--lh-display);
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+  }
+
+  .channel__note {
+    max-width: 44ch;
+  }
+
+  .channel__go {
+    margin-top: .35rem;
+    font-weight: 600;
+    color: var(--red);
+  }
+</style>

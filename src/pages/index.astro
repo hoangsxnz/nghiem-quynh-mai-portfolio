@@ -4,9 +4,10 @@ import Nav from '@components/ui/nav.astro';
 import TornDivider from '@components/ui/torn-divider.astro';
 import HeroCover from '@components/sections/hero-cover.astro';
 import AboutMe from '@components/sections/about-me.astro';
+import ProjectGroup from '@components/sections/project-group.astro';
 import BrandingPositioning from '@components/sections/branding-positioning.astro';
 import ContentStrategy from '@components/sections/content-strategy.astro';
-import ContentSeo from '@components/sections/content-seo.astro';
+import ContentAds from '@components/sections/content-ads.astro';
 import SocialCommunity from '@components/sections/social-community.astro';
 import UgcShowcase from '@components/sections/ugc-showcase.astro';
 import AiFirst from '@components/sections/ai-first.astro';
@@ -21,15 +22,23 @@ import navData from '@data/nav.json';
   <TornDivider from="paper" to="paper-2" />
   <AboutMe />
   <TornDivider from="paper-2" to="paper" />
-  <BrandingPositioning />
-  <TornDivider from="paper" to="paper-2" />
-  <ContentStrategy />
-  <TornDivider from="paper-2" to="paper" />
-  <ContentSeo />
-  <TornDivider from="paper" to="paper-2" />
-  <SocialCommunity />
-  <TornDivider from="paper-2" to="paper" />
-  <UgcShowcase />
+
+  <ProjectGroup
+    eyebrow="Dự án nổi bật gần đây"
+    title="Robot dạy tiếng Anh Pika"
+    subtitle="Một sản phẩm, năm mảng công việc: định vị thương hiệu, chiến lược nội dung, kịch bản quảng cáo, vận hành kênh và cộng đồng, và một chiến dịch UGC 30 ngày."
+  >
+    <BrandingPositioning />
+    <TornDivider from="paper" to="paper-2" />
+    <ContentStrategy />
+    <TornDivider from="paper-2" to="paper" />
+    <ContentAds />
+    <TornDivider from="paper" to="paper-2" />
+    <SocialCommunity />
+    <TornDivider from="paper-2" to="paper" />
+    <UgcShowcase />
+  </ProjectGroup>
+
   <TornDivider from="paper" to="paper-2" />
   <AiFirst />
   <TornDivider from="paper-2" to="paper" />

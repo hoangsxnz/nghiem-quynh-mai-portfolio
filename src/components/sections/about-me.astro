@@ -1,11 +1,10 @@
 ---
 import SectionHeader from '@components/ui/section-header.astro';
-import Polaroid from '@components/ui/polaroid.astro';
-import Sticker from '@components/ui/sticker.astro';
 import Marquee from '@components/ui/marquee.astro';
-import Timeline from '@components/sections/about/timeline.astro';
-import SkillsGrid from '@components/sections/about/skills-grid.astro';
+import PhotoStack from '@components/sections/about/photo-stack.astro';
+import ExperienceList from '@components/sections/about/experience-list.astro';
 import EducationList from '@components/sections/about/education-list.astro';
+import SkillsGrid from '@components/sections/about/skills-grid.astro';
 import raw from '@data/about.json';
 import type { AboutContent } from '@content-types/content';
 
@@ -17,54 +16,40 @@ const about = raw as AboutContent;
     <SectionHeader {...about.meta} />
 
     <div class="about__lead">
-      <div class="about__bio">
-        {about.bio.map((p) => <p data-reveal>{p}</p>)}
-      </div>
-      <div class="about__portrait" data-reveal>
-        <Polaroid {...about.portrait} width={280} />
+      <PhotoStack portraits={about.portraits} />
+
+      <div class="about__text">
+        <article class="objective" data-reveal>
+          <h3>{about.objective.title}</h3>
+          {about.objective.body.map((p) => <p>{p}</p>)}
+        </article>
+
+        <blockquote class="quote" data-reveal>{about.quote}</blockquote>
       </div>
     </div>
 
-    <article class="objective" data-reveal>
-      <h3>{about.objective.title}</h3>
-      <p>{about.objective.body}</p>
-    </article>
-
-    <blockquote class="quote" data-reveal>{about.quote}</blockquote>
-
-    <ul class="touchpoints" data-reveal>
-      {about.touchpoints.map((t, i) => (
-        <li>
-          <Sticker label={t.label} tilt={((i % 4) + 1) as 1 | 2 | 3 | 4} />
-          <span>{t.note}</span>
-        </li>
-      ))}
-    </ul>
-
-    <Timeline eras={about.eras} experience={about.experience} />
+    <ExperienceList experience={about.experience} />
+    <EducationList education={about.education} />
     <SkillsGrid skillGroups={about.skillGroups} languages={about.languages} />
   </div>
 
   <Marquee items={about.tools} ariaLabel="Công cụ sử dụng" />
-
-  <div class="container">
-    <EducationList education={about.education} />
-  </div>
 </section>
 
 <style>
+  /* Photo cluster left, text right — stacks with the photos first below 900px. */
   .about__lead {
-    display: flex;
-    flex-wrap: wrap-reverse;
-    align-items: flex-start;
-    gap: var(--gap);
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    align-items: center;
+    gap: clamp(1.5rem, 4vw, 3.5rem);
   }
 
-  .about__bio {
-    flex: 1 1 28rem;
+  .about__text {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--gap);
+    min-width: 0;
   }
 
   .objective {
@@ -76,7 +61,11 @@ const about = raw as AboutContent;
   }
 
   .objective h3 {
-    margin-bottom: .5rem;
+    margin-bottom: .75rem;
+  }
+
+  .objective p + p {
+    margin-top: .75rem;
   }
 
   .quote {
@@ -88,23 +77,10 @@ const about = raw as AboutContent;
     line-height: 1.25;
   }
 
-  .touchpoints {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--gap);
-    padding: 0;
-    list-style: none;
-  }
-
-  .touchpoints li {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: .4rem;
-  }
-
-  .touchpoints span {
-    color: var(--muted);
+  @media (max-width: 899px) {
+    .about__lead {
+      grid-template-columns: 1fr;
+    }
   }
 
   /* The marquee is full-bleed, so it sits outside .container. */

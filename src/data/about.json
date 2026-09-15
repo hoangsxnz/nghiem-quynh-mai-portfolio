@@ -5,43 +5,29 @@
     "title": "About Me",
     "subtitle": "Người làm Marketing thích 'thổi hồn' cho những con số."
   },
-  "portrait": {
-    "src": "photo-mai-avatar.png",
-    "alt": "Ảnh chân dung Nghiêm Quỳnh Mai",
-    "tilt": 1
-  },
-  "bio": [
-    "Tôi là Nghiêm Quỳnh Mai - một người làm Marketing thích 'thổi hồn' cho những con số.",
-    "Bước ra từ chuyên ngành Tiếng Pháp Thương mại tại FTU, tôi mang theo sự chỉn chu của tư duy quản trị kết hợp cùng sự nhạy bén đặc trưng của ngôn ngữ. Với tôi, làm Marketing Executive không chỉ đơn thuần là 'chạy số', mà là hành trình biến những dữ liệu khô khan thành những câu chuyện thương hiệu chạm đến cảm xúc.",
-    "Mục tiêu của tôi luôn rõ ràng: Sáng tạo phải đi đôi với hiệu quả. Mỗi câu chuyện được kể ra không chỉ để lắng đọng, mà còn phải tạo nên những giá trị thương mại thực tế và bền vững."
+  "portraits": [
+    {
+      "src": "photo-mai-polaroid-2.jpg",
+      "alt": "Nghiêm Quỳnh Mai ngồi làm việc tại bàn họp",
+      "tilt": 2,
+      "offset": "right"
+    },
+    {
+      "src": "photo-mai-polaroid-1.jpg",
+      "alt": "Nghiêm Quỳnh Mai tại quán cà phê",
+      "tilt": 1,
+      "offset": "left"
+    }
   ],
   "objective": {
     "title": "Mục tiêu nghề nghiệp",
-    "body": "Content Marketing Executive +2 năm kinh nghiệm trong việc nghiên cứu insight khách hàng và sản xuất nội dung chuyển đổi đa kênh (Social, Ads). Có thế mạnh nắm bắt tâm lý người mua, nhạy bén bắt trend và thành thạo ứng dụng các công cụ AI nhằm tối ưu hóa quy trình sản xuất content. Mong muốn đồng hành cùng Quý doanh nghiệp tạo ra các chiến dịch nội dung sáng tạo, mang lại giá trị thực tế cho khách hàng, đồng thời tối ưu hiệu quả chuyển đổi và thúc đẩy doanh số sản phẩm."
+    "body": [
+      "Xin chào, mình là Quỳnh Mai.",
+      "Xuất phát điểm từ chuyên ngành Tiếng Pháp Thương mại tại FTU mang lại cho mình hai điều thú vị: sự nhạy cảm với ngôn từ và thói quen tư duy bằng logic thực tế. Với mình, làm Marketing không chỉ là \"chạy cho đủ số\", mà là cách thổi hồn vào dữ liệu để tạo nên những câu chuyện biết kết nối và chạm đúng cảm xúc người đọc.",
+      "Mình tin rằng sự sáng tạo chỉ thực sự trọn vẹn khi tạo ra hiệu quả. Từng chiến dịch hay mỗi nội dung mình làm ra không chỉ dừng lại ở việc gây ấn tượng, mà phải mang về giá trị thực tế và bền vững cho thương hiệu."
+    ]
   },
   "quote": "Nội dung không chỉ để xem, nội dung phải để kết nối và tạo giá trị.",
-  "touchpoints": [
-    { "label": "User-Centric", "note": "Thấu hiểu khán giả" },
-    { "label": "Data-Driven", "note": "Sáng tạo dựa trên số liệu" },
-    { "label": "Purpose-Driven", "note": "Giải quyết bài toán thương hiệu" }
-  ],
-  "eras": [
-    {
-      "range": "2020 - 2024",
-      "title": "Nền tảng & Sự dấn thân",
-      "body": "Phó Ban Đối ngoại dự án SpeedUp 2021; gây quỹ 250+ triệu VNĐ cho dự án \"Xuân về no ấm\". Rèn kỹ năng kết nối và hiện thực hóa ý tưởng qua kế hoạch chi tiết."
-    },
-    {
-      "range": "2023 - 2024",
-      "title": "Chuyên nghiệp hóa",
-      "body": "PJICO + Grand Nutrition. Tổ chức sự kiện, lan tỏa giá trị gắn kết nhân sự bằng nội dung sáng tạo."
-    },
-    {
-      "range": "2024 - 2026",
-      "title": "Tăng trưởng & Đột phá",
-      "body": "Chuyên sâu Content Strategy cho YouTube và video ngắn. Nghiên cứu thị trường, tối ưu kịch bản, thúc đẩy tăng trưởng kênh."
-    }
-  ],
   "experience": [
     {
       "period": "4/2026 - Hiện tại",
@@ -77,49 +63,9 @@
       "period": "3/2023 - 1/2024",
       "company": "Công ty Bảo hiểm PJICO Hải Phòng",
       "role": "Cộng tác viên Công đoàn",
-      "bullets": [
-        "Hỗ trợ viết bài truyền thông qua email và kênh nội bộ."
-      ]
+      "bullets": ["Hỗ trợ viết bài truyền thông qua email và kênh nội bộ."]
     }
   ],
-  "skillGroups": [
-    {
-      "title": "Xây dựng & triển khai nội dung",
-      "items": [
-        "Nghiên cứu sản phẩm / thị trường / đối thủ",
-        "Nghiên cứu hành vi & insight",
-        "Lên ý tưởng đa nền tảng",
-        "Phân loại content theo mục tiêu và hành trình khách hàng"
-      ]
-    },
-    {
-      "title": "Content Strategy",
-      "items": [
-        "Nghiên cứu & chiến lược",
-        "Scriptwriting đa nền tảng",
-        "Storytelling",
-        "Video production"
-      ]
-    },
-    {
-      "title": "Phối hợp sản xuất & tư duy hình ảnh",
-      "items": [
-        "Làm việc cùng designer / editor",
-        "Nắm bố cục",
-        "Tư duy hình ảnh cho social"
-      ]
-    },
-    {
-      "title": "Tổ chức sự kiện & truyền thông nội bộ",
-      "items": ["Sự kiện offline", "Sự kiện online", "Bản tin nội bộ"]
-    }
-  ],
-  "languages": [
-    { "name": "Tiếng Pháp", "level": "Thành thạo" },
-    { "name": "Tiếng Anh", "level": "Tốt (đọc & viết tài liệu marketing)" },
-    { "name": "Tiếng Trung", "level": "Giao tiếp cơ bản" }
-  ],
-  "tools": ["Canva", "CapCut", "Microsoft Office", "ChatGPT", "Gemini", "Claude", "Leonardo"],
   "education": [
     {
       "year": "2020 - 2024",
@@ -145,5 +91,49 @@
       "note": "University of Pennsylvania",
       "kind": "cert"
     }
+  ],
+  "skillGroups": [
+    {
+      "title": "Xây dựng & triển khai nội dung",
+      "items": [
+        "Nghiên cứu sản phẩm / thị trường / đối thủ",
+        "Nghiên cứu hành vi & insight",
+        "Lên ý tưởng đa nền tảng",
+        "Phân loại content theo mục tiêu và hành trình khách hàng"
+      ]
+    },
+    {
+      "title": "Content Strategy",
+      "items": [
+        "Nghiên cứu & chiến lược",
+        "Scriptwriting đa nền tảng",
+        "Storytelling",
+        "Video production"
+      ]
+    },
+    {
+      "title": "Phối hợp sản xuất & tư duy hình ảnh",
+      "items": ["Làm việc cùng designer / editor", "Nắm bố cục", "Tư duy hình ảnh cho social"]
+    },
+    {
+      "title": "Tổ chức sự kiện & truyền thông nội bộ",
+      "items": ["Sự kiện offline", "Sự kiện online", "Bản tin nội bộ"]
+    }
+  ],
+  "languages": [
+    { "name": "Tiếng Pháp", "level": "Thành thạo" },
+    { "name": "Tiếng Anh", "level": "Thành thạo" },
+    { "name": "Tiếng Trung", "level": "Giao tiếp cơ bản" }
+  ],
+  "tools": [
+    "Canva",
+    "CapCut",
+    "Google Sheets",
+    "Google Slides",
+    "Google Docs",
+    "ChatGPT",
+    "Gemini",
+    "Claude",
+    "Leonardo"
   ]
 }

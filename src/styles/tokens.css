@@ -44,3 +44,14 @@
   --section-y: clamp(4.5rem, 12vw, 10rem);
   --gap: clamp(1rem, 2.5vw, 2rem);
 }
+
+/* A full-width card carries the tilt into the side gutter on a narrow screen,
+   so the paper-cut angles halve below 600px rather than disappear. */
+@media (max-width: 599px) {
+  :root {
+    --tilt-1: -2deg;
+    --tilt-2: 1.5deg;
+    --tilt-3: -1deg;
+    --tilt-4: 3deg;
+  }
+}

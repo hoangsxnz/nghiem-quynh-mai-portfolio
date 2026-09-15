@@ -1,29 +1,25 @@
 ---
-import SectionHeader from '@components/ui/section-header.astro';
 import CtaButton from '@components/ui/cta-button.astro';
-import Sticker from '@components/ui/sticker.astro';
 import raw from '@data/contact.json';
 import type { ContactContent } from '@content-types/content';
 
 const contact = raw as ContactContent;
-
-/** A placeholder must never ship as a live href. */
-const isPlaceholder = (href: string | null) => !!href && href.startsWith('[PLACEHOLDER');
 ---
 
 <section id={contact.meta.id} class="section" aria-labelledby="contact-title" data-reveal-group>
   <div class="container">
-    <SectionHeader {...contact.meta} />
+    {/* The brief removes the visible section header; the heading stays for a11y. */}
+    <h2 id="contact-title" class="visually-hidden">{contact.meta.title}</h2>
+
     <p class="intro" data-reveal>{contact.intro}</p>
 
     <ul class="cards" data-reveal>
       {contact.cards.map((card, i) => (
         <li class="card" style={`--tilt: var(--tilt-${(i % 4) + 1})`}>
           <p class="meta">{card.label}</p>
-          {card.href && !isPlaceholder(card.href)
-            ? <a href={card.href}>{card.value}</a>
+          {card.href
+            ? <a href={card.href} target={card.href.startsWith('http') ? '_blank' : undefined} rel={card.href.startsWith('http') ? 'noopener noreferrer' : undefined}>{card.value}</a>
             : <p class="card__value">{card.value}</p>}
-          {isPlaceholder(card.href) && <Sticker label="chưa cập nhật" tone="maroon" tilt={2} />}
         </li>
       ))}
     </ul>
@@ -32,7 +28,7 @@ const isPlaceholder = (href: string | null) => !!href && href.startsWith('[PLACE
       <CtaButton href={contact.cta.href} label={contact.cta.label} />
     </div>
 
-    <p class="closing" data-reveal>{contact.closing}</p>
+    <p class="closing" data-closing>{contact.closing}</p>
   </div>
 </section>
 
@@ -46,10 +42,24 @@ const isPlaceholder = (href: string | null) => !!href && href.startsWith('[PLACE
     margin-top: var(--gap);
   }
 
+  /* Whole block centred, per the brief. */
+  .section > .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .intro {
+    max-width: 62ch;
+    font-size: 1.125rem;
+  }
+
   .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
     gap: var(--gap);
+    width: 100%;
     padding: 0;
     list-style: none;
   }
@@ -57,8 +67,9 @@ const isPlaceholder = (href: string | null) => !!href && href.startsWith('[PLACE
   .card {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: .4rem;
+    min-width: 0;
     padding: 1.25rem;
     background: var(--paper-2);
     border-radius: var(--radius);
@@ -80,15 +91,23 @@ const isPlaceholder = (href: string | null) => !!href && href.startsWith('[PLACE
     min-height: 44px;
   }
 
+  /* Matches the specificity of the section rhythm rule above so it can widen the gap. */
+  .section > .container > .closing {
+    margin-top: var(--section-y);
+  }
+
   .closing {
-    max-width: none;
+    max-width: 20ch;
     font-family: var(--font-display);
-    font-size: var(--fs-h3);
+    font-size: var(--fs-h2);
     color: var(--red);
+    line-height: var(--lh-display);
+    text-transform: uppercase;
   }
 
   .footer {
     padding-block: 2rem;
     border-top: 1px solid color-mix(in srgb, var(--maroon) 20%, transparent);
+    text-align: center;
   }
 </style>

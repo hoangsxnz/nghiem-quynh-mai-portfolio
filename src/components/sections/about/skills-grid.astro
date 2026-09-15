@@ -43,11 +43,28 @@ const { skillGroups, languages } = Astro.props;
     gap: 1rem;
   }
 
+  /* Four boxes on one row, as the brief asks; two at tablet, one on a phone. */
   .skills__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    grid-template-columns: 1fr;
     gap: var(--gap);
     margin-bottom: 1rem;
+  }
+
+  .skills__grid > * {
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .skills__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .skills__grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 
   .card {

@@ -2,37 +2,81 @@
   "meta": {
     "id": "ugc",
     "index": "06",
-    "title": "UGC",
-    "subtitle": "Để khách hàng kể chuyện thay thương hiệu."
+    "title": "Dự án UGC",
+    "subtitle": "Thử thách 30 ngày học cùng Pika — biến phụ huynh đang dùng sản phẩm thành người kể chuyện."
   },
-  "belief": "Một nội dung do khách hàng tự quay có sức thuyết phục mà không ngân sách quảng cáo nào mua được.",
-  "campaign": {
-    "name": "Món quà ẩn (Hidden Menu)",
-    "industry": "F&B",
-    "insight": "Khách mua \"nội dung\" để chia sẻ và quyết định trong 3 giây đầu; một món không có trên menu là cái cớ hoàn hảo để họ khoe.",
-    "mechanic": [
-      "Đặt một món không xuất hiện trên menu, chỉ gọi được bằng một câu mật khẩu.",
-      "Câu mật khẩu được hé lộ nhỏ giọt qua short-video trên TikTok/Reels.",
-      "Khách quay lại khoảnh khắc gọi món và nhận quà, gắn hashtag chiến dịch.",
-      "Nội dung khách quay được chọn lọc đăng lại trên kênh chính thức."
-    ],
-    "contentLadder": [
-      { "stage": "Seeding", "body": "Short-video hé lộ, tạo tò mò trước khi công bố." },
-      { "stage": "Kích hoạt", "body": "Hướng dẫn cách tham gia trong 15 giây, đủ đơn giản để nhớ." },
-      { "stage": "Khuếch đại", "body": "Đăng lại nội dung khách quay, gắn tên người tạo." }
-    ],
-    "measurement": [
-      "Số nội dung khách tự đăng",
-      "Tỷ lệ nội dung đủ chuẩn để đăng lại",
-      "Lượt tiếp cận từ nội dung khách so với nội dung thương hiệu"
-    ],
-    "results": "[PLACEHOLDER: kết quả thực tế của chiến dịch Hidden Menu nếu đã triển khai]",
-    "images": ["work-croissant-photo.png"],
-    "imageNote": "[PLACEHOLDER: ảnh/video UGC thật từ khách hàng]"
-  },
-  "guardrails": [
-    "Xin phép trước khi đăng lại nội dung của khách.",
-    "Luôn ghi nguồn người tạo nội dung.",
-    "Không chỉnh sửa nội dung khách tới mức sai lệch trải nghiệm thật."
-  ]
+  "intro": "Thay vì thuê người nổi tiếng nói về sản phẩm, chiến dịch chọn con đường chậm hơn: mời chính những phụ huynh đã mua và đang dùng Pika quay lại 30 ngày học của con. Việc của mình là dựng quy trình để 30 người không chuyên vẫn ra video đều, đúng thông điệp và đúng quy định nền tảng.",
+  "facts": [
+    {
+      "label": "Quy mô",
+      "value": "30 phụ huynh đã sử dụng sản phẩm trong cộng đồng Pika."
+    },
+    {
+      "label": "Sản phẩm",
+      "value": "Robot Pika — robot AI luyện nói tiếng Anh cho trẻ tiểu học."
+    },
+    {
+      "label": "Vai trò",
+      "value": "Vận hành chiến dịch và định hướng nội dung cho từng phụ huynh: xác định phong cách kênh, chia tuyến nội dung theo hoàn cảnh của từng gia đình, viết kịch bản mẫu và chỉnh lại kịch bản phụ huynh gửi về.",
+      "file": {
+        "label": "Định hướng nội dung",
+        "href": "https://docs.google.com/spreadsheets/d/1B2rwIDWs9PEFRkqQKJoB6H_MdslXSmtTfR5AZZgS7XM/edit",
+        "note": "Bản định hướng riêng cho một kênh: tuyến nội dung, kho ý tưởng và kịch bản mẫu trước - sau khi chỉnh (Google Sheets)"
+      }
+    },
+    {
+      "label": "Quy trình vận hành & tracking",
+      "value": "Sáu bước từ lúc phụ huynh đăng ký tới lúc ra video: lọc hồ sơ theo trình độ thực tế của con, gom nhóm Zalo, hai buổi họp trực tuyến phổ biến cơ chế và guideline quay dựng, rồi gửi bài học riêng mỗi ngày. Kết quả từng ngày được theo dõi trong cùng một file.",
+      "file": {
+        "label": "PIKA SUMMER CAMPAIGN",
+        "href": "https://docs.google.com/spreadsheets/d/1j7SrdHVVmnGFEq-l_3th_HTIkk9EtxTPYxtcNH4s5AI/edit",
+        "note": "File vận hành chiến dịch: concept, quy trình UGC, lộ trình học và bảng theo dõi theo ngày (Google Sheets)"
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "src": "pika-ugc-concept.png",
+      "alt": "Trích bảng concept chiến dịch UGC của Robot Pika",
+      "caption": "Sheet \"CONCEPT\": mục tiêu chiến dịch, key message, hai concept và ba content angle, kèm quy định tuân thủ nền tảng."
+    },
+    {
+      "src": "pika-ugc-workflow.png",
+      "alt": "Trích quy trình làm việc với phụ huynh trong chiến dịch UGC",
+      "caption": "Sheet \"Quy trình làm việc UGCs\": sáu bước từ ứng tuyển tới gửi bài học mỗi ngày, mỗi bước có mục tiêu riêng."
+    }
+  ],
+  "channels": [
+    {
+      "name": "Bố và Linda",
+      "platform": "TikTok",
+      "href": "https://www.tiktok.com/@bovalinda",
+      "image": {
+        "src": "ugc-channel-tt-01.png",
+        "alt": "Kênh TikTok Bố và Linda với loạt video học cùng Robot Pika",
+        "tilt": 2
+      }
+    },
+    {
+      "name": "con cá mùa hè",
+      "platform": "TikTok",
+      "href": "https://www.tiktok.com/@conca.muahe",
+      "image": {
+        "src": "ugc-channel-tt-02.png",
+        "alt": "Kênh TikTok con cá mùa hè",
+        "tilt": 3
+      }
+    },
+    {
+      "name": "Châu Châu — Reels",
+      "platform": "Facebook",
+      "href": "https://www.facebook.com/chau.chau.660751/reels/"
+    },
+    {
+      "name": "Trần Hiền — Reels",
+      "platform": "Facebook",
+      "href": "https://www.facebook.com/tranhien9996/reels/"
+    }
+  ],
+  "channelNote": "Hai kênh Facebook để dạng thẻ dẫn link vì Facebook yêu cầu đăng nhập trước khi xem trang cá nhân, nên không chụp được ảnh kênh."
 }

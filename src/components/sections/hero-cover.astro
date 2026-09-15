@@ -1,18 +1,21 @@
 ---
+import { Image } from 'astro:assets';
 import Sticker from '@components/ui/sticker.astro';
-import Stamp from '@components/ui/stamp.astro';
-import Polaroid from '@components/ui/polaroid.astro';
+import { image } from '@lib/image-map';
 import raw from '@data/hero.json';
 import type { HeroContent } from '@content-types/content';
 
 const hero = raw as HeroContent;
+const photo = image(hero.photo.src);
 ---
 
 <section id="hero" class="hero" aria-labelledby="hero-title" data-reveal-group>
   <div class="hero__inner container">
     <div class="hero__text">
-      <p class="hero__role meta" data-reveal>{hero.role}</p>
-      {/* Plain text only: the word-split in phase 6 reads textContent. */}
+      <p class="hero__role" data-reveal>{hero.role}</p>
+      {/* Decorative repeat of the site title — the accessible name is the h1 below. */}
+      <p class="hero__wordmark" aria-hidden="true" data-reveal>{hero.wordmark}</p>
+      {/* Plain text only: the word-split reads textContent. */}
       <h1 id="hero-title" data-split>{hero.name}</h1>
       <ul class="hero__tagline" data-reveal>
         {hero.tagline.map((t, i) => (
@@ -27,9 +30,18 @@ const hero = raw as HeroContent;
       </ul>
     </div>
 
-    <div class="hero__media" data-reveal>
-      <Polaroid {...hero.photo} width={520} priority parallax={0.1} />
-      <div class="hero__stamp"><Stamp text={hero.stamp} /></div>
+    <div class="hero__media" data-reveal data-parallax="0.1">
+      <Image
+        class="hero__cutout"
+        src={photo}
+        alt={hero.photo.alt}
+        width={420}
+        densities={[1, 1.5]}
+        format="webp"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
     </div>
   </div>
 
@@ -54,8 +66,8 @@ const hero = raw as HeroContent;
     flex: 1;
   }
 
-  /* Grid items default to min-width:auto, so the 520px polaroid would size the
-     track and push the page wider than the viewport. */
+  /* Grid items default to min-width:auto, so the portrait would size the track
+     and push the page wider than the viewport. */
   .hero__text,
   .hero__media {
     min-width: 0;
@@ -66,16 +78,31 @@ const hero = raw as HeroContent;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
+    gap: .75rem;
   }
 
   /* English role label, so uppercasing is safe here. */
   .hero__role {
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: 700;
+    color: var(--maroon);
     text-transform: uppercase;
-    letter-spacing: .08em;
+    letter-spacing: .12em;
+  }
+
+  .hero__wordmark {
+    max-width: none;
+    font-family: var(--font-display);
+    font-size: var(--fs-h1);
+    line-height: var(--lh-display);
+    color: var(--red);
+    letter-spacing: .02em;
   }
 
   h1 {
+    /* One step below the wordmark, which must stay the largest type on the page. */
+    font-size: var(--fs-h2);
     overflow-wrap: break-word;
     margin: 0;
   }
@@ -88,6 +115,10 @@ const hero = raw as HeroContent;
     margin: 0;
     padding: 0;
     list-style: none;
+  }
+
+  .hero__tagline {
+    margin-top: .25rem;
   }
 
   .hero__one-liner {
@@ -103,18 +134,15 @@ const hero = raw as HeroContent;
   }
 
   .hero__media {
-    position: relative;
     grid-column: 8 / 13;
     justify-self: end;
-    margin-top: clamp(2rem, 6vw, 5rem);
   }
 
-  .hero__stamp {
-    position: absolute;
-    right: -1.5rem;
-    bottom: 1rem;
-    background: var(--paper);
-    border-radius: 50%;
+  /* Cut-out portrait: shadow follows the silhouette, so no frame and no background. */
+  .hero__cutout {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 18px 24px rgba(26, 26, 26, .28));
   }
 
   .hero__cue {
@@ -131,21 +159,23 @@ const hero = raw as HeroContent;
     .hero__text,
     .hero__media {
       grid-column: 1;
-      justify-self: stretch;
-      margin-top: 0;
+      justify-self: center;
     }
 
     .hero__media {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-end;
-      gap: 1rem;
       margin-top: 1.5rem;
     }
 
-    .hero__stamp {
-      position: static;
-      background: none;
+    .hero__cutout {
+      width: min(260px, 70vw);
+    }
+  }
+
+  /* Keeps the cover close to a single phone screen instead of pushing the scroll
+     cue two viewports down. */
+  @media (max-width: 599px) {
+    .hero__cutout {
+      width: min(190px, 52vw);
     }
   }
 </style>

@@ -3,90 +3,66 @@
     "id": "strategy",
     "index": "03",
     "title": "Content Strategy",
-    "subtitle": "Từ nghiên cứu đến lịch đăng: một quy trình, năm mắt xích."
+    "subtitle": "Bảy mắt xích nối định hướng thương hiệu tới từng bài đăng, rồi vòng ngược lại bằng số liệu."
   },
-  "framework": [
-    {
-      "code": "S-Research",
-      "title": "Đọc vị thị trường",
-      "body": "Nghiên cứu thị trường, phân tích đối thủ, hiểu sâu hành vi người dùng."
-    },
-    {
-      "code": "S-Story",
-      "title": "Kể chuyện có bản sắc",
-      "body": "Xây dựng kịch bản độc đáo, narrative hấp dẫn, phù hợp brand voice."
-    },
-    {
-      "code": "S-Solution",
-      "title": "Giải bài toán thương mại",
-      "body": "Tối ưu hóa chuyển đổi, tăng tương tác, đo lường hiệu quả chiến dịch."
-    }
-  ],
-  "workflow": [
+  "intro": "Chiến lược nội dung cho fanpage Robot Pika được viết thành một chuỗi khép kín, mỗi mắt xích là một sheet trong cùng một file. Mục tiêu là bất kỳ ai nhận bàn giao cũng biết bài hôm nay thuộc trụ cột nào, phục vụ tầng phễu nào, và đo bằng chỉ số gì.",
+  "chain": [
     {
       "step": "Direction",
       "vi": "Định hướng",
-      "body": "Xác định mục tiêu kênh, chân dung khán giả mục tiêu và thông điệp lõi trước khi viết dòng đầu tiên."
+      "body": "Chốt mục tiêu theo từng tầng: nhận biết, tương tác, thu lead, niềm tin và giữ chân cộng đồng. Kèm theo là định vị, tone of voice và danh sách những cách viết không được dùng."
     },
     {
       "step": "Plan",
       "vi": "Kế hoạch",
-      "body": "Xây dựng 4+ tuyến nội dung chính cho mỗi kênh và đề xuất ý tưởng theo tuần."
-    },
-    {
-      "step": "Calendar",
-      "vi": "Lịch nội dung",
-      "body": "Lịch sản xuất 3-4 video/tuần, bám sát tiến độ quay dựng và thời điểm đăng.",
-      "image": "sheet-content-plan.png"
+      "body": "Quy đổi định hướng thành khối lượng cụ thể: 90 bài/tháng trên fanpage, ba slot cố định mỗi ngày, tỷ lệ 70% giá trị và thương hiệu - 20% cộng đồng và niềm tin - 10% giải trí."
     },
     {
       "step": "Pillar",
-      "vi": "Trụ nội dung",
-      "body": "Phân loại nội dung theo mục tiêu và hành trình khách hàng.",
-      "image": "work-content-pyramid-post.png"
+      "vi": "Trụ cột",
+      "body": "11 trụ cột nội dung, từ Solution Awareness và Product Education tới UGC, Testimonial và Community Highlights. Mỗi trụ cột có mục tiêu riêng và tần suất riêng nên không trụ cột nào lấn chỗ trụ cột khác."
     },
     {
       "step": "Angle",
       "vi": "Góc tiếp cận",
-      "body": "Mỗi trụ nội dung được khai thác bằng nhiều góc nhìn khác nhau để tránh lặp và giữ chân người xem.",
-      "image": "work-content-ideas-sheet.png"
+      "body": "Mỗi trụ cột được mở ra nhiều góc nhìn khác nhau — công dụng, tính năng, thiết kế, câu chuyện hậu trường, so sánh chi phí — để cùng một chủ đề không lặp lại cách kể sau vài tuần."
+    },
+    {
+      "step": "Calendar",
+      "vi": "Lịch đăng",
+      "body": "Lịch chi tiết theo ngày và khung giờ, ghi rõ định dạng, trụ cột, tầng phễu, góc tiếp cận, chủ đề và trạng thái. Khung giờ bám theo lúc phụ huynh online nhiều nhất trong ngày."
+    },
+    {
+      "step": "KPI",
+      "vi": "Chỉ số",
+      "body": "Mỗi tầng phễu gắn với chỉ số riêng: reach và follower cho nhận biết, engagement rate và watch time cho tương tác, số inbox organic cho chuyển đổi, số bài và tỷ lệ đúng lịch cho vận hành."
+    },
+    {
+      "step": "Đo lường",
+      "vi": "Đọc số & điều chỉnh",
+      "body": "Ghi nhận theo tuần rồi đối chiếu mục tiêu tháng bằng cờ đỏ - cờ xanh. Cuối kỳ chốt highlight, lowlight, bài học và bước tiếp theo để đưa thẳng vào kế hoạch tháng sau."
     }
   ],
-  "caseStudy": {
-    "title": "Tối ưu tăng trưởng kênh Video",
-    "challenge": "Tăng trưởng trong thị trường video đã bão hòa, cạnh tranh cực cao.",
-    "solutions": [
-      {
-        "title": "Giải mã khán giả",
-        "body": "Đào sâu insight Target Audience để tìm \"điểm chạm\" mới."
-      },
-      {
-        "title": "Storytelling hóa kịch bản",
-        "body": "Bắt trend nhưng giữ bản sắc thương hiệu."
-      },
-      {
-        "title": "Tối ưu Pacing",
-        "body": "Phối hợp hậu kỳ tinh chỉnh nhịp video."
-      }
-    ],
-    "metrics": [
-      { "value": "+200%", "label": "Reach", "note": "trong 3 tháng" },
-      { "value": "+35%", "label": "Retention", "note": "nhờ tối ưu cấu trúc kịch bản" }
-    ],
-    "gallery": [
-      {
-        "src": "chart-views-gained.png",
-        "alt": "Biểu đồ lượt xem tăng dần theo tháng của kênh video",
-        "tilt": 1,
-        "width": 720
-      },
-      {
-        "src": "chart-subscribers-gained.png",
-        "alt": "Biểu đồ người đăng ký mới theo tháng của kênh video",
-        "tilt": 2,
-        "width": 720
-      }
-    ],
-    "disclaimer": "[PLACEHOLDER: xác nhận với chủ sở hữu kênh trước khi công bố số liệu và ảnh chụp màn hình]"
+  "evidence": [
+    {
+      "src": "pika-strategy-pillar.png",
+      "alt": "Trích bảng 11 trụ cột nội dung của fanpage Robot Pika",
+      "caption": "Sheet \"Content Pillar & Angle\": 11 trụ cột, mỗi trụ cột có mục tiêu, định hướng và tần suất riêng."
+    },
+    {
+      "src": "pika-strategy-calendar.png",
+      "alt": "Trích lịch đăng chi tiết của fanpage Robot Pika",
+      "caption": "Sheet \"Lịch chi tiết\": mỗi dòng là một bài, ghi rõ giờ đăng, trụ cột, tầng phễu, góc tiếp cận và chủ đề."
+    },
+    {
+      "src": "pika-strategy-kpi.png",
+      "alt": "Trích bảng theo dõi KPI của fanpage Robot Pika",
+      "caption": "Sheet \"KPI & Tracking\": khung chỉ số theo tầng phễu, theo dõi theo tuần và tổng kết cuối tháng."
+    }
+  ],
+  "file": {
+    "label": "Robot Pika — Fanpage Facebook",
+    "href": "https://docs.google.com/spreadsheets/d/1no-kfxe7MaY6RW4piu1TUKlHzQ3Uipak7a5wQ0gWgVU/edit",
+    "note": "File chiến lược nội dung: định hướng, trụ cột, lịch đăng và KPI (Google Sheets)"
   }
 }

@@ -1,0 +1,67 @@
+---
+import Stamp from '@components/ui/stamp.astro';
+import type { StrategyStep } from '@content-types/content';
+
+interface Props {
+  chain: StrategyStep[];
+}
+
+const { chain } = Astro.props;
+const pad = (n: number) => String(n + 1).padStart(2, '0');
+---
+
+<ol class="chain" data-reveal-group>
+  {chain.map((link, i) => (
+    <li class="link" style={`--tilt: var(--tilt-${(i % 4) + 1})`} data-reveal>
+      <Stamp text={pad(i)} size="sm" />
+      <h3>{link.step}</h3>
+      <p class="meta">{link.vi}</p>
+      <p>{link.body}</p>
+    </li>
+  ))}
+</ol>
+
+<style>
+  .chain {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    gap: var(--gap);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: none;
+  }
+
+  .link {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .45rem;
+    min-width: 0;
+    padding: 1.25rem;
+    background: var(--paper);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    rotate: var(--tilt);
+    transition: rotate 300ms ease-out, box-shadow 300ms ease-out;
+  }
+
+  .link:hover {
+    rotate: 0deg;
+    box-shadow: var(--shadow-lg);
+  }
+
+  h3 {
+    margin-top: .35rem;
+    font-family: var(--font-display);
+    font-size: var(--fs-h3);
+    font-weight: 400;
+    color: var(--red);
+    line-height: var(--lh-display);
+    text-transform: uppercase;
+  }
+
+  .link p:last-child {
+    margin-top: .35rem;
+  }
+</style>

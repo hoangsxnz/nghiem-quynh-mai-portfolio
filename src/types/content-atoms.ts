@@ -19,12 +19,8 @@ export interface Picture {
   tilt?: 1 | 2 | 3 | 4;
   /** Overrides the polaroid default width; charts use 720. */
   width?: number;
-}
-
-export interface Metric {
-  value: string;
-  label: string;
-  note?: string;
+  /** Offsets one polaroid against the other in the About Me stack. */
+  offset?: 'left' | 'right';
 }
 
 export interface SectionMeta {
@@ -57,9 +53,11 @@ export interface NavContent {
 export interface HeroContent {
   name: string;
   role: string;
+  /** Set above the name, the largest type on the page. */
+  wordmark: string;
   tagline: string[];
   oneLiner: string;
-  stamp: string;
+  /** Cut-out PNG with a drop shadow — no polaroid frame on the cover. */
   photo: Picture;
   scrollCue: string;
   quickLinks: Link[];

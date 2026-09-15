@@ -1,8 +1,9 @@
 ---
 import SectionHeader from '@components/ui/section-header.astro';
 import Polaroid from '@components/ui/polaroid.astro';
-import CaseStudy from '@components/sections/strategy/case-study.astro';
-import WorksWall from '@components/sections/social/works-wall.astro';
+import FileLink from '@components/ui/file-link.astro';
+import ChannelCard from '@components/sections/social/channel-card.astro';
+import EvidenceCard from '@components/sections/pika/evidence-card.astro';
 import raw from '@data/social.json';
 import type { SocialContent } from '@content-types/content';
 
@@ -13,82 +14,137 @@ const social = raw as SocialContent;
   <div class="container">
     <SectionHeader {...social.meta} />
 
-    <ul class="formats">
-      {social.formats.map((f, i) => (
-        <li class="format" data-reveal>
-          <h3>{f.kind} <span class="meta">{f.vi}</span></h3>
-          <p>{f.body}</p>
-          {f.images.length > 0 ? (
-            <div class="format__images">
-              {f.images.map((src, j) => (
-                <Polaroid
-                  src={src}
-                  alt={`Sản phẩm ${f.vi.toLowerCase()} của Nghiêm Quỳnh Mai`}
-                  width={240}
-                  tilt={(((i + j) % 4) + 1) as 1 | 2 | 3 | 4}
-                />
+    <div class="channel" data-reveal>
+      <ChannelCard
+        name={social.channel.name}
+        meta="Kênh phụ trách"
+        href={social.channel.href}
+        note={social.channel.handle}
+        tilt={2}
+      />
+      <p>{social.channel.note}</p>
+    </div>
+
+    {social.blocks.map((block, i) => (
+      <article class:list={['block', i % 2 === 1 && 'block--mirror']} data-reveal-group>
+        <div class="block__text">
+          <h3 data-reveal>{block.title}</h3>
+          <p data-reveal>{block.body}</p>
+          {block.links && (
+            <ul class="block__links" data-reveal>
+              {block.links.map(({ label, href }) => (
+                <li>
+                  <a href={href} target="_blank" rel="noopener noreferrer">
+                    {label}<span class="visually-hidden"> (mở tab mới)</span>
+                  </a>
+                </li>
               ))}
-            </div>
-          ) : (
-            f.fallback && <p class="format__fallback">{f.fallback}</p>
+            </ul>
           )}
-        </li>
-      ))}
-    </ul>
+        </div>
 
-    <CaseStudy {...social.community} />
+        <div class="block__media">
+          {block.images.map((img) => (
+            <div data-reveal><Polaroid {...img} /></div>
+          ))}
+        </div>
+      </article>
+    ))}
 
-    <WorksWall {...social.works} />
+    <article class="stats" data-reveal-group>
+      <h3 data-reveal>Hiệu suất kênh</h3>
+      <EvidenceCard evidence={social.stats} tilt={3} />
+      <p class="stats__note meta" data-reveal>{social.statsNote}</p>
+    </article>
+
+    <article class="community" data-reveal-group>
+      <h3 data-reveal>{social.community.title}</h3>
+      <p data-reveal>{social.community.body}</p>
+      <EvidenceCard evidence={social.community.evidence} tilt={2} />
+      <div data-reveal><FileLink {...social.community.file} /></div>
+    </article>
   </div>
 </section>
 
 <style>
-  .formats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  .channel {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     gap: var(--gap);
-    padding: 0;
-    list-style: none;
   }
 
-  .format {
+  .channel > :global(.channel) {
+    flex: 1 1 18rem;
+  }
+
+  .channel > p {
+    flex: 1 1 20rem;
+  }
+
+  .block {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    align-items: center;
+    gap: var(--gap);
+  }
+
+  .block--mirror .block__text {
+    order: 2;
+  }
+
+  .block__text {
     display: flex;
     flex-direction: column;
     gap: .75rem;
     min-width: 0;
   }
 
-  .format h3 {
+  .block__links {
     display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: .6rem;
-    font-size: var(--fs-h3);
+    flex-direction: column;
+    gap: .25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
 
-  /* Vietnamese gloss stays sentence case beside the English format name. */
-  .format h3 .meta {
-    font-family: var(--font-body);
-    font-weight: 400;
-    text-transform: none;
+  .block__links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-weight: 600;
+    color: var(--red);
   }
 
-  .format__images {
+  .block__media {
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: var(--gap);
+    min-width: 0;
+  }
+
+  .stats,
+  .community {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     gap: var(--gap);
   }
 
-  /* No imagery for the video format; the CV's own count carries the tile. */
-  .format__fallback {
-    display: grid;
-    place-items: center;
-    padding: 2.5rem 1rem;
-    border: 2px dashed var(--red);
-    border-radius: var(--radius);
-    font-family: var(--font-display);
-    font-size: var(--fs-h3);
-    color: var(--red);
-    text-align: center;
+  .stats__note {
+    max-width: 68ch;
+  }
+
+  @media (max-width: 899px) {
+    .block {
+      grid-template-columns: 1fr;
+    }
+
+    .block--mirror .block__text {
+      order: 0;
+    }
   }
 </style>

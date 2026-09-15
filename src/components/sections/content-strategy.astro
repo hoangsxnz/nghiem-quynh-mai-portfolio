@@ -1,8 +1,8 @@
 ---
 import SectionHeader from '@components/ui/section-header.astro';
-import Framework3s from '@components/sections/strategy/framework-3s.astro';
-import WorkflowBlocks from '@components/sections/strategy/workflow-blocks.astro';
-import CaseStudy from '@components/sections/strategy/case-study.astro';
+import FileLink from '@components/ui/file-link.astro';
+import ChainSteps from '@components/sections/strategy/chain-steps.astro';
+import EvidenceCard from '@components/sections/pika/evidence-card.astro';
 import raw from '@data/strategy.json';
 import type { StrategyContent } from '@content-types/content';
 
@@ -12,9 +12,32 @@ const strategy = raw as StrategyContent;
 <section id={strategy.meta.id} class="section section--alt" aria-labelledby="strategy-title" data-reveal-group>
   <div class="container">
     <SectionHeader {...strategy.meta} />
-    <Framework3s framework={strategy.framework} />
-    <WorkflowBlocks workflow={strategy.workflow} />
-    <CaseStudy {...strategy.caseStudy} />
+
+    <p class="intro" data-reveal>{strategy.intro}</p>
+
+    <ChainSteps chain={strategy.chain} />
+
+    <div class="evidence" data-reveal-group>
+      {strategy.evidence.map((e, i) => (
+        <EvidenceCard evidence={e} tilt={(i % 2 === 0 ? 3 : 2) as 2 | 3} />
+      ))}
+    </div>
+
+    <div data-reveal>
+      <FileLink {...strategy.file} />
+    </div>
   </div>
 </section>
 
+<style>
+  .intro {
+    max-width: 68ch;
+    font-size: 1.125rem;
+  }
+
+  .evidence {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
+  }
+</style>

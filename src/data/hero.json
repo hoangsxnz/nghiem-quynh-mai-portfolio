@@ -1,13 +1,12 @@
 {
   "name": "Nghiêm Quỳnh Mai",
   "role": "Content Marketing Executive",
+  "wordmark": "PORTFOLIO",
   "tagline": ["Content Creation", "Strategic Thinking", "Human Connection"],
-  "oneLiner": "Lan tỏa giá trị thực qua những câu chuyện sáng tạo và tư duy chiến lược.",
-  "stamp": "OPEN TO WORK",
+  "oneLiner": "Viết đúng insight, chạm đúng thời điểm. Tối ưu từng thông điệp để mang lại giá trị thực tế từ mỗi điểm chạm nội dung.",
   "photo": {
-    "src": "photo-mai-cafe.png",
-    "alt": "Nghiêm Quỳnh Mai ngồi làm việc tại quán cà phê",
-    "tilt": 2
+    "src": "photo-mai-cutout.png",
+    "alt": "Chân dung Nghiêm Quỳnh Mai"
   },
   "quickLinks": [
     { "label": "quynhmainghiem340@gmail.com", "href": "mailto:quynhmainghiem340@gmail.com" },

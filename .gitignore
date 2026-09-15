@@ -17,3 +17,6 @@ plans/**/qa/*.report.json
 
 # playwright MCP scratch
 .playwright-mcp/
+
+# owner-supplied source material (contains personal data)
+assets-inbox/

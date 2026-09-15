@@ -1,0 +1,61 @@
+---
+import { Image } from 'astro:assets';
+import { image } from '@lib/image-map';
+import type { Evidence } from '@content-types/content';
+
+interface Props {
+  evidence: Evidence;
+  tilt?: 1 | 2 | 3 | 4;
+}
+
+const { evidence, tilt = 3 } = Astro.props;
+const meta = image(evidence.src);
+// Never upscale a screenshot: a 300px phone capture blown up to 760 turns to mush.
+const width = Math.min(evidence.width ?? 760, meta.width);
+---
+
+<figure class="evidence" style={`--tilt: var(--tilt-${tilt})`} data-reveal>
+  <Image
+    src={meta}
+    alt={evidence.alt}
+    width={width}
+    densities={meta.width >= width * 2 ? [1, 2] : [1]}
+    format="webp"
+    loading="lazy"
+    decoding="async"
+  />
+  <figcaption>{evidence.caption}</figcaption>
+</figure>
+
+<style>
+  .evidence {
+    width: fit-content;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 10px 10px 0;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    rotate: var(--tilt);
+    transition: rotate 300ms ease-out, box-shadow 300ms ease-out;
+  }
+
+  .evidence:hover {
+    rotate: 0deg;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .evidence :global(img) {
+    border: 1px solid color-mix(in srgb, var(--maroon) 15%, transparent);
+    border-radius: 2px;
+  }
+
+  figcaption {
+    max-width: 48ch;
+    padding: .75rem .25rem 1rem;
+    font-size: var(--fs-meta);
+    color: var(--muted);
+    line-height: 1.5;
+  }
+</style>

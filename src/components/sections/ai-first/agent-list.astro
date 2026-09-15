@@ -1,0 +1,63 @@
+---
+import type { AiFirstContent } from '@content-types/content';
+
+interface Props {
+  agents: AiFirstContent['agents'];
+}
+
+const { agents } = Astro.props;
+---
+
+<article class="agents" data-reveal-group>
+  <h3 data-reveal>{agents.title}</h3>
+  <p data-reveal>{agents.body}</p>
+  <ul class="agents__grid">
+    {agents.items.map((agent) => (
+      <li data-reveal>
+        <code>{agent.name}</code>
+        <span>{agent.note}</span>
+      </li>
+    ))}
+  </ul>
+</article>
+
+<style>
+  .agents {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .agents__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    gap: .75rem;
+    margin: .5rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .agents__grid > li {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    min-width: 0;
+    padding: .85rem 1rem;
+    background: var(--paper);
+    border-left: 3px solid var(--red);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+
+  code {
+    font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+    font-size: 0.9375rem;
+    color: var(--red);
+    overflow-wrap: anywhere;
+  }
+
+  span {
+    font-size: var(--fs-meta);
+    color: var(--muted);
+  }
+</style>

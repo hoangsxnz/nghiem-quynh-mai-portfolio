@@ -1,0 +1,56 @@
+---
+import Polaroid from '@components/ui/polaroid.astro';
+import type { Picture } from '@content-types/content';
+
+interface Props {
+  portraits: Picture[];
+}
+
+const { portraits } = Astro.props;
+---
+
+<div class="stack" data-reveal-group>
+  {portraits.map((p) => (
+    <div class:list={['stack__item', `stack__item--${p.offset ?? 'left'}`]} data-reveal>
+      <Polaroid src={p.src} alt={p.alt} tilt={p.tilt} width={340} />
+    </div>
+  ))}
+</div>
+
+<style>
+  .stack {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* The offsets are a percentage of the frame, so they shrink with the column and
+     never push the page sideways. */
+  .stack__item--right {
+    align-self: flex-end;
+    translate: min(8%, 2rem) 0;
+  }
+
+  /* Negative margin, not a negative gap: the lower frame tucks under the upper one. */
+  .stack__item--left {
+    align-self: flex-start;
+    translate: min(-4%, -1rem) 0;
+    margin-top: -2rem;
+  }
+
+  @media (max-width: 599px) {
+    .stack {
+      gap: .75rem;
+    }
+
+    .stack__item--right,
+    .stack__item--left {
+      align-self: center;
+      translate: none;
+      margin-top: 0;
+    }
+
+    .stack__item--left {
+      margin-top: .75rem;
+    }
+  }
+</style>

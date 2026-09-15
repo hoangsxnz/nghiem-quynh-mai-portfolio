@@ -1,12 +1,31 @@
-import type { Metric, Picture, SectionMeta, Link } from '@content-types/content-atoms';
+import type { Picture, SectionMeta, Link } from '@content-types/content-atoms';
 
-/* ---------- Phase 3 sections ---------- */
+/* ---------- Shared atoms for the Pika project group ---------- */
 
-export interface Era {
-  range: string;
-  title: string;
-  body: string;
+/** label + one-line note; used for pillars and value props. */
+export interface LabelledNote {
+  label: string;
+  note: string;
 }
+
+/** A button that opens one of the source Google files. */
+export interface FileLink {
+  label: string;
+  href: string;
+  /** Short line telling the reader what they will see after clicking. */
+  note: string;
+}
+
+/** Screenshot of a real artefact plus the caption that names what it shows. */
+export interface Evidence {
+  src: string;
+  alt: string;
+  caption: string;
+  /** Rendered width; sheet extracts ask for 760, phone screenshots for 300. */
+  width?: number;
+}
+
+/* ---------- About & cover ---------- */
 
 export interface Job {
   period: string;
@@ -29,146 +48,118 @@ export interface EducationEntry {
 
 export interface AboutContent {
   meta: SectionMeta;
-  portrait: Picture;
-  bio: string[];
-  objective: { title: string; body: string };
+  /** Two stacked polaroids, left column of the lead block. */
+  portraits: Picture[];
+  objective: { title: string; body: string[] };
   quote: string;
-  touchpoints: { label: string; note: string }[];
-  eras: Era[];
   experience: Job[];
+  education: EducationEntry[];
   skillGroups: SkillGroup[];
   languages: { name: string; level: string }[];
   tools: string[];
-  education: EducationEntry[];
+}
+
+/* ---------- Pika: Branding, Strategy, Ads ---------- */
+
+export interface BrandingContent {
+  meta: SectionMeta;
+  statement: string;
+  positioning: LabelledNote[];
+  brandVoice: LabelledNote[];
+  evidence: Evidence[];
+  file: FileLink;
+}
+
+/** One link in the Direction → Plan → Pillar → Angle → Calendar → KPI → Đo lường chain. */
+export interface StrategyStep {
+  step: string;
+  vi: string;
+  body: string;
+}
+
+export interface StrategyContent {
+  meta: SectionMeta;
+  intro: string;
+  chain: StrategyStep[];
+  evidence: Evidence[];
+  file: FileLink;
+}
+
+export interface AdsContent {
+  meta: SectionMeta;
+  intro: string;
+  approach: LabelledNote[];
+  evidence: Evidence[];
+  file: FileLink;
+}
+
+/* ---------- Pika: Social & Community ---------- */
+
+export interface SocialBlock {
+  title: string;
+  body: string;
+  images: Picture[];
+  links?: Link[];
+}
+
+export interface SocialContent {
+  meta: SectionMeta;
+  channel: { name: string; handle: string; href: string; note: string };
+  blocks: SocialBlock[];
+  stats: Evidence;
+  statsNote: string;
+  community: { title: string; body: string; evidence: Evidence; file: FileLink };
+}
+
+/* ---------- Pika: UGC ---------- */
+
+export interface UgcFact {
+  label: string;
+  value: string;
+  file?: FileLink;
+}
+
+export interface UgcChannel {
+  name: string;
+  platform: 'Facebook' | 'TikTok';
+  href: string;
+  /** Omitted when the platform blocks an automated capture; the card degrades to a link. */
+  image?: Picture;
+}
+
+export interface UgcContent {
+  meta: SectionMeta;
+  intro: string;
+  facts: UgcFact[];
+  evidence: Evidence[];
+  channels: UgcChannel[];
+  channelNote: string;
+}
+
+/* ---------- AI First & Contact ---------- */
+
+export interface AiFirstContent {
+  meta: SectionMeta;
+  tools: { name: string; use: string }[];
+  workflow: { stage: string; human: string; ai: string }[];
+  agents: { title: string; body: string; items: { name: string; note: string }[] };
+  boundary: string;
 }
 
 export interface ContactCard {
   kind: 'email' | 'phone' | 'location' | 'linkedin';
   label: string;
   value: string;
-  /** `null` renders as plain text; a `[PLACEHOLDER` value renders as text + a visible flag. */
+  /** `null` renders as plain text instead of a link. */
   href: string | null;
 }
 
 export interface ContactContent {
-  meta: SectionMeta;
+  /** No section header here, so only the anchor id and the screen-reader title. */
+  meta: { id: string; title: string };
   intro: string;
   cards: ContactCard[];
   cta: Link;
   closing: string;
   footer: string;
-}
-
-/* ---------- Phase 4 sections ---------- */
-
-/** label + one-line note; used for pillars, value props and touchpoints. */
-export interface LabelledNote {
-  label: string;
-  note: string;
-}
-
-export interface Industry {
-  name: string;
-  headline: string;
-  insight: string;
-  execution: string;
-  tagline: string;
-  /** Filename, or a `[PLACEHOLDER: ...]` string when no imagery exists yet. */
-  image: string;
-}
-
-export interface BrandingContent {
-  meta: SectionMeta;
-  statement: string;
-  pillars: LabelledNote[];
-  industries: Industry[];
-  valueProps: LabelledNote[];
-  brandVoice: string;
-  positioningProof: string;
-}
-
-export interface CaseStudy {
-  title: string;
-  challenge: string;
-  solutions: { title: string; body: string }[];
-  metrics: Metric[];
-  gallery: Picture[];
-  disclaimer?: string;
-}
-
-export interface WorkflowBlock {
-  step: string;
-  vi: string;
-  body: string;
-  image?: string;
-}
-
-export interface StrategyContent {
-  meta: SectionMeta;
-  framework: { code: string; title: string; body: string }[];
-  workflow: WorkflowBlock[];
-  caseStudy: CaseStudy;
-}
-
-export interface SeoContent {
-  meta: SectionMeta;
-  approach: { step: string; body: string }[];
-  checklist: string[];
-  example: {
-    title: string;
-    note: string;
-    image: string;
-    url: string;
-    metrics: string;
-  };
-  secondExample: { title: string; image: string };
-}
-
-/* ---------- Phase 5 sections ---------- */
-
-export interface SocialFormat {
-  kind: string;
-  vi: string;
-  body: string;
-  images: string[];
-  /** Shown instead of images when `images` is empty. CV-sourced counts only. */
-  fallback?: string;
-}
-
-export interface SocialContent {
-  meta: SectionMeta;
-  formats: SocialFormat[];
-  community: CaseStudy;
-  works: {
-    title: string;
-    items: Picture[];
-    note: string;
-  };
-}
-
-export interface UgcContent {
-  meta: SectionMeta;
-  belief: string;
-  campaign: {
-    name: string;
-    industry: string;
-    insight: string;
-    mechanic: string[];
-    contentLadder: { stage: string; body: string }[];
-    /** Metric names only — never values. That is the line between method and claim. */
-    measurement: string[];
-    results: string;
-    images: string[];
-    imageNote: string;
-  };
-  guardrails: string[];
-}
-
-export interface AiFirstContent {
-  meta: SectionMeta;
-  tools: { name: string; use: string }[];
-  workflow: { stage: string; human: string; ai: string }[];
-  agent: { title: string; body: string; status: string };
-  boundary: string;
-  speedClaim: string;
 }

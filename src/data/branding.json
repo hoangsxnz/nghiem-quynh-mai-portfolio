@@ -3,63 +3,56 @@
     "id": "branding",
     "index": "02",
     "title": "Branding & Positioning",
-    "subtitle": "Định vị thương hiệu bằng nghiên cứu, kể lại bằng câu chuyện."
+    "subtitle": "Chốt thương hiệu nói với ai, nói bằng giọng nào, trước khi viết bài đầu tiên."
   },
-  "statement": "Nghiên cứu sâu - Tư duy rộng - Thực thi chuẩn xác: mỗi thương hiệu cần một chỗ đứng riêng trước khi cần một nội dung hay.",
-  "pillars": [
+  "statement": "Robot Pika là robot AI luyện nói tiếng Anh do Step Up Education phát triển tại Việt Nam. Trước khi lên nội dung, mình dựng hồ sơ thương hiệu và hồ sơ khách hàng trong một file chung: sứ mệnh, giá trị, cá tính, giọng nói, chân dung người mua và người dùng, cùng bản đồ đối thủ. Toàn bộ định hướng nội dung sau đó đều quy chiếu về file này.",
+  "positioning": [
     {
-      "label": "S-Research",
-      "note": "Nghiên cứu thị trường, phân tích đối thủ, hiểu sâu hành vi người dùng."
+      "label": "Người mua ≠ người dùng",
+      "note": "Người mua là phụ huynh 30-40 tuổi ở đô thị lớn, bận rộn và đã quen đọc review trước khi quyết. Người dùng là trẻ 6-12 tuổi. Mỗi bài viết phải chọn rõ đang nói với ai."
     },
     {
-      "label": "S-Story",
-      "note": "Xây dựng kịch bản độc đáo, narrative hấp dẫn, phù hợp brand voice."
+      "label": "Nỗi đau thật",
+      "note": "Bố mẹ không tự tin phát âm nên ngại dạy con; con học ngữ pháp nhiều nhưng ngại mở miệng; màn hình chiếm hết thời gian rảnh của con."
     },
     {
-      "label": "S-Solution",
-      "note": "Tối ưu hóa chuyển đổi, tăng tương tác, đo lường hiệu quả chiến dịch."
+      "label": "Vị thế",
+      "note": "Tiên phong trong ngách robot AI luyện nói tiếng Anh cho học sinh tiểu học Việt Nam — nằm giữa gia sư 1-1 và ứng dụng học tiếng Anh."
+    },
+    {
+      "label": "Lời hứa thương hiệu",
+      "note": "Cùng con tạo thói quen nói tiếng Anh 15 phút mỗi ngày một cách tự nguyện, biến kiến thức thành kỹ năng giao tiếp thực chất."
     }
   ],
-  "industries": [
+  "brandVoice": [
     {
-      "name": "F&B",
-      "headline": "Chạm vị giác từ cái nhìn đầu tiên.",
-      "insight": "Khách mua \"nội dung\" để chia sẻ, quyết định trong 3 giây đầu.",
-      "execution": "Chuỗi short-video TikTok/Reels nhịp nhanh, ASMR, màu rực. Chiến lược campaign \"Món quà ẩn\" (Hidden Menu) kích UGC.",
-      "tagline": "Gói trọn hương vị vào khung hình - Khơi nguồn trải nghiệm, chạm niềm tin.",
-      "image": "work-croissant-photo.png"
+      "label": "Với phụ huynh",
+      "note": "Thấu hiểu, đáng tin cậy, đồng cảm với nỗi vất vả khi vừa đi làm vừa kèm con học."
     },
     {
-      "name": "B2B",
-      "headline": "Xây dựng vị thế chuyên gia dẫn dắt thị trường.",
-      "insight": "Decision Makers tìm giải pháp và sự tin cậy, không tìm quảng cáo.",
-      "execution": "Whitepaper, E-book, chuỗi bài LinkedIn. Chuyển dữ liệu thành infographic và case study, hướng tới Brand Authority cùng lead chất lượng.",
-      "tagline": "Dữ liệu sắc bén, kiến tạo tầm nhìn - Chuyên gia dẫn lối, đối tác trọn tin.",
-      "image": "work-business-brochure.png"
+      "label": "Với trẻ",
+      "note": "Vui vẻ, năng lượng, thân thiện, bắt trend và biết khích lệ đúng lúc."
     },
     {
-      "name": "Beauty",
-      "headline": "Trải nghiệm ảo, cam kết thật.",
-      "insight": "Khách tin khuôn mặt mình hơn ảnh mẫu; cần \"thử\" trước khi \"tin\".",
-      "execution": "Chuỗi video \"Skincare Journey\", quy chuẩn Filter AR Try-on trên Instagram/TikTok kèm hướng dẫn từ chuyên gia.",
-      "tagline": "Trải nghiệm ảo, cam kết thật - Từ thử nghiệm đến tin tưởng.",
-      "image": "[PLACEHOLDER: ảnh minh họa ngành Beauty]"
+      "label": "Không làm",
+      "note": "Không dùng ngôn ngữ agency kiểu \"nâng tầm\", \"tối ưu hoá\"; không cam kết tuyệt đối; không hù doạ phụ huynh để bán hàng."
     }
   ],
-  "valueProps": [
+  "evidence": [
     {
-      "label": "Đa nhiệm đa dạng",
-      "note": "Content Marketing & truyền thông nội bộ, sáng tạo và quy chuẩn, chiến lược và thực thi."
+      "src": "pika-branding-brand.png",
+      "alt": "Trích bảng nghiên cứu thương hiệu Robot Pika",
+      "caption": "Sheet \"Thương hiệu\": sứ mệnh, slogan, cá tính, giọng nói và lời hứa thương hiệu — phần khung định hướng mọi bài viết sau đó."
     },
     {
-      "label": "Tư duy ngôn ngữ",
-      "note": "Pháp - Anh - Trung, mở rộng cơ hội quốc tế và đa văn hóa."
-    },
-    {
-      "label": "Tối ưu hiệu suất đa kênh",
-      "note": "Làm chủ hệ sinh thái AI và phần mềm sáng tạo để xử lý khối lượng lớn, đa định dạng, đúng tiến độ."
+      "src": "pika-branding-customer.png",
+      "alt": "Trích bảng nghiên cứu khách hàng Robot Pika",
+      "caption": "Sheet \"Khách hàng\": tách bạch người mua và người dùng, kèm địa bàn, quan niệm sống và thói quen tiêu thụ nội dung."
     }
   ],
-  "brandVoice": "[PLACEHOLDER: 3-5 tính từ mô tả brand voice cá nhân của Mai]",
-  "positioningProof": "[PLACEHOLDER: 1 dự án định vị thương hiệu cụ thể + kết quả đo được]"
+  "file": {
+    "label": "Robot Pika — Fanpage",
+    "href": "https://docs.google.com/spreadsheets/d/13Q1H3WvToCSXaUtV0hEJpHY1uyItSbpyIB7l6DGZh1c/edit?gid=1926247286",
+    "note": "File nghiên cứu thương hiệu, sản phẩm, khách hàng và đối thủ (Google Sheets)"
+  }
 }

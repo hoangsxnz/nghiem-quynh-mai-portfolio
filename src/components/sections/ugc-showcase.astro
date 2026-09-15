@@ -1,6 +1,10 @@
 ---
 import SectionHeader from '@components/ui/section-header.astro';
-import CampaignDetail from '@components/sections/ugc/campaign-detail.astro';
+import Sticker from '@components/ui/sticker.astro';
+import Polaroid from '@components/ui/polaroid.astro';
+import FileLink from '@components/ui/file-link.astro';
+import ChannelCard from '@components/sections/social/channel-card.astro';
+import EvidenceCard from '@components/sections/pika/evidence-card.astro';
 import raw from '@data/ugc.json';
 import type { UgcContent } from '@content-types/content';
 
@@ -11,54 +15,104 @@ const ugc = raw as UgcContent;
   <div class="container">
     <SectionHeader {...ugc.meta} />
 
-    <blockquote class="belief" data-reveal>{ugc.belief}</blockquote>
+    <p class="intro" data-reveal>{ugc.intro}</p>
 
-    <CampaignDetail campaign={ugc.campaign} />
+    <ul class="facts" data-reveal-group>
+      {ugc.facts.map((fact, i) => (
+        <li class="fact" style={`--tilt: var(--tilt-${(i % 4) + 1})`} data-reveal>
+          <Sticker label={fact.label} tilt={3} />
+          <p>{fact.value}</p>
+          {fact.file && <FileLink {...fact.file} />}
+        </li>
+      ))}
+    </ul>
 
-    <aside class="guardrails" data-reveal>
-      <h3>Nguyên tắc khi dùng nội dung của khách</h3>
-      <ul>
-        {ugc.guardrails.map((g) => <li>{g}</li>)}
+    <div class="evidence" data-reveal-group>
+      {ugc.evidence.map((e, i) => (
+        <EvidenceCard evidence={e} tilt={(i % 2 === 0 ? 3 : 2) as 2 | 3} />
+      ))}
+    </div>
+
+    <article class="channels" data-reveal-group>
+      <h3 data-reveal>Overview các kênh nổi bật</h3>
+      <ul class="channels__grid">
+        {ugc.channels.map((channel, i) => (
+          <li data-reveal>
+            {channel.image && <Polaroid {...channel.image} width={420} />}
+            <ChannelCard
+              name={channel.name}
+              meta={channel.platform}
+              href={channel.href}
+              tilt={((i % 4) + 1) as 1 | 2 | 3 | 4}
+            />
+          </li>
+        ))}
       </ul>
-    </aside>
+      <p class="meta" data-reveal>{ugc.channelNote}</p>
+    </article>
   </div>
 </section>
 
 <style>
-  .belief {
-    padding-left: 1rem;
-    border-left: 2px solid var(--red);
-    font-family: var(--font-display);
-    font-size: var(--fs-h3);
-    color: var(--red);
-    line-height: 1.25;
+  .intro {
+    max-width: 68ch;
+    font-size: 1.125rem;
   }
 
-  .guardrails {
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    /* Cards size to their own copy instead of stretching to the tallest in the row. */
+    align-items: start;
+    gap: var(--gap);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .fact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .75rem;
+    min-width: 0;
     padding: 1.25rem;
-    border: 2px solid var(--maroon);
+    background: var(--paper-2);
     border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    rotate: var(--tilt);
   }
 
-  .guardrails h3 {
-    margin-bottom: .6rem;
-    font-size: 1.0625rem;
-    font-family: var(--font-body);
-    font-weight: 600;
-    color: var(--maroon);
-    text-transform: none;
+  .fact :global(.sticker) {
+    white-space: normal;
   }
 
-  .guardrails ul {
-    padding-inline-start: 1.1em;
+  .evidence {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
   }
 
-  .guardrails li {
-    max-width: var(--measure);
-    margin-bottom: .3rem;
+  .channels {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
   }
 
-  .guardrails li::marker {
-    color: var(--red);
+  .channels__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+    gap: var(--gap);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .channels__grid > li {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .9rem;
+    min-width: 0;
   }
 </style>

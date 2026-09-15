@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "id": "ads",
+    "index": "04",
+    "title": "Content Ads",
+    "subtitle": "Kịch bản quảng cáo dựng từ một cuộc trò chuyện có thật giữa hai phụ huynh."
+  },
+  "intro": "File kịch bản Ads mẫu gồm hai bản: một bản dài 18 phân cảnh và một bản ngắn 5 phân cảnh, dùng chung một định hướng. Mỗi dòng ghi đủ ba cột — thoại, hình ảnh chi tiết và text hiển thị trên màn hình — để đội quay dựng không phải đoán ý người viết.",
+  "approach": [
+    {
+      "label": "Đối tượng",
+      "note": "Phụ huynh bận rộn 30-42 tuổi, có con 4-10 tuổi, muốn dạy con giao tiếp tiếng Anh tại nhà nhưng không tự tin phát âm và không có thời gian."
+    },
+    {
+      "label": "Nỗi đau khai thác",
+      "note": "Sợ dạy sai con; gửi trung tâm tốn kém nhưng về nhà con vẫn ngại nói; con dán mắt vào màn hình."
+    },
+    {
+      "label": "Hook",
+      "note": "Mở bằng một tình huống đời thường giữa hai người quen — pantry văn phòng ở bản dài, tiệm gội đầu ở bản ngắn — để phụ huynh thấy mình trong đó trước khi thấy sản phẩm."
+    },
+    {
+      "label": "Cách gài sản phẩm",
+      "note": "Sản phẩm xuất hiện qua lời người thứ ba đã dùng, không phải lời quảng cáo. Mỗi lợi ích đi kèm một cảnh quay chứng minh."
+    },
+    {
+      "label": "Xử lý phản đối",
+      "note": "Câu nghi ngờ thường gặp nhất — \"mua về được dăm bữa lại vứt xó\" — được đưa thẳng vào thoại và trả lời ngay trong kịch bản."
+    },
+    {
+      "label": "CTA",
+      "note": "Chốt bằng một lời mời trải nghiệm, kèm chỉ dẫn hình ảnh cho nút bấm và ưu đãi đi kèm."
+    }
+  ],
+  "evidence": [
+    {
+      "src": "pika-ads-script.png",
+      "alt": "Trích kịch bản quảng cáo bản ngắn của Robot Pika",
+      "caption": "Sheet \"Kịch bản ngắn\": năm phân cảnh, mỗi phân cảnh ghi đủ thoại, hướng dẫn hình ảnh và text hiển thị."
+    }
+  ],
+  "file": {
+    "label": "Kịch bản Ads mẫu",
+    "href": "https://docs.google.com/spreadsheets/d/1MYc9jIARbe3e7tRrGFRJMGXeKdPanMvrzEFkyxpm9qw/edit",
+    "note": "Hai kịch bản đầy đủ: bản dài 18 phân cảnh và bản ngắn 5 phân cảnh (Google Sheets)"
+  }
+}

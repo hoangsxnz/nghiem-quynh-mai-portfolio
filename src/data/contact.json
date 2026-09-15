@@ -1,11 +1,9 @@
 {
   "meta": {
     "id": "contact",
-    "index": "09",
-    "title": "Keep In Touch",
-    "subtitle": "Let's make magic happen!"
+    "title": "Liên hệ"
   },
-  "intro": "Nếu Quý doanh nghiệp cần một mảnh ghép đa nhiệm - kết hợp hài hòa giữa tư duy chiến lược và năng lực thực thi; biết bay bổng với những câu chuyện thương hiệu nhưng vẫn bám sát quy chuẩn vận hành - tôi đã sẵn sàng. Rất mong được kết nối để cùng thảo luận về những giải pháp bứt phá, được may đo riêng cho mục tiêu của đội ngũ.",
+  "intro": "Nếu team đang cần một mảnh ghép vừa biết kể chuyện thương hiệu, vừa biết tối ưu hiệu quả vận hành để cùng tạo nên những giá trị mới, mình rất sẵn lòng. Hãy cùng kết nối để chúng ta có thể trao đổi về những giải pháp nội dung thực tế, được tối ưu riêng cho những dự án sắp tới!",
   "cards": [
     {
       "kind": "email",
@@ -29,7 +27,7 @@
       "kind": "linkedin",
       "label": "LinkedIn",
       "value": "Quỳnh Mai Nghiêm",
-      "href": "[PLACEHOLDER: LinkedIn URL]"
+      "href": "https://www.linkedin.com/in/quynhmai37/"
     }
   ],
   "cta": {

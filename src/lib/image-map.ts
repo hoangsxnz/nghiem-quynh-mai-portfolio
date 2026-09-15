@@ -1,9 +1,10 @@
 /**
  * Single resolver from a JSON filename to an Astro `ImageMetadata`.
- * JSON stores only `"work-watch-photo.png"`; markup never imports an asset directly.
+ * JSON stores only `"pika-feed-01.jpg"`; markup never imports an asset directly.
+ * Subfolders are flattened, so filenames must stay unique across the tree.
  */
 const files = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/images/*.png',
+  '/src/assets/images/**/*.{png,jpg,jpeg}',
   { eager: true },
 );
 

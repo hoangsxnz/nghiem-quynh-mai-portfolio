@@ -1,0 +1,48 @@
+---
+import Sticker from '@components/ui/sticker.astro';
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+}
+
+const { eyebrow, title, subtitle } = Astro.props;
+---
+
+<div class="group">
+  <header class="group__header container" data-reveal-group>
+    <Sticker label={eyebrow} tilt={4} />
+    <h2 class="group__title" data-split>{title}</h2>
+    <p class="group__subtitle" data-reveal>{subtitle}</p>
+  </header>
+
+  <slot />
+</div>
+
+<style>
+  .group__header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-block: var(--section-y) 0;
+  }
+
+  .group__title {
+    font-size: var(--fs-h1);
+    max-width: 18ch;
+  }
+
+  .group__subtitle {
+    max-width: 56ch;
+    font-size: 1.125rem;
+    color: var(--maroon);
+  }
+
+  /* The group heading already announces the project, so the first section inside
+     starts from its own header rather than repeating the full section rhythm. */
+  .group > :global(section:first-of-type) {
+    padding-top: var(--gap);
+  }
+</style>

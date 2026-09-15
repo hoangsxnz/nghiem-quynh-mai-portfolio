@@ -47,6 +47,23 @@ export function initReveals(): void {
     });
   });
 
+  // The closing line grows as the page bottoms out. It carries no `data-reveal`,
+  // so it stays readable when this script never runs.
+  const closing = document.querySelector<HTMLElement>('[data-closing]');
+  if (closing) {
+    gsap.fromTo(
+      closing,
+      { scale: 0.9, opacity: 0.6 },
+      {
+        scale: 1,
+        opacity: 1,
+        ease: 'none',
+        // Ends well inside the viewport so the line always finishes at full opacity.
+        scrollTrigger: { trigger: closing, start: 'top 95%', end: 'bottom 75%', scrub: true },
+      },
+    );
+  }
+
   // Anything tagged for reveal that no group owns.
   gsap.utils
     .toArray<HTMLElement>('[data-reveal]')

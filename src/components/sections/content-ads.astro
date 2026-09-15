@@ -1,0 +1,78 @@
+---
+import SectionHeader from '@components/ui/section-header.astro';
+import Sticker from '@components/ui/sticker.astro';
+import FileLink from '@components/ui/file-link.astro';
+import EvidenceCard from '@components/sections/pika/evidence-card.astro';
+import raw from '@data/ads.json';
+import type { AdsContent } from '@content-types/content';
+
+const ads = raw as AdsContent;
+---
+
+<section id={ads.meta.id} class="section" aria-labelledby="ads-title" data-reveal-group>
+  <div class="container">
+    <SectionHeader {...ads.meta} />
+
+    <p class="intro" data-reveal>{ads.intro}</p>
+
+    <div class="split">
+      <ul class="approach" data-reveal-group>
+        {ads.approach.map((a, i) => (
+          <li data-reveal>
+            <Sticker label={a.label} tilt={((i % 4) + 1) as 1 | 2 | 3 | 4} />
+            <p>{a.note}</p>
+          </li>
+        ))}
+      </ul>
+
+      <div class="evidence" data-reveal-group>
+        {ads.evidence.map((e) => <EvidenceCard evidence={e} tilt={2} />)}
+      </div>
+    </div>
+
+    <div data-reveal>
+      <FileLink {...ads.file} />
+    </div>
+  </div>
+</section>
+
+<style>
+  .intro {
+    max-width: 68ch;
+    font-size: 1.125rem;
+  }
+
+  .split {
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 6fr);
+    align-items: start;
+    gap: var(--gap);
+  }
+
+  .approach {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .approach li {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .4rem;
+    min-width: 0;
+  }
+
+  .approach :global(.sticker) {
+    white-space: normal;
+  }
+
+  @media (max-width: 899px) {
+    .split {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

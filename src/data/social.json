@@ -3,105 +3,96 @@
     "id": "social",
     "index": "05",
     "title": "Social Media & Community",
-    "subtitle": "Nội dung để kết nối, không chỉ để xem."
+    "subtitle": "Chiến lược trên giấy chỉ có giá trị khi nó ra được bài, ra được video và ra được cộng đồng."
   },
-  "formats": [
+  "channel": {
+    "name": "Fanpage Robot Pika",
+    "handle": "Robot Pika — Người bạn luyện nói tiếng Anh của con",
+    "href": "https://www.facebook.com/robotpika",
+    "note": "Kênh chính mình phụ trách nội dung: ba bài mỗi ngày theo lịch cố định, xen kẽ bài dài, ảnh đơn, album và reels."
+  },
+  "blocks": [
     {
-      "kind": "Post",
-      "vi": "Bài viết",
-      "body": "Tuyến bài theo trụ nội dung, mỗi bài một góc tiếp cận riêng cho từng nhóm khán giả.",
-      "images": ["work-content-pyramid-post.png", "work-womens-day-poster.png"]
+      "title": "Post mẫu",
+      "body": "Bài viết đi theo trụ cột Product Education: lấy một chi tiết nhỏ của sản phẩm — chiều cao 25cm — rồi giải thích vì sao con số đó được chọn. Thông tin sản phẩm được kể bằng góc nhìn của phụ huynh chứ không bằng bảng thông số.",
+      "images": [
+        {
+          "src": "pika-post-sample.png",
+          "alt": "Bài đăng trên fanpage Robot Pika giải thích các số đo của robot",
+          "caption": "Bài đăng ngày 20/4 trên fanpage Robot Pika",
+          "tilt": 2,
+          "width": 460
+        }
+      ],
+      "links": [
+        {
+          "label": "Đọc bài mẫu đầy đủ",
+          "href": "https://docs.google.com/document/d/16CUJMcOlG89agsPV0IYFvzKA6z8r5vcuZNsal32Xuuo/edit"
+        }
+      ]
     },
     {
-      "kind": "Photo",
-      "vi": "Hình ảnh",
-      "body": "Tư duy hình ảnh cho social: bố cục, ánh sáng và màu sắc phục vụ thông điệp bán hàng.",
-      "images": ["work-croissant-photo.png", "work-watch-photo.png"]
+      "title": "Video",
+      "body": "Video ngắn lấy chính câu hỏi của phụ huynh trong phần bình luận làm hook, rồi để robot trả lời trong khung hình. Cách này cho video một lý do tồn tại rõ ràng thay vì quay cho đủ lịch.",
+      "images": [
+        {
+          "src": "pika-video-cover.png",
+          "alt": "Ảnh bìa video ngắn lấy bình luận của phụ huynh làm mở đầu",
+          "caption": "Ảnh bìa video — hook lấy từ bình luận thật của phụ huynh",
+          "tilt": 1,
+          "width": 280
+        }
+      ],
+      "links": [
+        {
+          "label": "Xem video 1 trên TikTok",
+          "href": "https://www.tiktok.com/@pika.noitienganhcungcon/video/7631920982978039060"
+        },
+        {
+          "label": "Xem video 2 trên TikTok",
+          "href": "https://www.tiktok.com/@pika.noitienganhcungcon/video/7637851947772448020"
+        }
+      ]
     },
     {
-      "kind": "Video",
-      "vi": "Video ngắn",
-      "body": "30+ kịch bản video ngắn và dài, trung bình 3-4 video/tuần, tối ưu hook và nhịp cắt.",
-      "images": [],
-      "fallback": "30+ kịch bản"
+      "title": "Feed",
+      "body": "Nhìn cả feed mới thấy chiến lược có được thực thi hay không: các trụ cột xen kẽ đều, bảng xếp hạng cộng đồng và series \"Ba mẹ hỏi — Pika trả lời\" quay lại theo nhịp, tông màu giữ nguyên qua nhiều tuần.",
+      "images": [
+        {
+          "src": "pika-feed-01.jpg",
+          "alt": "Lưới feed fanpage Robot Pika",
+          "caption": "Feed fanpage — các trụ cột nội dung xen kẽ theo nhịp đã định",
+          "tilt": 3,
+          "width": 420
+        },
+        {
+          "src": "pika-feed-02.jpg",
+          "alt": "Lưới feed fanpage Robot Pika, phần tiếp theo",
+          "caption": "Feed fanpage — phần tiếp theo",
+          "tilt": 2,
+          "width": 420
+        }
+      ]
     }
   ],
-  "community": {
-    "title": "Gắn kết đội ngũ qua trải nghiệm nội bộ",
-    "challenge": "Giữ nhịp gắn kết cho 30-50+ nhân sự qua các hoạt động nội bộ tại Grand Nutrition và PJICO.",
-    "solutions": [
-      {
-        "title": "Bản tin nội bộ",
-        "body": "Tuyến bài truyền thông nội bộ đều đặn, giọng văn gần gũi."
-      },
-      {
-        "title": "Sự kiện & workshop",
-        "body": "Tổ chức 2+ sự kiện nội bộ, từ kịch bản đến điều phối."
-      },
-      {
-        "title": "Team building",
-        "body": "Thiết kế hoạt động để nhân sự tham gia chứ không chỉ có mặt."
-      }
-    ],
-    "metrics": [
-      { "value": "95%", "label": "Tỷ lệ tham gia", "note": "sự kiện nội bộ" },
-      { "value": "3+", "label": "Hoạt động", "note": "team building, workshop, bản tin" },
-      { "value": "50+", "label": "Phản hồi tích cực" }
-    ],
-    "gallery": []
+  "stats": {
+    "src": "pika-channel-stats.png",
+    "alt": "Bảng hiệu suất fanpage Robot Pika trong tháng 5",
+    "caption": "Tổng quan hiệu suất fanpage kỳ 01-31/05: 4.481.451 lượt xem, 1.169.990 người xem, 27.353 lượt xem tối thiểu 3 giây và 3.636 lượt xem tối thiểu 1 phút."
   },
-  "works": {
-    "title": "Selected Works",
-    "items": [
-      {
-        "src": "work-content-ideas-sheet.png",
-        "alt": "Bảng ý tưởng nội dung theo tuần",
-        "caption": "Content ideas",
-        "tilt": 1
-      },
-      {
-        "src": "work-content-pyramid-post.png",
-        "alt": "Bài đăng mô hình kim tự tháp nội dung",
-        "caption": "Content pyramid",
-        "tilt": 2
-      },
-      {
-        "src": "work-cv-article.png",
-        "alt": "Bài viết về tối ưu quy trình đọc CV",
-        "caption": "Long-form",
-        "tilt": 3
-      },
-      {
-        "src": "work-smartrecruit-article.png",
-        "alt": "Bài viết SmartRecruit AI cho khách hàng B2B",
-        "caption": "B2B SEO",
-        "tilt": 4
-      },
-      {
-        "src": "work-womens-day-poster.png",
-        "alt": "Poster chúc mừng ngày Phụ nữ",
-        "caption": "Poster",
-        "tilt": 2
-      },
-      {
-        "src": "work-business-brochure.png",
-        "alt": "Brochure giới thiệu doanh nghiệp",
-        "caption": "Brochure",
-        "tilt": 1
-      },
-      {
-        "src": "work-croissant-photo.png",
-        "alt": "Ảnh bánh croissant chụp cho nội dung F&B",
-        "caption": "F&B",
-        "tilt": 3
-      },
-      {
-        "src": "work-watch-photo.png",
-        "alt": "Ảnh đồng hồ chụp cho nội dung sản phẩm",
-        "caption": "Product",
-        "tilt": 4
-      }
-    ],
-    "note": "[PLACEHOLDER: ảnh chất lượng cao cho 8 sản phẩm này — bản hiện tại chỉ 225-400px]"
+  "statsNote": "Ảnh chụp ghi -36,4% so với 32 ngày trước đó, nên đây là ảnh tổng quan hiệu suất một tháng chứ không phải biểu đồ tăng trưởng. Giữ nguyên con số và giữ nguyên dấu trừ.",
+  "community": {
+    "title": "Community",
+    "body": "Cộng đồng phụ huynh được vận hành bằng một quy trình viết sẵn chứ không theo cảm tính: ba luồng mời khách vào nhóm sau khi mua hoặc sau khi được tư vấn, bộ câu hỏi duyệt thành viên, nguyên tắc chỉ duyệt bài khi đã có câu trả lời, khung giờ trực bình luận, và hai cơ chế khuyến khích phụ huynh tự làm nội dung — một cơ chế đổi thời gian thuê bao, một cơ chế bảng xếp hạng số giờ con luyện nói.",
+    "evidence": {
+      "src": "pika-community-mechanism.png",
+      "alt": "Trích bảng cơ chế vận hành cộng đồng Robot Pika",
+      "caption": "Sheet \"Community Mechanism\": từng bước vận hành nhóm phụ huynh, từ mời vào nhóm tới cơ chế khuyến khích nội dung UGC."
+    },
+    "file": {
+      "label": "Community Planning",
+      "href": "https://docs.google.com/spreadsheets/d/1OWPts1wn7VudvWT9gh_uxuL7lCUByqQmP6Kh9one8II/edit",
+      "note": "Cơ chế vận hành cộng đồng phụ huynh, từ mời vào nhóm tới nội dung UGC (Google Sheets)"
+    }
   }
 }

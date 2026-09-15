@@ -14,32 +14,28 @@
     { "name": "CapCut", "use": "Dựng và tinh chỉnh nhịp video ngắn." }
   ],
   "workflow": [
-    {
-      "stage": "Research",
-      "human": "Đặt câu hỏi và chọn nguồn",
-      "ai": "Tổng hợp, phân cụm dữ liệu"
-    },
-    {
-      "stage": "Ideation",
-      "human": "Chốt góc tiếp cận",
-      "ai": "Sinh 10+ biến thể để sàng lọc"
-    },
-    {
-      "stage": "Draft",
-      "human": "Viết phần cảm xúc và thông điệp bán hàng",
-      "ai": "Dựng khung, gợi ý hook"
-    },
-    {
-      "stage": "Polish",
-      "human": "Kiểm chứng số liệu, chỉnh giọng văn",
-      "ai": "Soát lỗi, rút gọn"
-    }
+    { "stage": "Research", "human": "Đặt câu hỏi và chọn nguồn", "ai": "Tổng hợp, phân cụm dữ liệu" },
+    { "stage": "Ideation", "human": "Chốt góc tiếp cận", "ai": "Sinh 10+ biến thể để sàng lọc" },
+    { "stage": "Draft", "human": "Viết phần cảm xúc và thông điệp bán hàng", "ai": "Dựng khung, gợi ý hook" },
+    { "stage": "Polish", "human": "Kiểm chứng số liệu, chỉnh giọng văn", "ai": "Soát lỗi, rút gọn" }
   ],
-  "agent": {
-    "title": "Agent & tự động hóa",
-    "body": "Gom các bước lặp lại — thu thập trend, tóm tắt bình luận, dựng bản nháp theo template — vào một quy trình chạy sẵn để mỗi tuần bắt đầu từ bản nháp thay vì trang trắng.",
-    "status": "[PLACEHOLDER: mô tả agent/automation cụ thể đã tự xây dựng, kèm công cụ và kết quả]"
+  "agents": {
+    "title": "Bộ agent tự xây",
+    "body": "Mỗi agent là một file hướng dẫn riêng cho một đầu việc lặp lại, để mỗi lần bắt đầu không phải mô tả lại bối cảnh từ đầu. Dưới đây chỉ liệt kê tên và phạm vi của từng agent.",
+    "items": [
+      { "name": "01-content-calendar", "note": "Dựng lịch đăng theo trụ cột và tầng phễu." },
+      { "name": "02-campaign-brief", "note": "Viết brief chiến dịch từ mục tiêu và đối tượng." },
+      { "name": "03-performance-audit", "note": "Đọc số cuối kỳ và chỉ ra chỗ cần đổi." },
+      { "name": "04-content-script", "note": "Dựng kịch bản video theo cấu trúc hook - body - CTA." },
+      { "name": "05-ads-copy", "note": "Viết biến thể copy quảng cáo theo từng nỗi đau." },
+      { "name": "06-ugc-brief", "note": "Soạn định hướng nội dung cho phụ huynh tự quay." },
+      { "name": "07-marketing-report", "note": "Gom số liệu thành báo cáo theo khung cố định." },
+      { "name": "08-competitor-research", "note": "Lập bản đồ đối thủ và điểm khác biệt." },
+      { "name": "09-customer-insight", "note": "Chuyển phỏng vấn và bình luận thành insight." },
+      { "name": "10-kpi-calculator", "note": "Quy đổi mục tiêu thành chỉ số theo tuần." },
+      { "name": "11-channel-setup", "note": "Dựng bộ khung khi mở một kênh mới." },
+      { "name": "12-landing-page-brief", "note": "Soạn brief nội dung cho landing page." }
+    ]
   },
-  "boundary": "Mọi số liệu, tên thương hiệu và cam kết sản phẩm đều do người kiểm chứng trước khi xuất bản. AI không ký tên dưới bài viết.",
-  "speedClaim": "[PLACEHOLDER: mức rút ngắn thời gian sản xuất thực tế, ví dụ số giờ/tuần tiết kiệm]"
+  "boundary": "Mọi số liệu, tên thương hiệu và cam kết sản phẩm đều do người kiểm chứng trước khi xuất bản. AI không ký tên dưới bài viết."
 }
