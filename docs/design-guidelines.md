@@ -24,6 +24,12 @@ Scrapbook / paper-cut collage. Off-white paper with faint grain, bold red hand-c
   --radius: 4px;           /* almost square; paper, not pills */
   --tilt-1: -4deg; --tilt-2: 3deg; --tilt-3: -2deg; --tilt-4: 6deg;
 }
+
+/* Below 600px the tilts halve: a full-width card otherwise carries its corner
+   into the 16px side gutter. */
+@media (max-width: 599px) {
+  :root { --tilt-1: -2deg; --tilt-2: 1.5deg; --tilt-3: -1deg; --tilt-4: 3deg; }
+}
 ```
 
 Contrast (measured, WCAG 2.x): red `#C8102E` on paper `#F5F3EE` = **5.3:1**, on `--paper-2` `#EDE9E0` = **4.86:1**; maroon `#8B1A1A` on paper = **8.4:1**; muted `#6B645C` on paper = **5.26:1**, on `--paper-2` = **4.81:1**, on white = **5.83:1**. Muted was darkened from `#7A7269` in phase 7: that value measured 3.91:1 on `--paper-2` and 4.27:1 on `--paper`, failing AA for the 13px meta text it carries. All pass AA for normal text, so the red/maroon split is a **design** rule, not an accessibility constraint: red carries display headings and labels, maroon carries long-form body so the page keeps one loud voice and one quiet one. Red on `--paper-2` is the thinnest margin in the palette — re-measure if `--paper-2` is ever darkened.
@@ -48,10 +54,14 @@ Vietnamese: both fonts ship the `vietnamese` subset and are self-hosted via Font
 - **Paper background**: `body::before` fixed overlay, SVG `feTurbulence` noise (baseFrequency .8, numOctaves 3) as data URI, `opacity: .06`, `mix-blend-mode: multiply`, `pointer-events: none`.
 - **Polaroid**: white frame, `padding: 12px 12px 40px`, `box-shadow: var(--shadow)`, `transform: rotate(var(--tilt))`; optional caption in bottom band (Be Vietnam Pro 13px). Hover: `rotate(0) scale(1.03)`, `--shadow-lg`, 300ms ease-out.
 - **Sticker label**: red bg, paper-colour text, Protest Guerrilla 13-15px, `padding: 4px 10px`, `rotate(-3deg)`, small shadow. Used for section index ("01 / ABOUT"), tags, tool names.
-- **Stamp / badge**: oval outline (`border: 2px solid var(--red); border-radius: 50%`) like the "2030" stamp on the template cover. Use for year, "OPEN TO WORK", counters.
+- **Stamp / badge**: oval outline (`border: 2px solid var(--red); border-radius: 50%`) like the "2030" stamp on the template cover. Use for a year or a step number.
+- **Cut-out portrait** (cover only): transparent PNG, no frame, `filter: drop-shadow(0 18px 24px rgba(26,26,26,.28))` so the shadow follows the silhouette.
+- **File link**: outlined red button with a document glyph, display-font label and a muted one-line note saying what opens. Every link to a source Google file uses it.
+- **Evidence card**: white frame with a hairline border and a caption underneath, for a screenshot of a real artefact. The caption always names the file and sheet, so a reader can tell evidence from illustration.
+- **Channel card**: outlined maroon card with platform, channel name and "Mở kênh →". Also the fallback when a platform blocks an automated screenshot.
+- **Project group**: full-width heading block that wraps the five Pika sections under one title, so the nav still reaches each section by id.
 - **Torn divider**: SVG jagged path between sections that change background (`--paper` ↔ `--paper-2`). One reusable component, flip vertically as needed.
-- **Metric tile**: big number in Protest Guerrilla (red), label in body (maroon). Used for 95% / 3+ / 50+ / +200% / +35%.
-- **Timeline**: vertical maroon line, red dot per entry, year in display font.
+- **Experience list**: vertical maroon line, red dot per entry, role and company in 17px semibold maroon.
 - **CTA button**: red fill, paper text, display font, slight `rotate(-1deg)`, hover wiggle ±2°.
 - **Nav**: top bar, left "PORTFOLIO" sticker, right anchor links in Be Vietnam Pro 600 13px uppercase; hides on scroll down, shows on scroll up.
 
@@ -73,13 +83,15 @@ Vietnamese: both fonts ship the `vietnamese` subset and are self-hosted via Font
 | Marquee | skills strip | CSS `@keyframes` translateX, 40s linear, pause on hover |
 | Wiggle | stickers, CTA hover | rotate -2° ↔ 2°, 400ms |
 | Nav hide/show | nav | ScrollTrigger onUpdate direction |
+| Closing line | contact | `scale .9 → 1`, `opacity .6 → 1`, scrub between `top 95%` and `bottom 75%` |
 
 `prefers-reduced-motion: reduce` → no Lenis, no parallax, no reveals; content fully visible.
 
 ## Do / Don't
 
 - Do keep red for display only; body stays maroon/ink.
-- Do keep every photo inside a polaroid or full-bleed with paper edge; no bare rounded images.
+- Do keep every photo inside a polaroid or an evidence frame; the one bare image is the cover cut-out, which earns it with a silhouette shadow.
+- Do caption every screenshot with the file it came from; an uncaptioned screenshot reads as decoration.
 - Don't use gradients, glassmorphism, neon, or pill buttons.
 - Don't centre everything; the collage lives on asymmetry.
 - Don't show more than 2 tilted elements per viewport on mobile.
