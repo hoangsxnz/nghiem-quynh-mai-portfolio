@@ -12,7 +12,12 @@ Trang được deploy tĩnh lên **Cloudflare Pages**.
 
 ## Deploy
 
-Cần `wrangler` đã đăng nhập (`wrangler login`).
+Push lên `main` là đủ. `.github/workflows/deploy.yml` cài dependency, chạy `astro check`,
+build, rồi đẩy `dist/` lên Cloudflare. Workflow đọc hai repository secret trên GitHub:
+một API token Cloudflare có quyền `Cloudflare Pages: Edit`, và account ID lấy từ
+`wrangler whoami`.
+
+Deploy thủ công khi cần, với `wrangler` đã đăng nhập (`wrangler login`):
 
 ```bash
 pnpm build
@@ -34,7 +39,7 @@ wrangler pages deployment tail --project-name=nghiem-quynh-mai-portfolio
 Để rollback, vào Cloudflare Dashboard → Workers & Pages → `nghiem-quynh-mai-portfolio`
 → Deployments → chọn bản cũ → **Rollback to this deployment**.
 
-Bản deploy gần nhất: `d3a757c3` (2026-09-16), gồm 44 element cut-out ở lớp nền.
+Bản deploy gần nhất: `485f686c` (2026-09-16), bản đầu tiên đi qua GitHub Actions.
 
 Project từng nằm trên một tài khoản Cloudflare khác và đã được chuyển sang tài khoản
 hiện tại. Vì subdomain `.pages.dev` là duy nhất trên toàn Cloudflare, muốn giữ nguyên
