@@ -47,6 +47,18 @@ toàn bộ headline đã tách chữ.
 
 Commit thẳng lên `main`, theo conventional commits, không nhắc tới AI trong message.
 
+**Tài khoản GitHub.** Repo thuộc `hoangsxnz`, nhưng tài khoản gh mặc định của máy là
+`sonth1-hblab` (chỉ có quyền READ trên repo này nên push sẽ bị từ chối). Khi cần push:
+
+```bash
+gh auth switch --user hoangsxnz    # trước khi push
+git push
+gh auth switch --user sonth1-hblab # LUÔN trả lại ngay sau khi push xong
+```
+
+Đổi sang `hoangsxnz` chỉ để push, không để nguyên như vậy. Trả về `sonth1-hblab` kể cả khi
+push thất bại.
+
 **Push lên `main` là deploy thẳng lên production.** `.github/workflows/deploy.yml` chạy check,
 build rồi đẩy lên Cloudflare Pages. Không có bước review trung gian.
 
